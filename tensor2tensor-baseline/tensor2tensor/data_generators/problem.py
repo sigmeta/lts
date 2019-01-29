@@ -195,7 +195,8 @@ class Problem(object):
   def example_reading_spec(self):
     data_fields = {
         "inputs": tf.VarLenFeature(tf.int64),
-        "targets": tf.VarLenFeature(tf.int64)
+        "targets": tf.VarLenFeature(tf.int64),
+        "teachers": tf.VarLenFeature(tf.float64)
     }
     data_items_to_decoders = None
     return (data_fields, data_items_to_decoders)

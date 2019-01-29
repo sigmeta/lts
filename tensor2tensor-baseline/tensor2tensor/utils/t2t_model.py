@@ -112,6 +112,7 @@ class T2TModel(object):
     self._problem_hparams = problem_hparams
     self._problem_idx = problem_idx
     self._create_modalities(problem_hparams, hparams)
+    self.kd_weight=1  # knowledge distillation weight: [0,1]
 
   def _create_modalities(self, problem_hparams, hparams):
     """Construct modalities in problem_hparams."""
@@ -588,8 +589,11 @@ class T2TModel(object):
             body_outputs, sharded_features["targets"], dp)
         training_loss = target_modality.loss_sharded(
             sharded_logits, sharded_features["targets"], dp)
+        kd_loss = target_modality.loss_sharded(
+            sharded_logits, sharded_features["teachers"], dp)
 
         training_loss *= self._problem_hparams.loss_multiplier
+        kd_loss *= self._problem_hparams.loss_multiplier
       else:
         # Take body outputs for the last position only, and targets too.
         last_position_body_outputs = [
@@ -604,7 +608,8 @@ class T2TModel(object):
                                                      last_position_targets,
                                                      self._data_parallelism)
         training_loss = None
-    losses["training"] = training_loss
+        kd_loss=None
+    losses["training"] = training_loss * (1 - self.kd_weight) + kd_loss * self.kd_weight
 
     # Scheduled sampling.
     do_scheduled_sampling = (  # Only do it if training and set for it.
@@ -645,8 +650,11 @@ class T2TModel(object):
                 body_outputs, sharded_features["targets"], dp)
             training_loss = target_modality.loss_sharded(
                 sharded_logits, sharded_features["targets"], dp)
+            kd_loss = target_modality.loss_sharded(
+                sharded_logits, sharded_features["teachers"], dp)
             training_loss *= self._problem_hparams.loss_multiplier
-          losses["training"] = training_loss
+            kd_loss *= self._problem_hparams.loss_multiplier
+          losses["training"] = training_loss * (1 - self.kd_weight) + kd_loss * self.kd_weight
         return new_sharded_logits, losses
       # Run the above conditionally.
       prob = self._hparams.scheduled_sampling_prob

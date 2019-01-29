@@ -137,6 +137,7 @@ def build_input_fn(mode,
     feature_map["targets"].set_shape([None, None, None, None])
     feature_map["problem_choice"].set_shape([])
     feature_map["target_space_id"].set_shape([])
+    feature_map["teachers"].set_shape([None, None, None, None])
 
     if mode == tf.estimator.ModeKeys.PREDICT:
       feature_map["infer_targets"] = feature_map["targets"]
@@ -144,6 +145,7 @@ def build_input_fn(mode,
       if problem_instance.has_inputs:
         feature_map["inputs"]._shape = tf.TensorShape([None, None, None, None])  # pylint: disable=protected-access
       feature_map["targets"]._shape = tf.TensorShape([None, None, None, None])  # pylint: disable=protected-access
+      feature_map["teachers"]._shape = tf.TensorShape([None, None, None, None])
 
       # This is because of a bug in the Estimator that short-circuits prediction
       # if it doesn't see a QueueRunner.  DummyQueueRunner implements the

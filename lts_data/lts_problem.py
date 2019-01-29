@@ -17,6 +17,8 @@ from tensor2tensor.data_generators import text_encoder
 from tensor2tensor.utils import registry
 from tensor2tensor.models import transformer
 
+import json
+
 
 # Chinese to English translation datasets.
 LOCATION_OF_DATA = '/var/storage/shared/sdrgvc/xuta/transformer/lts/lts_data/'
@@ -59,10 +61,11 @@ def bi_vocabs_token2id_generator(data_path, source_token_vocab, target_token_voc
 
             data = data_file.readline()
             while data:
-                source, target = data.strip().split('\t')
+                source, target, teacher = data.strip().split('\t')
                 source_ints = source_token_vocab.encode(source.strip()) + eos_list
                 target_ints = target_token_vocab.encode(target.strip()) + eos_list
-                yield {"inputs": source_ints, "targets": target_ints}
+                teacher_ints = json.loads(teacher)
+                yield {"inputs": source_ints, "targets": target_ints, "teacher": teacher_ints}
                 data = data_file.readline()
 
 
