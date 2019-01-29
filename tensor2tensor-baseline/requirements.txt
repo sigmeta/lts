@@ -1,0 +1,10 @@
+bz2file
+future
+numpy
+requests
+sympy
+six
+tensorflow-gpu==1.4.0
+pytest
+h5py
+mock
