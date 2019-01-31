@@ -1,4 +1,4 @@
-HOME=/var/storage/shared/sdrgvc/xuta/transformer/lts
+HOME=/var/storage/shared/sdrgvc/xuta/t-hasu/lts
 
 export PYTHONPATH=${HOME}/tensor2tensor-baseline:${PYTHONPATH}
 binFile=${HOME}/tensor2tensor-baseline/tensor2tensor/bin

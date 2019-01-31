@@ -196,7 +196,7 @@ class Problem(object):
     data_fields = {
         "inputs": tf.VarLenFeature(tf.int64),
         "targets": tf.VarLenFeature(tf.int64),
-        "teachers": tf.VarLenFeature(tf.float64)
+        "teachers": tf.VarLenFeature(tf.float32)
     }
     data_items_to_decoders = None
     return (data_fields, data_items_to_decoders)

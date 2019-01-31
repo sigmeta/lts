@@ -1,5 +1,5 @@
 
-HOME=/var/storage/shared/sdrgvc/xuta/transformer/lts
+HOME=/var/storage/shared/sdrgvc/xuta/t-hasu/lts
 
 export PYTHONPATH=${HOME}/tensor2tensor-baseline:${PYTHONPATH}
 binFile=${HOME}/tensor2tensor-baseline/tensor2tensor/bin
@@ -11,7 +11,7 @@ HPARAMS_SET=transformer_small
 
 setting=setting1_small
 DATA_DIR=${HOME}/lts_data
-TRAIN_DIR=/hdfs/sdrgvc/xuta/transformer_data/lts/${setting}
+TRAIN_DIR=/hdfs/sdrgvc/xuta/t-hasu/lts/${setting}
 mkdir -p  $TRAIN_DIR
 
 nohup ${binFile}/t2t-trainer \

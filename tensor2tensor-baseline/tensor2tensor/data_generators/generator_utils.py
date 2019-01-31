@@ -45,7 +45,7 @@ def to_example(dictionary):
   """Helper: build tf.Example from (string -> int/float/str list) dictionary."""
   features = {}
   for (k, v) in six.iteritems(dictionary):
-    if not v:
+    if v is None:
       raise ValueError("Empty generated field: %s", str((k, v)))
     if isinstance(v[0], six.integer_types):
       features[k] = tf.train.Feature(int64_list=tf.train.Int64List(value=v))
@@ -57,9 +57,13 @@ def to_example(dictionary):
       features[k] = tf.train.Feature(bytes_list=tf.train.BytesList(value=v))
     elif isinstance(v[0], bytes):
       features[k] = tf.train.Feature(bytes_list=tf.train.BytesList(value=v))
+    elif isinstance(v[0],list):
+      vv=[tf.train.Feature(float_list=tf.train.FloatList(value=vone)) for vone in v]
+      features[k] = tf.train.FeatureList(feature=vv)
     else:
       raise ValueError("Value for %s is not a recognized type; v: %s type: %s" %
                        (k, str(v[0]), str(type(v[0]))))
+    #print(k,features[k],type(features[k]))
   return tf.train.Example(features=tf.train.Features(feature=features))
 
 
