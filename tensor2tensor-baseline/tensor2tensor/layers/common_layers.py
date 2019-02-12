@@ -1552,6 +1552,7 @@ def smoothing_cross_entropy_kd(logits,
   Returns:
 
   """
+  print(logits,labels)
   with tf.name_scope("smoothing_cross_entropy", [logits, labels]):
     # Low confidence is given to all non-true labels, uniformly.
     low_confidence = (1.0 - confidence) / tf.to_float(vocab_size - 1)
