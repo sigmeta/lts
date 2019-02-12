@@ -1381,8 +1381,9 @@ def pad_with_zeros(logits, labels):
   """Pad labels on the length dimension to match logits length."""
   with tf.name_scope("pad_with_zeros", [logits, labels]):
     logits, labels = pad_to_same_length(logits, labels)
-    if len(labels.shape.as_list()) == 3:  # 2-d labels.
-      logits, labels = pad_to_same_length(logits, labels, axis=2)
+    # KD label will be a tensor
+    #if len(labels.shape.as_list()) == 3:  # 2-d labels.
+    #  logits, labels = pad_to_same_length(logits, labels, axis=2)
     return logits, labels
 
 
@@ -1475,7 +1476,7 @@ def padded_cross_entropy(logits,
   vocab_size = tf.shape(logits)[-1]
   with tf.name_scope("padded_cross_entropy", [logits, labels]):
     pad_logits, pad_labels = pad_with_zeros(logits, labels)
-    xent = smoothing_cross_entropy(pad_logits, pad_labels, vocab_size,
+    xent = smoothing_cross_entropy_kd(pad_logits, pad_labels, vocab_size,
                                    confidence)
     weights = weights_fn(pad_labels)
     if not reduce_sum:
@@ -1527,6 +1528,41 @@ def smoothing_cross_entropy(logits,
           depth=vocab_size,
           on_value=confidence,
           off_value=low_confidence)
+    xentropy = tf.nn.softmax_cross_entropy_with_logits(
+        logits=logits, labels=soft_targets)
+    return xentropy - normalizing
+
+
+def smoothing_cross_entropy_kd(logits,
+                            labels,
+                            vocab_size,
+                            confidence,
+                            gaussian=False):
+  """Cross entropy with label smoothing to limit over-confidence with knowledge distillation.
+
+  Args:
+    logits: Tensor of size [batch_size, ?, ?, ?, vocab_size]
+    labels: Tensor of size [batch_size, ?, ?, ?, vocab_size]
+    vocab_size: Tensor representing the size of the vocabulary.
+    confidence: Used to determine on and off values for label smoothing.
+      If `gaussian` is true, `confidence` is the variance to the gaussian
+      distribution.
+    gaussian: Uses a gaussian distribution for label smoothing
+
+  Returns:
+
+  """
+  with tf.name_scope("smoothing_cross_entropy", [logits, labels]):
+    # Low confidence is given to all non-true labels, uniformly.
+    low_confidence = (1.0 - confidence) / tf.to_float(vocab_size - 1)
+    # Normalizing constant is the best cross-entropy value with soft targets.
+    # We subtract it just for readability, makes no difference on learning.
+    normalizing = -(
+        confidence * tf.log(confidence) + tf.to_float(vocab_size - 1) *
+        low_confidence * tf.log(low_confidence + 1e-20))
+
+
+    soft_targets = labels
     xentropy = tf.nn.softmax_cross_entropy_with_logits(
         logits=logits, labels=soft_targets)
     return xentropy - normalizing
