@@ -522,7 +522,7 @@ class T2TModel(object):
     """
     start_time = time.time()
     dp = self._data_parallelism
-
+    print("#features",features)
     sharded_features = self._shard_features(features)
 
     # Construct the model bottom for inputs.
@@ -587,6 +587,7 @@ class T2TModel(object):
       if not last_only:
         sharded_logits = target_modality.top_sharded(
             body_outputs, sharded_features["targets"], dp)
+        print(sharded_features)
         print("sharded_logits", sharded_logits, tf.shape(sharded_logits))
         print("targets", sharded_features["targets"], tf.shape(sharded_features["targets"]))
         print("teachers", sharded_features["teachers"], tf.shape(sharded_features["teachers"]))
