@@ -587,14 +587,15 @@ class T2TModel(object):
       if not last_only:
         sharded_logits = target_modality.top_sharded(
             body_outputs, sharded_features["targets"], dp)
+        print("sharded_logits", sharded_logits, tf.shape(sharded_logits))
+        print("targets", sharded_features["targets"], tf.shape(sharded_features["targets"]))
+        print("teachers", sharded_features["teachers"], tf.shape(sharded_features["teachers"]))
         sharded_features["targets"]=sharded_features["teachers"]
         training_loss = target_modality.loss_sharded(
             sharded_logits, sharded_features["targets"], dp)
         kd_loss = target_modality.loss_sharded(
             sharded_logits, sharded_features["teachers"], dp)
-        print("sharded_logits",sharded_logits,tf.shape(sharded_logits))
-        print("targets",sharded_features["targets"],tf.shape(sharded_features["targets"]))
-        print("teachers",sharded_features["teachers"],tf.shape(sharded_features["teachers"]))
+
         training_loss *= self._problem_hparams.loss_multiplier
         kd_loss *= self._problem_hparams.loss_multiplier
       else:
