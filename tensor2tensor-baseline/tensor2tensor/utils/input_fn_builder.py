@@ -138,7 +138,7 @@ def build_input_fn(mode,
     print("##feature_map",feature_map)
     feature_map["problem_choice"].set_shape([])
     feature_map["target_space_id"].set_shape([])
-    feature_map["teachers"].set_shape([None, None, None, None])
+    feature_map["teachers"].set_shape([None, None])
 
     if mode == tf.estimator.ModeKeys.PREDICT:
       feature_map["infer_targets"] = feature_map["targets"]
