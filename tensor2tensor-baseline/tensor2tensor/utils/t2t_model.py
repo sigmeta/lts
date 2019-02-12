@@ -591,9 +591,9 @@ class T2TModel(object):
             sharded_logits, sharded_features["targets"], dp)
         kd_loss = target_modality.loss_sharded(
             sharded_logits, sharded_features["teachers"], dp)
-        print("sharded_logits",sharded_logits)
-        print("targets",sharded_features["targets"])
-        print("teachers",sharded_features["teachers"])
+        print("sharded_logits",sharded_logits,tf.shape(sharded_logits))
+        print("targets",sharded_features["targets"],tf.shape(sharded_features["targets"]))
+        print("teachers",sharded_features["teachers"],tf.shape(sharded_features["teachers"]))
         training_loss *= self._problem_hparams.loss_multiplier
         kd_loss *= self._problem_hparams.loss_multiplier
       else:
