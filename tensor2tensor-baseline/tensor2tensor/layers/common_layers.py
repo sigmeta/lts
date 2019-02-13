@@ -1475,7 +1475,7 @@ def padded_cross_entropy(logits,
   confidence = 1.0 - label_smoothing
   vocab_size = tf.shape(logits)[-1]
   print("##$",logits,labels)
-  labels=tf.reshape(labels,list(logits.get_shape()))
+  #labels=tf.reshape(labels,list(logits.get_shape()))
   with tf.name_scope("padded_cross_entropy", [logits, labels]):
     pad_logits, pad_labels = pad_with_zeros(logits, labels)
     xent = smoothing_cross_entropy_kd(pad_logits, pad_labels, vocab_size,
