@@ -244,6 +244,8 @@ def features_for_problem(problem_instance,
       feature_map["inputs"] = tf.expand_dims(feature_map["inputs"], axis=-1)
   while len(feature_map["targets"].get_shape()) != 4:
     feature_map["targets"] = tf.expand_dims(feature_map["targets"], axis=-1)
+  while len(feature_map["teachers"].get_shape()) != 4:
+    feature_map["teachers"] = tf.expand_dims(feature_map["teachers"], axis=-1)
 
   if problem_instance.has_inputs:
     feature_map["input_space_id"] = tf.constant(p_hparams.input_space_id)
