@@ -65,11 +65,11 @@ def bi_vocabs_token2id_generator(data_path, source_token_vocab, target_token_voc
                 source_ints = source_token_vocab.encode(source.strip()) + eos_list
                 target_ints = target_token_vocab.encode(target.strip()) + eos_list
                 #print(source_ints,target_ints)
-                teacher_ints_ = json.loads(teacher)[:len(target_ints)]
-                teacher_ints=[]
-                for ti in teacher_ints_:
-                    teacher_ints+=ti
-                print({"inputs": source_ints, "targets": target_ints, "teacher": teacher_ints})
+                teacher_ints = json.loads(teacher)[:len(target_ints)]
+                #teacher_ints=[]
+                #for ti in teacher_ints_:
+                #    teacher_ints+=ti
+                #print({"inputs": source_ints, "targets": target_ints, "teacher": teacher_ints})
                 yield {"inputs": source_ints, "targets": target_ints, "teacher": teacher_ints}
                 data = data_file.readline()
 
