@@ -587,7 +587,8 @@ class T2TModel(object):
       if not last_only:
         sharded_logits = target_modality.top_sharded(
             body_outputs, sharded_features["targets"], dp)
-        print("####",sharded_features,sharded_logits)
+        print("###",sharded_features,sharded_logits)
+
         #print("sharded_logits", sharded_logits, len(sharded_logits))
         #print("targets", sharded_features["targets"], sharded_features["targets"].get_shape())
         #print("teachers", sharded_features["teachers"][0], len(sharded_features["teachers"]))
