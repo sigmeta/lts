@@ -1445,7 +1445,6 @@ def weights_concatenated(labels):
 
 def padded_cross_entropy(logits,
                          labels,
-                         labels1,
                          label_smoothing,
                          weights_fn=weights_nonzero,
                          reduce_sum=True):
