@@ -171,10 +171,10 @@ class Modality(object):
         self._model_hparams.label_smoothing,
         weights_fn=weights_fn)
 
-  def loss_sharded(self, sharded_top_out, sharded_targets, data_parallelism):
+  def loss_sharded(self, sharded_top_out, sharded_teachers, sharded_targets, data_parallelism):
     """Compute loss for all shards."""
     sharded_loss_num, sharded_loss_den = data_parallelism(
-        self.loss, sharded_top_out, sharded_targets)
+        self.loss, sharded_top_out, sharded_teachers, sharded_targets)
     print(sharded_loss_num, sharded_loss_den)
     loss = tf.add_n(sharded_loss_num) / tf.maximum(1.0,
                                                    tf.add_n(sharded_loss_den))
