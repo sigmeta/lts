@@ -1345,9 +1345,9 @@ def pad_to_same_length(x, y, final_length_divisible_by=1, axis=1):
   if axis not in [1, 2]:
     raise ValueError("Only axis=1 and axis=2 supported for now.")
   with tf.name_scope("pad_to_same_length", [x, y]):
-    y=tf.reshape(y,[tf.shape(y)[0],-1,1,1,77])
-    y=y[:,:,:,:,1:]
-    y=tf.argmax(y,4)
+    #y=tf.reshape(y,[tf.shape(y)[0],-1,1,1,77])
+    #y=y[:,:,:,:,1:]
+    #y=tf.argmax(y,4)
     x_length = tf.shape(x)[axis]
     y_length = tf.shape(y)[axis]
     max_length = tf.maximum(x_length, y_length)
