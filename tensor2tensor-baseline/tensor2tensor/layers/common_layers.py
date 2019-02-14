@@ -1345,10 +1345,8 @@ def pad_to_same_length(x, y, final_length_divisible_by=1, axis=1):
   if axis not in [1, 2]:
     raise ValueError("Only axis=1 and axis=2 supported for now.")
   with tf.name_scope("pad_to_same_length", [x, y]):
-    y=tf.reshape(y,[tf.shape(y)[0],-1,1,1,77])
-    y=y[:,:,:,:,1:]
-    print(x)
-    print(y)
+    #y=tf.reshape(y,[tf.shape(y)[0],-1,1,1,77])
+    #y=y[:,:,:,:,1:]
     x_length = tf.shape(x)[axis]
     y_length = tf.shape(y)[axis]
     max_length = tf.maximum(x_length, y_length)
@@ -1393,7 +1391,7 @@ def pad_with_zeros(logits, labels):
 
 def weights_nonzero(labels):
   """Assign weight 1.0 to all labels except for padding (id=0)."""
-  return tf.to_float(tf.not_equal(labels, 0))
+  return tf.to_float(tf.not_equal(labels, 0.0))
 
 
 def weights_prepend_inputs_to_targets(labels):
@@ -1482,11 +1480,12 @@ def padded_cross_entropy(logits,
   #labels=tf.reshape(labels,list(logits.get_shape()))
   with tf.name_scope("padded_cross_entropy", [logits, labels]):
 
-    pad_logits, pad_labels = pad_with_zeros(logits, labels)
-    xent = smoothing_cross_entropy_kd(pad_logits, pad_labels, vocab_size,
+    pad_logits, pad_labels = pad_with_zeros(logits, tf.argmax(labels, 4))
+    xent = smoothing_cross_entropy(pad_logits, pad_labels, vocab_size,
                                    confidence)
-    weights = weights_fn(tf.reduce_sum(pad_labels, axis=4))
+    #weights = weights_fn(tf.reduce_sum(pad_labels, axis=4))
     #weights = weights_fn(tf.argmax(pad_labels, 4))
+    weights = weights_fn(pad_labels)
     print("##$2", pad_logits, pad_labels, weights, xent)
     if not reduce_sum:
       return xent * weights, weights
