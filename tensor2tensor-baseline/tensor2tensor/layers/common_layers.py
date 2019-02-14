@@ -1488,7 +1488,7 @@ def padded_cross_entropy(logits,
     print("##$2", pad_logits, pad_labels, weights, xent)
     if not reduce_sum:
       return xent * weights, weights
-    return tf.reduce_sum(weights), tf.reduce_sum(weights)
+    return tf.reduce_sum(xent), tf.reduce_sum(weights)
 
 
 def smoothing_cross_entropy(logits,
