@@ -588,8 +588,9 @@ class T2TModel(object):
         sharded_logits = target_modality.top_sharded(
             body_outputs, sharded_features["targets"], dp)
         print("####",sharded_features,sharded_logits)
-        sharded_features["teachers"]=tf.reshape(sharded_features["teachers"],[tf.shape(sharded_features["teachers"])[0],-1,1,1,77])
-        sharded_features["teachers"]=sharded_features["teachers"][:,:,:,:,3:]
+        for iii in range(len(sharded_features["teachers"])):
+          sharded_features["teachers"][iii]=tf.reshape(sharded_features["teachers"][iii],[tf.shape(sharded_features["teachers"][iii])[0],-1,1,1,77])
+          sharded_features["teachers"][iii]=sharded_features["teachers"][iii][:,:,:,:,3:]
         print("#####", sharded_features, sharded_logits)
         #print("sharded_logits", sharded_logits, len(sharded_logits))
         #print("targets", sharded_features["targets"], sharded_features["targets"].get_shape())
