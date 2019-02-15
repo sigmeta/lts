@@ -383,7 +383,6 @@ class Problem(object):
     if shuffle_files or shuffle_files is None and is_training:
       random.shuffle(data_files)
     dataset = tf.contrib.data.TFRecordDataset(data_files)
-    print("@#$dataset",dataset)
 
     def decode_record(record):
       """Serialized Example to dict of <feature name, Tensor>."""
