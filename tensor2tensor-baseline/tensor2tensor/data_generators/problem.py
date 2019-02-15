@@ -392,7 +392,8 @@ class Problem(object):
 
       decode_items = list(data_items_to_decoders)
       decoded = decoder.decode(record, items=decode_items)
-      print(data_fields,data_items_to_decoders,decode_items,decoded)
+      print(decoded[2])
+      decoded[2]=tf.Print(decoded[2],[decoded[2]],"decoded")
       return dict(zip(decode_items, decoded))
 
     def _preprocess(example):
