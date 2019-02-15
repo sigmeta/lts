@@ -413,7 +413,7 @@ class Problem(object):
     print("@#$dataset", dataset.make_one_shot_iterator().get_next())
     xxx = dataset.make_one_shot_iterator().get_next()["teachers"]
     xxx = tf.Print(xxx, [xxx], "xxx")
-    return dataset
+    return xxx
 
   @property
   def has_inputs(self):
