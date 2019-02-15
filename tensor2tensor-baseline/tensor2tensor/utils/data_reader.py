@@ -107,9 +107,6 @@ def input_pipeline(problem,
         dataset_split=dataset_split,
         shard=shard)
     print("#$%dataset",dataset)
-    batched_examples = dataset.make_one_shot_iterator().get_next()
-    batched_examples["teachers"] = tf.Print(batched_examples["teachers"], [batched_examples["teachers"]],
-                                            "batched_examples")
     dataset = dataset.map(cast_int64_to_int32, num_threads=num_threads)
     dataset = dataset.filter(
         functools.partial(
@@ -142,7 +139,8 @@ def input_pipeline(problem,
     if (batching_scheme["shuffle_queue_size"] is not None and
         not hasattr(dataset, "apply")):
       dataset = dataset.shuffle(batching_scheme["shuffle_queue_size"])
-
+    batched_examples = dataset.make_one_shot_iterator().get_next()
+    batched_examples["teachers"]=tf.Print(batched_examples["teachers"],[batched_examples["teachers"]],"batched_examples")
     return batched_examples
 
 

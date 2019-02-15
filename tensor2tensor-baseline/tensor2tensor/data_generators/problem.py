@@ -314,8 +314,8 @@ class Problem(object):
   def maybe_reverse_features(self, feature_map):
     if not self._was_reversed:
       return
-    inputs, targets = feature_map["inputs"], feature_map["targets"]
-    feature_map["inputs"], feature_map["targets"] = targets, inputs
+    inputs, targets, teachers = feature_map["inputs"], feature_map["targets"], feature_map["teachers"]
+    feature_map["inputs"], feature_map["targets"], feature_map["teachers"] = targets, inputs, teachers
 
   def maybe_copy_features(self, feature_map):
     if not self._was_copy:
