@@ -402,7 +402,7 @@ class Problem(object):
 
     print("@#$dataset", dataset)
     dataset = dataset.map(decode_record, num_threads=num_threads)
-    print("@#$dataset", dataset)
+    print("@#$dataset", dataset[0])
     if preprocess:
       dataset = dataset.map(
           _preprocess,
