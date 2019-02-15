@@ -403,11 +403,11 @@ class Problem(object):
     print("@#$dataset", dataset)
     dataset = dataset.map(decode_record, num_threads=num_threads)
     print("@#$dataset", dataset.make_one_shot_iterator().get_next())
-    if preprocess:
-      dataset = dataset.map(
-          _preprocess,
-          num_threads=num_threads,
-          output_buffer_size=output_buffer_size)
+    #if preprocess:
+    #  dataset = dataset.map(
+    #      _preprocess,
+    #      num_threads=num_threads,
+    #      output_buffer_size=output_buffer_size)
     print("@#$dataset", dataset.make_one_shot_iterator().get_next())
     return dataset
 
