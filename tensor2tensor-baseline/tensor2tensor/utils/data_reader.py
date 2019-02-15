@@ -140,7 +140,7 @@ def input_pipeline(problem,
         not hasattr(dataset, "apply")):
       dataset = dataset.shuffle(batching_scheme["shuffle_queue_size"])
     batched_examples = dataset.make_one_shot_iterator().get_next()
-    print(batched_examples)
+    batched_examples=tf.Print(batched_examples,[batched_examples],"batched_examples")
     return batched_examples
 
 
