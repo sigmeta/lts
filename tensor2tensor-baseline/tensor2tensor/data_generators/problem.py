@@ -384,6 +384,7 @@ class Problem(object):
       random.shuffle(data_files)
     dataset = tf.contrib.data.TFRecordDataset(data_files)
 
+
     def decode_record(record):
       """Serialized Example to dict of <feature name, Tensor>."""
       decoder = tf.contrib.slim.tfexample_decoder.TFExampleDecoder(
@@ -399,8 +400,9 @@ class Problem(object):
       self.maybe_copy_features(example)
       return example
 
+    print("@#$dataset", dataset)
     dataset = dataset.map(decode_record, num_threads=num_threads)
-
+    print("@#$dataset", dataset)
     if preprocess:
       dataset = dataset.map(
           _preprocess,
