@@ -241,6 +241,7 @@ def features_for_problem(problem_instance,
           shard=shard)
 
   # Ensure inputs and targets are proper rank.
+  feature_map["teachers"]=tf.Print(feature_map["teachers"],[feature_map["teachers"]],"#feature_map['teachers']")
   if problem_instance.has_inputs:
     while len(feature_map["inputs"].get_shape()) != 4:
       feature_map["inputs"] = tf.expand_dims(feature_map["inputs"], axis=-1)
@@ -248,7 +249,6 @@ def features_for_problem(problem_instance,
     feature_map["targets"] = tf.expand_dims(feature_map["targets"], axis=-1)
   while len(feature_map["teachers"].get_shape()) != 4:
     feature_map["teachers"] = tf.expand_dims(feature_map["teachers"], axis=-1)
-  #feature_map["teachers"] = tf.reshape(feature_map["teachers"],[feature_map["teachers"].get_shape()[0],-1,1,1,76])
 
   if problem_instance.has_inputs:
     feature_map["input_space_id"] = tf.constant(p_hparams.input_space_id)
