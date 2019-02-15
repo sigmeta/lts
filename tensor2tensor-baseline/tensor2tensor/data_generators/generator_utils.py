@@ -63,7 +63,7 @@ def to_example(dictionary):
     else:
       raise ValueError("Value for %s is not a recognized type; v: %s type: %s" %
                        (k, str(v[0]), str(type(v[0]))))
-  print(features)
+  #print(features)
   return tf.train.Example(features=tf.train.Features(feature=features))
 
 
