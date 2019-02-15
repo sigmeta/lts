@@ -392,6 +392,7 @@ class Problem(object):
 
       decode_items = list(data_items_to_decoders)
       decoded = decoder.decode(record, items=decode_items)
+      print(data_fields,data_items_to_decoders,decode_items,decoded)
       return dict(zip(decode_items, decoded))
 
     def _preprocess(example):
@@ -403,11 +404,11 @@ class Problem(object):
     print("@#$dataset", dataset)
     dataset = dataset.map(decode_record, num_threads=num_threads)
     print("@#$dataset", dataset.make_one_shot_iterator().get_next())
-    #if preprocess:
-    #  dataset = dataset.map(
-    #      _preprocess,
-    #      num_threads=num_threads,
-    #      output_buffer_size=output_buffer_size)
+    if preprocess:
+      dataset = dataset.map(
+          _preprocess,
+          num_threads=num_threads,
+          output_buffer_size=output_buffer_size)
     print("@#$dataset", dataset.make_one_shot_iterator().get_next())
     return dataset
 
