@@ -107,7 +107,7 @@ def input_pipeline(problem,
         dataset_split=dataset_split,
         shard=shard)
     print("#$%dataset",dataset)
-    print(dataset.teachers)
+    dataset=tf.Print(dataset,[dataset])
     dataset = dataset.map(cast_int64_to_int32, num_threads=num_threads)
     dataset = dataset.filter(
         functools.partial(
