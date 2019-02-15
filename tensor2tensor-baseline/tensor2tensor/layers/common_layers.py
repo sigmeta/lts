@@ -1347,8 +1347,8 @@ def pad_to_same_length(x, y, final_length_divisible_by=1, axis=1):
   with tf.name_scope("pad_to_same_length", [x, y]):
     x=tf.Print(x,[x],"#tf x")
     y=tf.Print(y,[y],"#tf y")
-    y=tf.reshape(y,[tf.shape(y)[0],-1,1,1,77])
-    y=y[:,:,:,:,3:]
+    y=tf.reshape(y,[tf.shape(y)[0],-1,1,1,76])
+    y=y[:,:,:,:,2:]
     x_length = tf.shape(x)[axis]
     y_length = tf.shape(y)[axis]
     max_length = tf.maximum(x_length, y_length)
