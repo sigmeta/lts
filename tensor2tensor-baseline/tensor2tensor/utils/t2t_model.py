@@ -253,7 +253,7 @@ class T2TModel(object):
        samples: an integer `Tensor`. Top samples from the beam search
     """
     batch_size = tf.shape(features["inputs"])[0]
-    batch_size = tf.Print(batch_size, [batch_size], "beam_decode batch_size=")
+    #batch_size = tf.Print(batch_size, [batch_size], "beam_decode batch_size=")
 
     def symbols_to_logits_fn(ids):
       """Go from ids to logits."""
