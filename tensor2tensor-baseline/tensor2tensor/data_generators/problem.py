@@ -189,7 +189,8 @@ class Problem(object):
     del data_dir
     return {
         "inputs": text_encoder.TextEncoder(),
-        "targets": text_encoder.TextEncoder()
+        "targets": text_encoder.TextEncoder(),
+        "teachers":None
     }
 
   def example_reading_spec(self):
