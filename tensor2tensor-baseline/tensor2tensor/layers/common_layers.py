@@ -1345,9 +1345,9 @@ def pad_to_same_length(x, y, final_length_divisible_by=1, axis=1):
   if axis not in [1, 2]:
     raise ValueError("Only axis=1 and axis=2 supported for now.")
   with tf.name_scope("pad_to_same_length", [x, y]):
-    x=tf.Print(x,[x],"#tf x")
-    y=tf.Print(y,[y],"#tf y")
     y=tf.reshape(y,[tf.shape(y)[0],-1,1,1,76])
+    x = tf.Print(x, [x], "#tf x")
+    y = tf.Print(y, [y], "#tf y")
     x_length = tf.shape(x)[axis]
     y_length = tf.shape(y)[axis]
     max_length = tf.maximum(x_length, y_length)
@@ -1483,13 +1483,13 @@ def padded_cross_entropy(logits,
     pad_logits, pad_labels = pad_with_zeros(logits, labels)
     xent = smoothing_cross_entropy_kd(pad_logits, pad_labels, vocab_size,
                                    confidence)
-    #weights = weights_fn(tf.reduce_sum(pad_labels, axis=4))
-    weights = weights_fn(tf.argmax(pad_labels, 4))
+    weights = weights_fn(tf.reduce_sum(pad_labels, axis=4))
+    #weights = weights_fn(tf.argmax(pad_labels, 4))
     #weights = weights_fn(pad_labels)
     print("##$2", pad_logits, pad_labels, weights, xent)
     if not reduce_sum:
       return xent * weights, weights
-    return tf.reduce_sum(xent), tf.reduce_sum(weights)
+    return tf.reduce_sum(xent * weights), tf.reduce_sum(weights)
 
 
 def smoothing_cross_entropy(logits,
