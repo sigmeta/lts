@@ -71,7 +71,7 @@ def bi_vocabs_token2id_generator(data_path, source_token_vocab, target_token_voc
                     teacher_ints+=ti[1:]
                 #print("lengths",len(source_ints),len(target_ints),len(teacher_ints))
                 #print({"inputs": source_ints, "targets": target_ints, "teacher": teacher_ints})
-                yield {"inputs": source_ints, "targets": target_ints, "teacher": teacher_ints}
+                yield {"inputs": source_ints, "targets": target_ints, "teachers": teacher_ints}
                 data = data_file.readline()
 
 
