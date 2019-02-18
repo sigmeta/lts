@@ -175,7 +175,6 @@ class Modality(object):
     """Compute loss for all shards."""
     sharded_loss_num, sharded_loss_den = data_parallelism(
         self.loss, sharded_top_out, sharded_targets)
-    print(sharded_loss_num, sharded_loss_den)
     loss = tf.add_n(sharded_loss_num) / tf.maximum(1.0,
                                                    tf.add_n(sharded_loss_den))
     return loss

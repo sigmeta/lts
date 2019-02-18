@@ -596,7 +596,7 @@ class T2TModel(object):
         #sharded_features["teachers"]=tf.reshape(sharded_features["teachers"],[])
         #sharded_features["targets"]=sharded_features["teachers"]
         training_loss = target_modality.loss_sharded(
-            sharded_logits, sharded_features["targets"], dp)
+            sharded_logits, sharded_features["teachers"], dp)
         #kd_loss = target_modality.loss_sharded(
         #    sharded_logits, sharded_features["teachers"], dp)
 
@@ -610,7 +610,7 @@ class T2TModel(object):
         ]
         last_position_targets = [
             tf.expand_dims(target_shard[:, -1:, :, :], axis=[1])
-            for target_shard in sharded_features["targets"]
+            for target_shard in sharded_features["teachers"]
         ]
         sharded_logits = target_modality.top_sharded(last_position_body_outputs,
                                                      last_position_targets,
@@ -657,7 +657,7 @@ class T2TModel(object):
             new_sharded_logits = target_modality.top_sharded(
                 body_outputs, sharded_features["targets"], dp)
             training_loss = target_modality.loss_sharded(
-                sharded_logits, sharded_features["targets"], dp)
+                sharded_logits, sharded_features["teachers"], dp)
             training_loss *= self._problem_hparams.loss_multiplier
           losses["training"] = training_loss
         return new_sharded_logits, losses
