@@ -108,12 +108,12 @@ def input_pipeline(problem,
         shard=shard)
     print("#$%dataset",dataset)
     dataset = dataset.map(cast_int64_to_int32, num_threads=num_threads)
-    dataset = dataset.filter(
-        functools.partial(
-            example_valid_size,
-            min_length=batching_scheme["min_length"],
-            max_length=batching_scheme["max_length"],
-        ))
+    #dataset = dataset.filter(
+    #    functools.partial(
+    #        example_valid_size,
+    #        min_length=batching_scheme["min_length"],
+    #        max_length=batching_scheme["max_length"],
+    #    ))
     if is_training:
       dataset = dataset.shuffle(capacity)
       dataset = dataset.repeat(None)
