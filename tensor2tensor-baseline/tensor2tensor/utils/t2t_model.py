@@ -586,7 +586,7 @@ class T2TModel(object):
                    not force_full_predict)
       if not last_only:
         sharded_logits = target_modality.top_sharded(
-            body_outputs, sharded_features["targets"], dp)
+            body_outputs, sharded_features["teachers"], dp)
         print("###",sharded_features,sharded_logits)
         #sharded_features["teachers"][0]=tf.Print(sharded_features["teachers"][0],sharded_features["teachers"])
 
@@ -655,7 +655,7 @@ class T2TModel(object):
               losses = {"extra": losses}
           with tf.variable_scope(target_modality.name):
             new_sharded_logits = target_modality.top_sharded(
-                body_outputs, sharded_features["targets"], dp)
+                body_outputs, sharded_features["teachers"], dp)
             training_loss = target_modality.loss_sharded(
                 sharded_logits, sharded_features["teachers"], dp)
             training_loss *= self._problem_hparams.loss_multiplier
