@@ -1574,10 +1574,11 @@ def smoothing_cross_entropy_kd(logits,
         confidence * tf.log(confidence) + tf.to_float(vocab_size - 1) *
         low_confidence * tf.log(low_confidence + 1e-20))
 
-
+    normalizing=tf.Print(normalizing,[normalizing],"normalizing")
     soft_targets = labels
     xentropy = tf.nn.softmax_cross_entropy_with_logits(
         logits=logits, labels=soft_targets)
+    xentropy=tf.Print(xentropy,[xentropy],"xentropy")
     return xentropy - normalizing
 
 
