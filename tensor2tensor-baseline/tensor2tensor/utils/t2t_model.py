@@ -658,11 +658,8 @@ class T2TModel(object):
                 body_outputs, sharded_features["targets"], dp)
             training_loss = target_modality.loss_sharded(
                 sharded_logits, sharded_features["targets"], dp)
-            kd_loss = target_modality.loss_sharded(
-                sharded_logits, sharded_features["teachers"], dp)
             training_loss *= self._problem_hparams.loss_multiplier
-            kd_loss *= self._problem_hparams.loss_multiplier
-          losses["training"] = training_loss * (1 - self.kd_weight) + kd_loss * self.kd_weight
+          losses["training"] = training_loss
         return new_sharded_logits, losses
       # Run the above conditionally.
       prob = self._hparams.scheduled_sampling_prob
