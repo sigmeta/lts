@@ -1345,7 +1345,7 @@ def pad_to_same_length(x, y, final_length_divisible_by=1, axis=1):
   if axis not in [1, 2]:
     raise ValueError("Only axis=1 and axis=2 supported for now.")
   with tf.name_scope("pad_to_same_length", [x, y]):
-    y=tf.reshape(y,[tf.shape(y)[0],-1,1,1,76])
+    #y=tf.reshape(y,[tf.shape(y)[0],-1,1,1,76])
     #x = tf.Print(x, [x], "#tf x")
     #y = tf.Print(y, [y], "#tf y")
     x_length = tf.shape(x)[axis]
@@ -1483,7 +1483,7 @@ def padded_cross_entropy(logits,
     pad_logits, pad_labels = pad_with_zeros(logits, labels)
     pad_logits = tf.Print(pad_logits, [pad_logits], "pad_logits")
     pad_labels = tf.Print(pad_labels, [pad_labels], "pad_labels")
-    xent = smoothing_cross_entropy_kd(pad_logits, pad_labels, vocab_size,
+    xent = smoothing_cross_entropy(pad_logits, pad_labels, vocab_size,
                                    confidence)
     weights = weights_fn(tf.reduce_sum(pad_labels, axis=4))
     #weights = weights_fn(tf.argmax(pad_labels, 4))

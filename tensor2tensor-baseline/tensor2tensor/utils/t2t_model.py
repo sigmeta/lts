@@ -596,7 +596,7 @@ class T2TModel(object):
         #sharded_features["teachers"]=tf.reshape(sharded_features["teachers"],[])
         #sharded_features["targets"]=sharded_features["teachers"]
         training_loss = target_modality.loss_sharded(
-            sharded_logits, sharded_features["teachers"], dp)
+            sharded_logits, sharded_features["targets"], dp)
         #kd_loss = target_modality.loss_sharded(
         #    sharded_logits, sharded_features["teachers"], dp)
 
