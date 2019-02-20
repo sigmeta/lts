@@ -1,0 +1,20 @@
+/var/storage/shared/sdrgvc/xuta/t-hasu/fairseq/venv/lib/python3.6/importlib/_bootstrap.py:219: RuntimeWarning: compiletime version 3.5 of module 'tensorflow.python.framework.fast_tensor_util' does not match runtime version 3.6
+  return f(*args, **kwds)
+Traceback (most recent call last):
+  File "/var/storage/shared/sdrgvc/xuta/t-hasu/lts/tensor2tensor-baseline/tensor2tensor/bin/t2t-decoder", line 41, in <module>
+    from tensor2tensor.utils import trainer_utils
+  File "/var/storage/shared/sdrgvc/xuta/t-hasu/lts2/tensor2tensor-baseline/tensor2tensor/utils/trainer_utils.py", line 28, in <module>
+    from tensor2tensor.data_generators import all_problems  # pylint: disable=unused-import
+  File "/var/storage/shared/sdrgvc/xuta/t-hasu/lts2/tensor2tensor-baseline/tensor2tensor/data_generators/all_problems.py", line 38, in <module>
+    from tensor2tensor.data_generators import translate_enfr
+  File "/var/storage/shared/sdrgvc/xuta/t-hasu/lts2/tensor2tensor-baseline/tensor2tensor/data_generators/translate_enfr.py", line 84, in <module>
+    class TranslateEnfrWmtSmall8k(translate.TranslateProblem):
+  File "/var/storage/shared/sdrgvc/xuta/t-hasu/lts2/tensor2tensor-baseline/tensor2tensor/utils/registry.py", line 231, in register_problem
+    return decorator(p_cls, registration_name=_default_name(p_cls))
+  File "/var/storage/shared/sdrgvc/xuta/t-hasu/lts2/tensor2tensor-baseline/tensor2tensor/utils/registry.py", line 103, in _default_name
+    return _convert_camel_to_snake(obj_class.__name__)
+  File "/var/storage/shared/sdrgvc/xuta/t-hasu/lts2/tensor2tensor-baseline/tensor2tensor/utils/registry.py", line 84, in _convert_camel_to_snake
+    s1 = _first_cap_re.sub(r"\1_\2", name)
+  File "/var/storage/shared/sdrgvc/xuta/t-hasu/fairseq/venv/lib/python3.6/re.py", line 330, in filter
+    def filter(match, template=template):
+KeyboardInterrupt

@@ -9,12 +9,12 @@ PROBLEM=lts
 MODEL=transformer
 HPARAMS_SET=transformer_small
 
-setting=setting1_small
+setting=setting6_small
 DATA_DIR=${HOME}/lts_data
 TRAIN_DIR=/hdfs/sdrgvc/xuta/t-hasu/lts/${setting}
 mkdir -p  $TRAIN_DIR
 
-nohup ${binFile}/t2t-trainer \
+CUDA_VISIBLE_DEVICES=0 nohup ${binFile}/t2t-trainer \
 --t2t_usr_dir=${HOME}/lts_data \
 --data_dir=$DATA_DIR \
 --problems=$PROBLEM \
@@ -24,7 +24,7 @@ nohup ${binFile}/t2t-trainer \
 --keep_checkpoint_max=100000 \
 --worker_gpu=1 \
 --train_steps=20000000 \
---save_checkpoints_secs=1800 \
+--save_checkpoints_secs=600 \
 --schedule=train \
 --worker_gpu_memory_fraction=0.95 \
---hparams="batch_size=4096" > nohup.train_${setting}.log 2>&1 &
+--hparams="batch_size=4096,num_heads=16,num_encoder_layers=3,num_decoder_layers=1,attention_dropout=0.2,relu_dropout=0.2,dropout=0.1,label_smoothing=0.0" > nohup.train_${setting}.log 2>&1 &
