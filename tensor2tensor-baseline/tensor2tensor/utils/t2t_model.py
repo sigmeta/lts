@@ -586,7 +586,7 @@ class T2TModel(object):
                    not force_full_predict)
       if not last_only:
         sharded_logits = target_modality.top_sharded(
-            body_outputs, sharded_features["teachers"], dp)
+            body_outputs, sharded_features["targets"], dp)
         print("###",sharded_features,sharded_logits)
         #sharded_features["teachers"][0]=tf.Print(sharded_features["teachers"][0],sharded_features["teachers"])
 
@@ -596,12 +596,12 @@ class T2TModel(object):
         #sharded_features["teachers"]=tf.reshape(sharded_features["teachers"],[])
         #sharded_features["targets"]=sharded_features["teachers"]
         training_loss = target_modality.loss_sharded(
-            sharded_logits, sharded_features["teachers"], dp)
-        #kd_loss = target_modality.loss_sharded(
-        #    sharded_logits, sharded_features["teachers"], dp)
+            sharded_logits, sharded_features["targets"], dp, kd=False)
+        kd_loss = target_modality.loss_sharded(
+            sharded_logits, sharded_features["teachers"], dp, kd=True)
 
         training_loss *= self._problem_hparams.loss_multiplier
-        #kd_loss *= self._problem_hparams.loss_multiplier
+        kd_loss *= self._problem_hparams.loss_multiplier
       else:
         # Take body outputs for the last position only, and targets too.
         last_position_body_outputs = [
@@ -610,15 +610,15 @@ class T2TModel(object):
         ]
         last_position_targets = [
             tf.expand_dims(target_shard[:, -1:, :, :], axis=[1])
-            for target_shard in sharded_features["teachers"]
+            for target_shard in sharded_features["targets"]
         ]
         sharded_logits = target_modality.top_sharded(last_position_body_outputs,
                                                      last_position_targets,
                                                      self._data_parallelism)
         training_loss = None
         kd_loss=None
-    #losses["training"] = training_loss * (1 - self.kd_weight) + kd_loss * self.kd_weight
-    losses["training"] = training_loss
+    losses["training"] = training_loss * (1 - self.kd_weight) + kd_loss * self.kd_weight
+    #losses["training"] = training_loss
     # Scheduled sampling.
     do_scheduled_sampling = (  # Only do it if training and set for it.
         self._hparams.scheduled_sampling_prob > 0.0 and
@@ -655,11 +655,14 @@ class T2TModel(object):
               losses = {"extra": losses}
           with tf.variable_scope(target_modality.name):
             new_sharded_logits = target_modality.top_sharded(
-                body_outputs, sharded_features["teachers"], dp)
+                body_outputs, sharded_features["targets"], dp)
             training_loss = target_modality.loss_sharded(
-                sharded_logits, sharded_features["teachers"], dp)
+                sharded_logits, sharded_features["targets"], dp, kd=False)
+            kd_loss = target_modality.loss_sharded(
+              sharded_logits, sharded_features["teachers"], dp, kd=True)
             training_loss *= self._problem_hparams.loss_multiplier
-          losses["training"] = training_loss
+            kd_loss *= self._problem_hparams.loss_multiplier
+          losses["training"] = training_loss * (1 - self.kd_weight) + kd_loss * self.kd_weight
         return new_sharded_logits, losses
       # Run the above conditionally.
       prob = self._hparams.scheduled_sampling_prob

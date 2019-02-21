@@ -1340,12 +1340,13 @@ def diagonal_conv_gru(x,
     return gate * x_shifted + (1 - gate) * candidate, total_cost_avg
 
 
-def pad_to_same_length(x, y, final_length_divisible_by=1, axis=1):
+def pad_to_same_length(x, y, kd, final_length_divisible_by=1, axis=1):
   """Pad tensors x and y on axis 1 so that they have the same length."""
   if axis not in [1, 2]:
     raise ValueError("Only axis=1 and axis=2 supported for now.")
   with tf.name_scope("pad_to_same_length", [x, y]):
-    y=tf.reshape(y,[tf.shape(y)[0],-1,1,1,76])
+    if kd:
+        y=tf.reshape(y,[tf.shape(y)[0],-1,1,1,76])
     #x = tf.Print(x, [x], "#tf x")
     #y = tf.Print(y, [y], "#tf y")
     x_length = tf.shape(x)[axis]
@@ -1380,10 +1381,10 @@ def pad_to_same_length(x, y, final_length_divisible_by=1, axis=1):
     return res_x, res_y
 
 
-def pad_with_zeros(logits, labels):
+def pad_with_zeros(logits, labels, kd):
   """Pad labels on the length dimension to match logits length."""
   with tf.name_scope("pad_with_zeros", [logits, labels]):
-    logits, labels = pad_to_same_length(logits, labels)
+    logits, labels = pad_to_same_length(logits, labels, kd)
     # KD label will be a tensor
     #if len(labels.shape.as_list()) == 3:  # 2-d labels.
     #  logits, labels = pad_to_same_length(logits, labels, axis=2)
@@ -1448,6 +1449,7 @@ def weights_concatenated(labels):
 
 def padded_cross_entropy(logits,
                          labels,
+                         kd,
                          label_smoothing,
                          weights_fn=weights_nonzero,
                          reduce_sum=True):
@@ -1480,14 +1482,18 @@ def padded_cross_entropy(logits,
   print("##$",logits,labels)
   #labels=tf.reshape(labels,list(logits.get_shape()))
   with tf.name_scope("padded_cross_entropy", [logits, labels]):
-    pad_logits, pad_labels = pad_with_zeros(logits, labels)
+    pad_logits, pad_labels = pad_with_zeros(logits, labels, kd)
     #pad_logits = tf.Print(pad_logits, [pad_logits], "pad_logits",summarize=1000)
     #pad_labels = tf.Print(pad_labels, [pad_labels], "pad_labels",summarize=1000)
-    xent = smoothing_cross_entropy_kd(pad_logits, pad_labels, vocab_size,
+    if kd:
+        xent = smoothing_cross_entropy_kd(pad_logits, pad_labels, vocab_size,
                                    confidence)
+        weights = weights_fn(tf.argmax(pad_labels, 4))
+    else:
+        xent = smoothing_cross_entropy(pad_logits, pad_labels, vocab_size,
+                                          confidence)
+        weights = weights_fn(pad_labels)
     #weights = weights_fn(tf.reduce_sum(pad_labels, axis=4))
-    weights = weights_fn(tf.argmax(pad_labels, 4))
-    #weights = weights_fn(pad_labels)
     print("##$2", pad_logits, pad_labels, weights, xent)
     #xent=tf.Print(xent,[xent],"xent",summarize=1000)
     #weights=tf.Print(weights,[weights],"weights",summarize=1000)
@@ -1579,8 +1585,8 @@ def smoothing_cross_entropy_kd(logits,
     xentropy = tf.nn.softmax_cross_entropy_with_logits(
         logits=logits, labels=soft_targets)
     #xentropy=tf.Print(xentropy,[xentropy],"xentropy")
-    return xentropy - normalizing
-    #return xentropy
+    #return xentropy - normalizing
+    return xentropy
 
 
 def global_pool_1d(inputs, pooling_type="MAX", mask=None):
