@@ -1,20 +1,2094 @@
-/var/storage/shared/sdrgvc/xuta/t-hasu/fairseq/venv/lib/python3.6/importlib/_bootstrap.py:219: RuntimeWarning: compiletime version 3.5 of module 'tensorflow.python.framework.fast_tensor_util' does not match runtime version 3.6
+/var/storage/shared/sdrgvc/xuta/t-hasu/venv/lib/python3.6/importlib/_bootstrap.py:219: RuntimeWarning: compiletime version 3.5 of module 'tensorflow.python.framework.fast_tensor_util' does not match runtime version 3.6
   return f(*args, **kwds)
-Traceback (most recent call last):
-  File "/var/storage/shared/sdrgvc/xuta/t-hasu/lts/tensor2tensor-baseline/tensor2tensor/bin/t2t-decoder", line 41, in <module>
-    from tensor2tensor.utils import trainer_utils
-  File "/var/storage/shared/sdrgvc/xuta/t-hasu/lts2/tensor2tensor-baseline/tensor2tensor/utils/trainer_utils.py", line 28, in <module>
-    from tensor2tensor.data_generators import all_problems  # pylint: disable=unused-import
-  File "/var/storage/shared/sdrgvc/xuta/t-hasu/lts2/tensor2tensor-baseline/tensor2tensor/data_generators/all_problems.py", line 38, in <module>
-    from tensor2tensor.data_generators import translate_enfr
-  File "/var/storage/shared/sdrgvc/xuta/t-hasu/lts2/tensor2tensor-baseline/tensor2tensor/data_generators/translate_enfr.py", line 84, in <module>
-    class TranslateEnfrWmtSmall8k(translate.TranslateProblem):
-  File "/var/storage/shared/sdrgvc/xuta/t-hasu/lts2/tensor2tensor-baseline/tensor2tensor/utils/registry.py", line 231, in register_problem
-    return decorator(p_cls, registration_name=_default_name(p_cls))
-  File "/var/storage/shared/sdrgvc/xuta/t-hasu/lts2/tensor2tensor-baseline/tensor2tensor/utils/registry.py", line 103, in _default_name
-    return _convert_camel_to_snake(obj_class.__name__)
-  File "/var/storage/shared/sdrgvc/xuta/t-hasu/lts2/tensor2tensor-baseline/tensor2tensor/utils/registry.py", line 84, in _convert_camel_to_snake
-    s1 = _first_cap_re.sub(r"\1_\2", name)
-  File "/var/storage/shared/sdrgvc/xuta/t-hasu/fairseq/venv/lib/python3.6/re.py", line 330, in filter
-    def filter(match, template=template):
-KeyboardInterrupt
+INFO:tensorflow:Importing user module lts_data from path .
+INFO:tensorflow:Loading and processing source vocabulary from: /var/storage/shared/sdrgvc/xuta/t-hasu/lts/lts_data/lts.l.vocab
+INFO:tensorflow:Done
+INFO:tensorflow:Loading and processing target vocabulary from: /var/storage/shared/sdrgvc/xuta/t-hasu/lts/lts_data/lts.s.vocab
+INFO:tensorflow:Done
+INFO:tensorflow:Creating experiment, storing model files in /hdfs/sdrgvc/xuta/t-hasu/lts/setting6_small
+INFO:tensorflow:Loading and processing source vocabulary from: /var/storage/shared/sdrgvc/xuta/t-hasu/lts/lts_data/lts.l.vocab
+INFO:tensorflow:Done
+INFO:tensorflow:Loading and processing target vocabulary from: /var/storage/shared/sdrgvc/xuta/t-hasu/lts/lts_data/lts.s.vocab
+INFO:tensorflow:Done
+WARNING:tensorflow:Schedule=train_and_evaluate. Assuming that training is running on a single machine.
+INFO:tensorflow:datashard_devices: ['gpu:0']
+INFO:tensorflow:caching_devices: None
+INFO:tensorflow:Using config: {'_task_type': None, '_task_id': 0, '_cluster_spec': <tensorflow.python.training.server_lib.ClusterSpec object at 0x7f897c4b20b8>, '_master': '', '_num_ps_replicas': 0, '_num_worker_replicas': 0, '_environment': 'local', '_is_chief': True, '_evaluation_master': '', '_tf_config': gpu_options {
+  per_process_gpu_memory_fraction: 0.95
+}
+, '_tf_random_seed': None, '_save_summary_steps': 100, '_save_checkpoints_secs': 600, '_log_step_count_steps': 100, '_session_config': gpu_options {
+  per_process_gpu_memory_fraction: 0.95
+}
+allow_soft_placement: true
+graph_options {
+  optimizer_options {
+  }
+}
+, '_save_checkpoints_steps': None, '_keep_checkpoint_max': 20, '_keep_checkpoint_every_n_hours': 10000, '_model_dir': '/hdfs/sdrgvc/xuta/t-hasu/lts/setting6_small'}
+INFO:tensorflow:Performing decoding from a file.
+INFO:tensorflow:Getting sorted inputs
+INFO:tensorflow: batch 43
+INFO:tensorflow:Decoding batch 0
+WARNING:tensorflow:Input graph does not contain a QueueRunner. That means predict yields forever. This is probably a mistake.
+WARNING:tensorflow:Schedule=train_and_evaluate. Assuming that training is running on a single machine.
+INFO:tensorflow:datashard_devices: ['gpu:0']
+INFO:tensorflow:caching_devices: None
+INFO:tensorflow:Unsetting shared_embedding_and_softmax_weights.
+INFO:tensorflow:Beam Decoding with beam size 10
+2019-02-21 04:56:51.726282: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA
+2019-02-21 04:56:51.992425: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1030] Found device 0 with properties: 
+name: Tesla M40 24GB major: 5 minor: 2 memoryClockRate(GHz): 1.112
+pciBusID: 0000:91:00.0
+totalMemory: 22.41GiB freeMemory: 22.29GiB
+2019-02-21 04:56:51.992478: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1120] Creating TensorFlow device (/device:GPU:0) -> (device: 0, name: Tesla M40 24GB, pci bus id: 0000:91:00.0, compute capability: 5.2)
+INFO:tensorflow:Restoring parameters from /hdfs/sdrgvc/xuta/t-hasu/lts/setting6_small/model.ckpt-6772027
+INFO:tensorflow:Inference results INPUT: m i c r o e l e c t r o p h o r e t i c a l l y
+INFO:tensorflow:Inference results OUTPUT: m ay2 k r ow ih l eh k t r ow f ax r eh1 t ih k l iy
+INFO:tensorflow:Inference results INPUT: l e g i s l a t i v e l y - r e c o g n i z e d
+INFO:tensorflow:Inference results OUTPUT: l eh1 jh ih s l ey2 t ih v l iy r eh1 k ax g n ay2 z d
+INFO:tensorflow:Inference results INPUT: e l e c t r o e n c e p h a l o g r a p h i e s
+INFO:tensorflow:Inference results OUTPUT: ih l eh2 k t r ow eh n s eh2 f ax l aa1 g r ax f iy z
+INFO:tensorflow:Inference results INPUT: p r e c i p i t a t i o n - h a r d e n i n g
+INFO:tensorflow:Inference results OUTPUT: p r ih s ih2 p ax t ey1 sh ax n h aa2 r d ax n ih ng
+INFO:tensorflow:Inference results INPUT: p o l y t e t r a f l u o r o e t h y l e n e
+INFO:tensorflow:Inference results OUTPUT: p aa2 l iy t eh2 t r ax f l uw2 r ow eh1 th ax l iy2 n
+INFO:tensorflow:Inference results INPUT: a m y g d a l a h i p p o c a m p e c t o m y
+INFO:tensorflow:Inference results OUTPUT: ax m ih2 g d ax l ax h ih2 p ax k ae2 m p eh1 k t ax m iy
+INFO:tensorflow:Inference results INPUT: r e i n s t i t u t i o n a l i z a t i o n
+INFO:tensorflow:Inference results OUTPUT: r iy2 ih n s t ax t uh2 sh ax n ax l ih z ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: p s e u d o t h r o m b o c y t o p e n i a
+INFO:tensorflow:Inference results OUTPUT: s uh2 d ow th r aa2 m b ow s ay2 t ax p iy1 n iy ax
+INFO:tensorflow:Inference results INPUT: p h i l o p r o g e n i t i v e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: f ih2 l ax p r ow jh eh1 n ax t ih v n ih s ih z
+INFO:tensorflow:Inference results INPUT: p e r m a n e n t - i n t e r m i t t e n t
+INFO:tensorflow:Inference results OUTPUT: p er2 r m ax n ax n t ih2 n t ax r m ih1 t ax n t
+INFO:tensorflow:Inference results INPUT: d i s p r o p o r t i o n a t e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: d ih2 s p r ax p ao1 r sh ax n ih t n ih s ih z
+INFO:tensorflow:Inference results INPUT: c o n s t i t u t i o n a l l y - b a s e d
+INFO:tensorflow:Inference results OUTPUT: k aa2 n s t ax t uh2 sh ax n ax l iy b ey1 s t
+INFO:tensorflow:Inference results INPUT: a p p l i c a t i o n - b a c k g r o u n d
+INFO:tensorflow:Inference results OUTPUT: ae2 p l ax k ey1 sh ax n b ae1 k g r aw2 n d
+INFO:tensorflow:Inference results INPUT: t r a c h e o b r o n c h o m a l a c i a
+INFO:tensorflow:Inference results OUTPUT: t r ey2 k iy ow b r aa2 ng k ow m ax l ey1 sh ax
+INFO:tensorflow:Inference results INPUT: t h r o m b o e n d a r t e r e c t o m y
+INFO:tensorflow:Inference results OUTPUT: th r aa2 m b ow eh2 n d aa r t ax r eh1 k t ax m iy
+INFO:tensorflow:Inference results INPUT: p s y c h o t h e r a p e u t i c a l l y
+INFO:tensorflow:Inference results OUTPUT: s ay2 k ow th eh2 r ax p y uh1 t ih k l iy
+INFO:tensorflow:Inference results INPUT: i n t e r c h a n g e a b l e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: ih2 n t ax r ch ey1 n jh ax b ax l n ih s ih z
+INFO:tensorflow:Inference results INPUT: i n s t i t u t i o n a l i z a t i o n s
+INFO:tensorflow:Inference results OUTPUT: ih2 n s t ax t uh2 sh ax n ax l ax z ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: i n c o n s e q u e n t i a l n e s s e s
+INFO:tensorflow:Inference results OUTPUT: ih2 n k aa n s ih k w eh1 n sh ax l n ih s ih z
+INFO:tensorflow:Inference results INPUT: i n c o m p r e h e n s i v e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: ih2 n k aa m p r ih h eh1 n s ih v n ih s ih z
+INFO:tensorflow:Inference results INPUT: d e p a r t m e n t a l l y - i s s u e d
+INFO:tensorflow:Inference results OUTPUT: d ih p aa2 r t m ax n t ax l iy ih1 sh uh d
+INFO:tensorflow:Inference results INPUT: c o m p a r t m e n t a l i z a t i o n s
+INFO:tensorflow:Inference results OUTPUT: k ax m p aa2 r t m eh2 n t ax l ax z ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: u n c o m p r o m i s i n g n e s s e s
+INFO:tensorflow:Inference results OUTPUT: ah2 n k aa1 m p r ax m ay2 z ih ng n ih s ih z
+INFO:tensorflow:Inference results INPUT: t y m p a n o m a s t o i d e c t o m y
+INFO:tensorflow:Inference results OUTPUT: t ih2 m p ax n ow m ae2 s t oy d eh1 k t ax m iy
+INFO:tensorflow:Inference results INPUT: s e l f - c a t h e t e r i z a t i o n
+INFO:tensorflow:Inference results OUTPUT: s eh2 l f k ae2 th ax t ax r ih z ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: p o s t c h e m o t h e r a p e u t i c
+INFO:tensorflow:Inference results OUTPUT: p ow2 s t k iy2 m ow th ax r ax p y uh1 t ih k
+INFO:tensorflow:Inference results INPUT: p h o t o p h o s p h o r y l a t i o n
+INFO:tensorflow:Inference results OUTPUT: f ow2 t ow f aa2 s f ao2 r ax l ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: p a r a t h y r o i d e c t o m i z e d
+INFO:tensorflow:Inference results OUTPUT: p ae2 r ax th ay2 r oy d eh1 k t ax m ay2 z d
+INFO:tensorflow:Inference results INPUT: p a r a d i c h l o r o b e n z e n e s
+INFO:tensorflow:Inference results OUTPUT: p ae2 r ax d ay k l ao2 r ax b eh1 n z iy2 n z
+INFO:tensorflow:Inference results INPUT: p a l e o a n t h r o p o l o g i s t s
+INFO:tensorflow:Inference results OUTPUT: p ey2 l iy ow ae2 n th r ax p aa1 l ax jh ih s t s
+INFO:tensorflow:Inference results INPUT: n e u r o v a s c u l a r i z a t i o n
+INFO:tensorflow:Inference results OUTPUT: n uw2 r ow v ae2 s k y ax l ax r ax z ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: m u l t i - j u r i s d i c t i o n a l
+INFO:tensorflow:Inference results OUTPUT: m ah2 l t iy jh uw2 r ih s d ih1 k sh ax n ax l
+INFO:tensorflow:Inference results INPUT: m e t a c a r p o p h a l a n g e a l s
+INFO:tensorflow:Inference results OUTPUT: m eh2 t ax k aa2 r p ax f ax l ae1 n jh iy ax l z
+INFO:tensorflow:Inference results INPUT: i r r e p r o a c h a b l e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: ih2 r ih p r ow1 ch ax b ax l n ih s ih z
+INFO:tensorflow:Inference results INPUT: i n c o n s i d e r a b l e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: ih2 n k ax n s ih1 d ax r ax b ax l n ih s ih z
+INFO:tensorflow:Inference results INPUT: i n a p p r e c i a t i v e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: ih2 n ax p r iy1 sh iy ey2 t ih v n ih s ih z
+INFO:tensorflow:Inference results INPUT: h i s t o c o m p a t i b i l i t i e s
+INFO:tensorflow:Inference results OUTPUT: h ih2 s t ow k ax m p ae2 t ax b ih1 l ih t iy z
+INFO:tensorflow:Inference results INPUT: g l u t a m i c - o x a l o a c e t i c
+INFO:tensorflow:Inference results OUTPUT: g l uh2 t ax m ih k s ae2 l ow ax s eh1 t ih k
+INFO:tensorflow:Inference results INPUT: e l e c t r o p h y s i o l o g i c a l
+INFO:tensorflow:Inference results OUTPUT: ih l eh2 k t r ow f ih2 z iy ax l aa1 jh ih k ax l
+INFO:tensorflow:Inference results INPUT: e l e c t r o c a u t e r i z a t i o n
+INFO:tensorflow:Inference results OUTPUT: ih l eh2 k t r ow k ao2 t ax r ih z ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: d e p a r t m e n t a l i z a t i o n s
+INFO:tensorflow:Inference results OUTPUT: d ih2 p aa r t m eh2 n t ax l ih z ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: d e i n s t i t u t i o n a l i z i n g
+INFO:tensorflow:Inference results OUTPUT: d iy ih2 n s t ax t uh1 sh ax n ax l ay2 z ih ng
+INFO:tensorflow:Inference results INPUT: c o n v e n t i o n a l i z a t i o n s
+INFO:tensorflow:Inference results OUTPUT: k ax n v eh2 n sh ax n ax l ih z ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: c o n t r a d i s t i n g u i s h i n g
+INFO:tensorflow:Inference results OUTPUT: k aa2 n t r ax d ih s t ih1 ng g w ih sh ih ng
+INFO:tensorflow:Inference results INPUT: c o n g r e s s m a n - a t - l a r g e
+INFO:tensorflow:Inference results OUTPUT: k aa1 ng g r ax s m ae1 n ax t l aa2 r jh
+INFO:tensorflow:Inference results INPUT: u n c o n f o r m a b l e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: ah2 n k ax n f ao1 r m ax b ax l n ih s ih z
+INFO:tensorflow:Inference results INPUT: u n c o m f o r t a b l e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: ah2 n k ah1 m f ax r t ax b ax l n ih s ih z
+INFO:tensorflow:Inference results INPUT: t r a n s c e n d e n t a l i s t i c
+INFO:tensorflow:Inference results OUTPUT: t r ae2 n s eh n d eh2 n t ax l ih1 s t ih k
+INFO:tensorflow:Inference results INPUT: s t r o n g - m i n d e d n e s s e s
+INFO:tensorflow:Inference results OUTPUT: s t r ao1 ng m ay1 n d ih d n ih s ih z
+INFO:tensorflow:Inference results INPUT: s t a r - o f - B e t h l e h e m ' s
+INFO:tensorflow:Inference results OUTPUT: s t aa1 r ax v b eh1 th l iy ax m z
+INFO:tensorflow:Inference results INPUT: s i n g l e - m i n d e d n e s s e s
+INFO:tensorflow:Inference results OUTPUT: s ih1 ng g ax l m ay1 n d ih d n ih s ih z
+INFO:tensorflow:Inference results INPUT: s e n t i m e n t a l i z a t i o n s
+INFO:tensorflow:Inference results OUTPUT: s eh2 n t ax m eh2 n t ax l ih z ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: s e l f - i n c r i m i n a t i o n s
+INFO:tensorflow:Inference results OUTPUT: s eh2 l f ih n k r ih2 m ax n ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: s e l f - c o n g r a t u l a t i o n
+INFO:tensorflow:Inference results OUTPUT: s eh2 l f k ax n g r ae2 ch ax l ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: s e c r e t a r y - g e n e r a l ' s
+INFO:tensorflow:Inference results OUTPUT: s eh2 k r ax t eh2 r iy jh eh1 n ax r ax l z
+INFO:tensorflow:Inference results INPUT: r a d i o s c a p h o c a p i t a t e
+INFO:tensorflow:Inference results OUTPUT: r ey2 d iy ow s k ae2 f ax k ae1 p ax t ey2 t
+INFO:tensorflow:Inference results INPUT: p s y c h o p h y s i o l o g i s t s
+INFO:tensorflow:Inference results OUTPUT: s ay2 k ow f ih2 z iy aa1 l ax jh ih s t s
+INFO:tensorflow:Inference results INPUT: p n e u m o e n c e p h a l o g r a m
+INFO:tensorflow:Inference results OUTPUT: n uh2 m ow eh n s eh2 f ax l aa1 g r ax m
+INFO:tensorflow:Inference results INPUT: p a r t h e n o g e n e t i c a l l y
+INFO:tensorflow:Inference results OUTPUT: p aa2 r th ax n ow jh ax n eh1 t ih k l iy
+INFO:tensorflow:Inference results INPUT: m u l t i d e n o m i n a t i o n a l
+INFO:tensorflow:Inference results OUTPUT: m ah2 l t iy d ih n aa2 m ax n ey1 sh ax n ax l
+INFO:tensorflow:Inference results INPUT: m i s c e l l a n e o u s n e s s e s
+INFO:tensorflow:Inference results OUTPUT: m ih2 s ax l ey1 n iy ax s n ih s ih z
+INFO:tensorflow:Inference results INPUT: m e t a c a r p o p h a l a n g e a l
+INFO:tensorflow:Inference results OUTPUT: m eh2 t ax k aa2 r p ax f ax l ae1 n jh iy ax l
+INFO:tensorflow:Inference results INPUT: i r r e c l a i m a b l e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: ih2 r ih k l ey1 m ax b ax l n ih s ih z
+INFO:tensorflow:Inference results INPUT: i n t r o s p e c t i v e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: ih2 n t r ax s p eh1 k t ih v n ih s ih z
+INFO:tensorflow:Inference results INPUT: i n t e r t r o c h - s u b t r o c h
+INFO:tensorflow:Inference results OUTPUT: ih2 n t ax r t r ow ch s ah1 b t r ax k
+INFO:tensorflow:Inference results INPUT: i n d e c i p h e r a b i l i t i e s
+INFO:tensorflow:Inference results OUTPUT: ih2 n d ih s ay2 f ax r ax b ih1 l ih t iy z
+INFO:tensorflow:Inference results INPUT: i n c o n s e q u e n t i a l n e s s
+INFO:tensorflow:Inference results OUTPUT: ih2 n k aa n s ih k w eh1 n sh ax l n ih s
+INFO:tensorflow:Inference results INPUT: i n c o n c e i v a b l e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: ih2 n k ax n s iy1 v ax b ax l n ih s ih z
+INFO:tensorflow:Inference results INPUT: h y d r o c h l o r o t h i a z i d e
+INFO:tensorflow:Inference results OUTPUT: h ay2 d r ax k l ao2 r ax th ay1 ax z ay2 d
+INFO:tensorflow:Inference results INPUT: g i l l i n g - i n f o r m a t i o n
+INFO:tensorflow:Inference results OUTPUT: g ih2 l ih ng ih2 n f ax r m ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: e l e c t r o t h e r a p e u t i c s
+INFO:tensorflow:Inference results OUTPUT: ih l eh2 k t r ow th eh2 r ax p y uh1 t ih k s
+INFO:tensorflow:Inference results INPUT: d e h y d r o c h l o r i n a t i n g
+INFO:tensorflow:Inference results OUTPUT: d iy h ay2 d r ax k l ao1 r ax n ey2 t ih ng
+INFO:tensorflow:Inference results INPUT: c o n t e m p l a t i v e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: k ax n t eh1 m p l ax t ih v n ih s ih z
+INFO:tensorflow:Inference results INPUT: c o n s t i t u t i o n a l i t i e s
+INFO:tensorflow:Inference results OUTPUT: k aa2 n s t ax t uh2 sh ax n ae1 l ih t iy z
+INFO:tensorflow:Inference results INPUT: c o n s c i e n t i o u s n e s s e s
+INFO:tensorflow:Inference results OUTPUT: k aa2 n sh iy eh1 n sh ax s n ih s ih z
+INFO:tensorflow:Inference results INPUT: c o m p l e m e n t a r i n e s s e s
+INFO:tensorflow:Inference results OUTPUT: k aa2 m p l ax m eh1 n t ax r iy n ih s ih z
+INFO:tensorflow:Inference results INPUT: c o m f o r t a b l e - l o o k i n g
+INFO:tensorflow:Inference results OUTPUT: k ah1 m f ax r t ax b ax l uw1 k ih ng
+INFO:tensorflow:Inference results INPUT: c i r c u m s t a n t i a l i t i e s
+INFO:tensorflow:Inference results OUTPUT: s er2 r k ax m s t ae2 n sh iy ae1 l ih t iy z
+INFO:tensorflow:Inference results INPUT: c h o l e d o c h o l i t h i a s i s
+INFO:tensorflow:Inference results OUTPUT: k ax l iy2 d ow k ow2 l ih th ay1 ax s ih s
+INFO:tensorflow:Inference results INPUT: c h o l e c y s t o d o c h o t o m y
+INFO:tensorflow:Inference results OUTPUT: k ow2 l ax s ih2 s t ax d ow k aa1 t ax m iy
+INFO:tensorflow:Inference results INPUT: c h a r a c t e r o l o g i c a l l y
+INFO:tensorflow:Inference results OUTPUT: k eh2 r ih k t ax r ax l aa1 jh ih k l iy
+INFO:tensorflow:Inference results INPUT: b r o n c h o c o n s t r i c t i o n
+INFO:tensorflow:Inference results OUTPUT: b r aa2 ng k ow k ax n s t r ih1 k sh ax n
+INFO:tensorflow:Inference results INPUT: a d e n y l p y r o p h o s p h a t e
+INFO:tensorflow:Inference results OUTPUT: ae2 d ax n ih2 l p ay r aa1 f ax s f ey2 t
+INFO:tensorflow:Inference results INPUT: v a s o c o n s t r i c t i o n ' s
+INFO:tensorflow:Inference results OUTPUT: v ey2 z ow k ax n s t r ih1 k sh ax n z
+INFO:tensorflow:Inference results INPUT: u n e n t e r p r i s i n g n e s s
+INFO:tensorflow:Inference results OUTPUT: ah2 n eh1 n t ax r p r ay2 z ih ng n ax s
+INFO:tensorflow:Inference results INPUT: u n a p p r o a c h a b l e n e s s
+INFO:tensorflow:Inference results OUTPUT: ah2 n ax p r ow1 ch ax b ax l n ax s
+INFO:tensorflow:Inference results INPUT: s p e c t r o g r a p h i c a l l y
+INFO:tensorflow:Inference results OUTPUT: s p eh2 k t r ax g r ae1 f ih k l iy
+INFO:tensorflow:Inference results INPUT: s p a r s e l y - p o p u l a t e d
+INFO:tensorflow:Inference results OUTPUT: s p aa2 r s l iy p aa1 p y ax l ey2 t ih d
+INFO:tensorflow:Inference results INPUT: s o p o r i f e r o u s n e s s e s
+INFO:tensorflow:Inference results OUTPUT: s aa2 p ax r ih1 f ax r ax s n ih s ih z
+INFO:tensorflow:Inference results INPUT: s o c i o t e c h n o l o g i c a l
+INFO:tensorflow:Inference results OUTPUT: s ow2 s iy ow t eh2 k n ax l aa1 jh ih k ax l
+INFO:tensorflow:Inference results INPUT: s e m i q u a n t i t a t i v e l y
+INFO:tensorflow:Inference results OUTPUT: s eh2 m iy k w aa1 n t ax t ih v l iy
+INFO:tensorflow:Inference results INPUT: s e m i c o n s e r v a t i v e l y
+INFO:tensorflow:Inference results OUTPUT: s eh2 m iy k ax n s er1 r v ax t ih v l iy
+INFO:tensorflow:Inference results INPUT: s e l f - d e p r e c i a t i o n s
+INFO:tensorflow:Inference results OUTPUT: s eh2 l f d ih p r iy2 sh iy ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: s e l f - c o n t r a d i c t i o n
+INFO:tensorflow:Inference results OUTPUT: s eh2 l f k aa2 n t r ax d ih1 k sh ax n
+INFO:tensorflow:Inference results INPUT: r i g h t - h a n d e d n e s s e s
+INFO:tensorflow:Inference results OUTPUT: r ay1 t h ae1 n d ih d n ih s ih z
+INFO:tensorflow:Inference results INPUT: r e c t a n g u l a r - s h a p e d
+INFO:tensorflow:Inference results OUTPUT: r eh2 k t ae1 ng g y ax l ax r sh ey2 p t
+INFO:tensorflow:Inference results INPUT: q u a s i - g o v e r n m e n t a l
+INFO:tensorflow:Inference results OUTPUT: k w ey2 s iy g ah1 v ax r m eh1 n t ax l
+INFO:tensorflow:Inference results INPUT: p r e s t i d i g i t a t i o n ' s
+INFO:tensorflow:Inference results OUTPUT: p r eh2 s t ih d ih2 jh ih t ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: p r e s c r i p t i v e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: p r ih s k r ih1 p t ih v n ih s ih z
+INFO:tensorflow:Inference results INPUT: p h o t o m i c r o g r a p h i n g
+INFO:tensorflow:Inference results OUTPUT: f ow2 t ax m ay1 k r ax g r ae2 f ih ng
+INFO:tensorflow:Inference results INPUT: p h o t o f l u o r o g r a p h i c
+INFO:tensorflow:Inference results OUTPUT: f ow2 t ow f l uw2 ax r ax g r ae1 f ih k
+INFO:tensorflow:Inference results INPUT: p h e n o m e n o l o g i c a l l y
+INFO:tensorflow:Inference results OUTPUT: f ih n aa2 m ax n ax l aa1 jh ih k l iy
+INFO:tensorflow:Inference results INPUT: p a r s i m o n i o u s n e s s e s
+INFO:tensorflow:Inference results OUTPUT: p aa2 r s ax m ow1 n iy ax s n ih s ih z
+INFO:tensorflow:Inference results INPUT: o v e r p r o t e c t i v e n e s s
+INFO:tensorflow:Inference results OUTPUT: ow2 v ax r p r ax t eh1 k t ih v n ih s
+INFO:tensorflow:Inference results INPUT: o t h e r - d i r e c t e d n e s s
+INFO:tensorflow:Inference results OUTPUT: ah1 dh ax r d ih r eh1 k t ih d n ih s
+INFO:tensorflow:Inference results INPUT: n e u r o p s y c h i a t r i s t s
+INFO:tensorflow:Inference results OUTPUT: n uw2 r ow s ay k ay1 ax t r ih s t s
+INFO:tensorflow:Inference results INPUT: n e u r o p a t h y - r e l a t e d
+INFO:tensorflow:Inference results OUTPUT: n uw2 r ow p ae2 th iy r ih l ey1 t ih d
+INFO:tensorflow:Inference results INPUT: n e p h r o u r e t e r o s t o m y
+INFO:tensorflow:Inference results OUTPUT: n eh2 f r ow y uw2 r ih t ax r aa1 s t ax m iy
+INFO:tensorflow:Inference results INPUT: m u l t i f a r i o u s n e s s e s
+INFO:tensorflow:Inference results OUTPUT: m ah2 l t ax f eh1 r iy ax s n ih s ih z
+INFO:tensorflow:Inference results INPUT: m o n o c h r o m a t i c i t i e s
+INFO:tensorflow:Inference results OUTPUT: m aa2 n ax k r ow2 m ax t ih1 s ih t iy z
+INFO:tensorflow:Inference results INPUT: m i s i d e n t i f i c a t i o n s
+INFO:tensorflow:Inference results OUTPUT: m ih2 s ay d eh2 n t ax f ih k ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: m i s c l a s s i f i c a t i o n s
+INFO:tensorflow:Inference results OUTPUT: m ih2 s k l ae2 s ax f ax k ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: m i c r o m e t e o r o l o g i e s
+INFO:tensorflow:Inference results OUTPUT: m ay2 k r ow m iy2 t iy ax r aa1 l ax jh iy z
+INFO:tensorflow:Inference results INPUT: m i c r o c l i m a t o l o g i e s
+INFO:tensorflow:Inference results OUTPUT: m ay2 k r ow k l ay2 m ax t aa1 l ax jh iy z
+INFO:tensorflow:Inference results INPUT: m i c r o c a l c i f i c a t i o n
+INFO:tensorflow:Inference results OUTPUT: m ay2 k r ow k ae2 l s ih f ih k ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: m e t h y l m e t h a c r y l a t e
+INFO:tensorflow:Inference results OUTPUT: m eh2 th ax l m eh1 th ax k r ax l ey2 t
+INFO:tensorflow:Inference results INPUT: m a g n e t o e l e c t r i c i t y
+INFO:tensorflow:Inference results OUTPUT: m ae g n iy2 t ow ih l eh k t r ih1 s ax t iy
+INFO:tensorflow:Inference results INPUT: l i t h o s t r a t i g r a p h i c
+INFO:tensorflow:Inference results OUTPUT: l ih2 th ow s t r ae2 t ax g r ae1 f ih k
+INFO:tensorflow:Inference results INPUT: l i g h t - m i n d e d n e s s e s
+INFO:tensorflow:Inference results OUTPUT: l ay1 t m ay1 n d ih d n ih s ih z
+INFO:tensorflow:Inference results INPUT: j u d i c i a l l y - c r e a t e d
+INFO:tensorflow:Inference results OUTPUT: jh uh d ih1 sh ax l iy k r iy ey1 t ih d
+INFO:tensorflow:Inference results INPUT: i r r e s p o n s i b i l i t i e s
+INFO:tensorflow:Inference results OUTPUT: ih2 r ih s p aa2 n s ax b ih1 l ih t iy z
+INFO:tensorflow:Inference results INPUT: i r r e p r o a c h a b l e n e s s
+INFO:tensorflow:Inference results OUTPUT: ih2 r ih p r ow1 ch ax b ax l n ih s
+INFO:tensorflow:Inference results INPUT: i n t r o s p e c t i o n i s t i c
+INFO:tensorflow:Inference results OUTPUT: ih2 n t r ax s p eh2 k sh ax n ih1 s t ih k
+INFO:tensorflow:Inference results INPUT: i n t e r v e n t i o n a l i s t s
+INFO:tensorflow:Inference results OUTPUT: ih2 n t ax r v eh1 n sh ax n ax l ih s t s
+INFO:tensorflow:Inference results INPUT: i n t e r r e l a t i o n s h i p s
+INFO:tensorflow:Inference results OUTPUT: ih2 n t ax r r ih l ey1 sh ax n sh ih2 p s
+INFO:tensorflow:Inference results INPUT: i n t e l l e c t u a l n e s s e s
+INFO:tensorflow:Inference results OUTPUT: ih2 n t ax l eh1 k ch uw ax l n ih s ih z
+INFO:tensorflow:Inference results INPUT: i n d i s c r i m i n a t i n g l y
+INFO:tensorflow:Inference results OUTPUT: ih2 n d ih s k r ih1 m ax n ey2 t ih ng l iy
+INFO:tensorflow:Inference results INPUT: i n d e s c r i b a b i l i t i e s
+INFO:tensorflow:Inference results OUTPUT: ih2 n d ih s k r ay2 b ax b ih1 l ih t iy z
+INFO:tensorflow:Inference results INPUT: i n c o n s e q u e n t i a l i t y
+INFO:tensorflow:Inference results OUTPUT: ih2 n k aa n s ih k w eh2 n sh iy ae1 l ax t iy
+INFO:tensorflow:Inference results INPUT: i n c o m b u s t i b i l i t i e s
+INFO:tensorflow:Inference results OUTPUT: ih2 n k ax m b ah2 s t ax b ih1 l ih t iy z
+INFO:tensorflow:Inference results INPUT: i n a u s p i c i o u s n e s s e s
+INFO:tensorflow:Inference results OUTPUT: ih2 n ao s p ih1 sh ax s n ih s ih z
+INFO:tensorflow:Inference results INPUT: i m p r e s s i o n a b l e n e s s
+INFO:tensorflow:Inference results OUTPUT: ih m p r eh1 sh ax n ax b ax l n ih s
+INFO:tensorflow:Inference results INPUT: i m p o n d e r a b l e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: ih m p aa1 n d ax r ax b ax l n ih s ih z
+INFO:tensorflow:Inference results INPUT: i m p e r c e p t i b i l i t i e s
+INFO:tensorflow:Inference results OUTPUT: ih2 m p ax r s eh2 p t ax b ih1 l ih t iy z
+INFO:tensorflow:Inference results INPUT: h y p e r s e n s i t i z a t i o n
+INFO:tensorflow:Inference results OUTPUT: h ay2 p ax r s eh2 n s ih t ih z ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: h y p e r s e n s i t i v e n e s s
+INFO:tensorflow:Inference results OUTPUT: h ay2 p ax r s eh1 n s ax t ih v n ih s
+INFO:tensorflow:Inference results INPUT: h y d r o m e t e o r o l o g i s t
+INFO:tensorflow:Inference results OUTPUT: h ay2 d r ow m iy2 t iy ax r aa1 l ax jh ih s t
+INFO:tensorflow:Inference results INPUT: H e m o q u a n t - p o s i t i v e
+INFO:tensorflow:Inference results OUTPUT: h iy2 m ax k w aa2 n t p aa1 z ax t ih v
+INFO:tensorflow:Inference results INPUT: g r e a t - g r a n d p a r e n t s
+INFO:tensorflow:Inference results OUTPUT: g r ey1 t g r ae1 n p eh2 r ax n t s
+INFO:tensorflow:Inference results INPUT: e n v i r o n m e n t a l i s t s '
+INFO:tensorflow:Inference results OUTPUT: ih n v ay2 r ax n m eh1 n t ax l ih s t s
+INFO:tensorflow:Inference results INPUT: e m p l o y e e - o w n e r s h i p
+INFO:tensorflow:Inference results OUTPUT: eh2 m p l oy iy2 ow1 n ax r sh ih2 p
+INFO:tensorflow:Inference results INPUT: e l e c t r o m e t a l l u r g i c
+INFO:tensorflow:Inference results OUTPUT: ih l eh2 k t r ow m eh2 t ax l er1 r jh ih k
+INFO:tensorflow:Inference results INPUT: e l e c t r o c h r o n o g r a p h
+INFO:tensorflow:Inference results OUTPUT: ih l eh2 k t r ow k r aa1 n ax g r ae2 f
+INFO:tensorflow:Inference results INPUT: d i s e n f r a n c h i s e m e n t
+INFO:tensorflow:Inference results OUTPUT: d ih2 s ih n f r ae1 n ch ay z m ax n t
+INFO:tensorflow:Inference results INPUT: d i s c r i m i n a b i l i t i e s
+INFO:tensorflow:Inference results OUTPUT: d ih s k r ih2 m ax n ax b ih1 l ih t iy z
+INFO:tensorflow:Inference results INPUT: d i s c o n s o l a t e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: d ih2 s k aa1 n s ax l ih t n ih s ih z
+INFO:tensorflow:Inference results INPUT: d i e t h y l c a r b a m a z i n e
+INFO:tensorflow:Inference results OUTPUT: d ay2 ax th ih2 l k aa1 r b ax m ax z iy2 n
+INFO:tensorflow:Inference results INPUT: d e m a t e r i a l i z a t i o n s
+INFO:tensorflow:Inference results OUTPUT: d iy2 m ax t ih2 r iy ax l ih z ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: d e h y d r o c h l o r i n a t e d
+INFO:tensorflow:Inference results OUTPUT: d iy h ay2 d r ax k l ao1 r ax n ey2 t ih d
+INFO:tensorflow:Inference results INPUT: c r o s s - c o m p l a i n a n t s
+INFO:tensorflow:Inference results OUTPUT: k r aa2 s k ax m p l ey1 n ax n t s
+INFO:tensorflow:Inference results INPUT: c o s t i c a r t i l a g i n o u s
+INFO:tensorflow:Inference results OUTPUT: k aa2 s t ih k aa2 r t ax l ae1 jh ax n ax s
+INFO:tensorflow:Inference results INPUT: c o n t r a d i s t i n c t i o n s
+INFO:tensorflow:Inference results OUTPUT: k aa2 n t r ax d ih s t ih1 ng k sh ax n z
+INFO:tensorflow:Inference results INPUT: c o m m e r c i a l i z a t i o n s
+INFO:tensorflow:Inference results OUTPUT: k ax m er2 r sh ax l ih z ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: c o l d - h e a r t e d n e s s e s
+INFO:tensorflow:Inference results OUTPUT: k ow1 l d h aa1 r t ih d n ih s ih z
+INFO:tensorflow:Inference results INPUT: c h l o r t e t r a c y c l i n e s
+INFO:tensorflow:Inference results OUTPUT: k l ao2 r t eh t r ax s ay1 k l iy2 n z
+INFO:tensorflow:Inference results INPUT: c a l c i u m - c o n t r o l l e d
+INFO:tensorflow:Inference results OUTPUT: k ae1 l s iy ax m k ax n t r ow2 l d
+INFO:tensorflow:Inference results INPUT: a n t i c o u n t e r f e i t i n g
+INFO:tensorflow:Inference results OUTPUT: ae2 n t ay2 k aw2 n t ax r f iy1 t ih ng
+INFO:tensorflow:Inference results INPUT: a c o u s t o e l e c t r o n i c s
+INFO:tensorflow:Inference results OUTPUT: ax k uh2 s t ow ih l eh k t r aa1 n ih k s
+INFO:tensorflow:Inference results INPUT: w e a k - m i n d e d n e s s e s
+INFO:tensorflow:Inference results OUTPUT: w iy1 k m ay1 n d ih d n ih s ih z
+INFO:tensorflow:Inference results INPUT: v i s c e r o p e r i t o n e u m
+INFO:tensorflow:Inference results OUTPUT: v ih2 s ax r ow p eh2 r ih t n iy1 ax m
+INFO:tensorflow:Inference results INPUT: V e n u s ' s - f l y t r a p ' s
+INFO:tensorflow:Inference results OUTPUT: v iy2 n ax s ih z f l ay1 t r ae2 p s
+INFO:tensorflow:Inference results INPUT: u n p r e p o s s e s s i n g l y
+INFO:tensorflow:Inference results OUTPUT: ah2 n p r iy p ax z eh1 s ih ng l iy
+INFO:tensorflow:Inference results INPUT: u n o b t r u s i v e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: ah2 n ax b t r uh1 s ih v n ih s ih z
+INFO:tensorflow:Inference results INPUT: u n i m p e a c h a b l e n e s s
+INFO:tensorflow:Inference results OUTPUT: ah2 n ih m p iy1 ch ax b ax l n ax s
+INFO:tensorflow:Inference results INPUT: u n d e r p r o d u c t i o n ' s
+INFO:tensorflow:Inference results OUTPUT: ah2 n d ax r p r ax d ah1 k sh ax n z
+INFO:tensorflow:Inference results INPUT: u n c o o p e r a t i v e n e s s
+INFO:tensorflow:Inference results OUTPUT: ah n k ow aa1 p ax r ey2 t ih v n ih s
+INFO:tensorflow:Inference results INPUT: u l t r a s o n o g r a p h i e s
+INFO:tensorflow:Inference results OUTPUT: ah2 l t r ax s ax n aa1 g r ax f iy z
+INFO:tensorflow:Inference results INPUT: t r i b o l u m i n e s c e n c e
+INFO:tensorflow:Inference results OUTPUT: t r ay2 b ow l uh2 m ax n eh1 s ax n s
+INFO:tensorflow:Inference results INPUT: t r a n s f o r m a t i o n i s t
+INFO:tensorflow:Inference results OUTPUT: t r ae2 n s f ax r m ey1 sh ax n ih s t
+INFO:tensorflow:Inference results INPUT: t r a n s c u l t u r a t i o n s
+INFO:tensorflow:Inference results OUTPUT: t r ae2 n s k ah2 l ch ax r ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: t h e r m o e l e c t r i c i t y
+INFO:tensorflow:Inference results OUTPUT: th er2 r m ow ih l eh k t r ih1 s ax t iy
+INFO:tensorflow:Inference results INPUT: t h e r m o c h e m i s t r i e s
+INFO:tensorflow:Inference results OUTPUT: th er2 r m ow k eh1 m ih s t r iy z
+INFO:tensorflow:Inference results INPUT: t e n d e n t i o u s n e s s e s
+INFO:tensorflow:Inference results OUTPUT: t eh n d eh1 n sh ax s n ih s ih z
+INFO:tensorflow:Inference results INPUT: t e l e t r a n s c r i p t i o n
+INFO:tensorflow:Inference results OUTPUT: t eh2 l ax t r ae n s k r ih1 p sh ax n
+INFO:tensorflow:Inference results INPUT: t e l e p h o t o g r a p h i e s
+INFO:tensorflow:Inference results OUTPUT: t eh2 l ax f ax t aa1 g r ax f iy z
+INFO:tensorflow:Inference results INPUT: t e l e c o n f e r e n c i n g s
+INFO:tensorflow:Inference results OUTPUT: t eh2 l ih k aa1 n f ax r ax n s ih ng z
+INFO:tensorflow:Inference results INPUT: s u b s t a n t i v e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: s ah1 b s t ax n t ih v n ih s ih z
+INFO:tensorflow:Inference results INPUT: s u b s t a n c e - s e e k i n g
+INFO:tensorflow:Inference results OUTPUT: s ah1 b s t ax n s iy2 k ih ng
+INFO:tensorflow:Inference results INPUT: s t e r n a l - s p l i t t i n g
+INFO:tensorflow:Inference results OUTPUT: s t er1 r n ax l s p l ih2 t ih ng
+INFO:tensorflow:Inference results INPUT: s p e r m a t o c e l e c t o m y
+INFO:tensorflow:Inference results OUTPUT: s p ax r m ae2 t ax s ax l eh1 k t ax m iy
+INFO:tensorflow:Inference results INPUT: s e l f - p r o t e c t i v e l y
+INFO:tensorflow:Inference results OUTPUT: s eh2 l f p r ax t eh1 k t ih v l iy
+INFO:tensorflow:Inference results INPUT: s e l f - o b s e r v a t i o n s
+INFO:tensorflow:Inference results OUTPUT: s eh2 l f aa2 b z ax r v ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: s e l f - c o n t e n t m e n t s
+INFO:tensorflow:Inference results OUTPUT: s eh2 l f k ax n t eh1 n t m ax n t s
+INFO:tensorflow:Inference results INPUT: s e l f - c h a s t i s e m e n t
+INFO:tensorflow:Inference results OUTPUT: s eh2 l f ch ae1 s t ih s m ax n t
+INFO:tensorflow:Inference results INPUT: s e l f - c e n t e r e d n e s s
+INFO:tensorflow:Inference results OUTPUT: s eh1 l f s eh1 n t ax r d n ih s
+INFO:tensorflow:Inference results INPUT: s e c t i o n a l i z a t i o n s
+INFO:tensorflow:Inference results OUTPUT: s eh2 k sh ax n ax l ih z ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: r u d i m e n t a r i n e s s e s
+INFO:tensorflow:Inference results OUTPUT: r uh2 d ax m eh1 n t ax r iy n ih s ih z
+INFO:tensorflow:Inference results INPUT: r e t r o p e r i t o n e a l l y
+INFO:tensorflow:Inference results OUTPUT: r eh2 t r ow p eh2 r ih t n iy1 ax l iy
+INFO:tensorflow:Inference results INPUT: r e s o u r c e f u l n e s s e s
+INFO:tensorflow:Inference results OUTPUT: r ih s ao1 r s f ax l n ih s ih z
+INFO:tensorflow:Inference results INPUT: r e p r e h e n s i b l e n e s s
+INFO:tensorflow:Inference results OUTPUT: r eh2 p r ih h eh1 n s ax b ax l n ih s
+INFO:tensorflow:Inference results INPUT: r e i n t e r p r e t a t i o n s
+INFO:tensorflow:Inference results OUTPUT: r iy2 ih n t er2 r p r ih t ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: r a t i o n a l i s t i c a l l y
+INFO:tensorflow:Inference results OUTPUT: r ae2 sh ax n ax l ih1 s t ih k l iy
+INFO:tensorflow:Inference results INPUT: r a d i o t e l e g r a p h y ' s
+INFO:tensorflow:Inference results OUTPUT: r ey2 d iy ow t ax l eh1 g r ax f iy z
+INFO:tensorflow:Inference results INPUT: q u e s t i o n a b i l i t i e s
+INFO:tensorflow:Inference results OUTPUT: k w eh2 s ch ax n ax b ih1 l ih t iy z
+INFO:tensorflow:Inference results INPUT: p r o p o r t i o n a t e n e s s
+INFO:tensorflow:Inference results OUTPUT: p r ax p ao1 r sh ax n ih t n ih s
+INFO:tensorflow:Inference results INPUT: p r e m i l l e n n i a l i s m s
+INFO:tensorflow:Inference results OUTPUT: p r iy2 m ih l eh1 n iy ax l ih2 z ax m z
+INFO:tensorflow:Inference results INPUT: p r e c i p i t a t e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: p r ih s ih1 p ax t ih t n ih s ih z
+INFO:tensorflow:Inference results INPUT: p r e c i p i t a n t n e s s e s
+INFO:tensorflow:Inference results OUTPUT: p r ih s ih1 p ax t ax n t n ih s ih z
+INFO:tensorflow:Inference results INPUT: p o o r - s p i r i t e d n e s s
+INFO:tensorflow:Inference results OUTPUT: p uw1 r s p ih1 r ih t ih d n ih s
+INFO:tensorflow:Inference results INPUT: p l e a s u r a b l e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: p l eh1 zh r ax b ax l n ih s ih z
+INFO:tensorflow:Inference results INPUT: p h y t o s o c i o l o g i c a l
+INFO:tensorflow:Inference results OUTPUT: f ay2 t ow s ow2 s iy ax l aa1 jh ih k ax l
+INFO:tensorflow:Inference results INPUT: p h y s i o t h e r a p e u t i c
+INFO:tensorflow:Inference results OUTPUT: f ih2 z iy ow th eh r ax p y uh1 t ih k
+INFO:tensorflow:Inference results INPUT: p h o t o j o u r n a l i s m ' s
+INFO:tensorflow:Inference results OUTPUT: f ow2 t ow jh er1 r n ax l ih2 z ax m z
+INFO:tensorflow:Inference results INPUT: p h o t o c o a g u l a t i o n s
+INFO:tensorflow:Inference results OUTPUT: f ow2 t ow k ow ae2 g y ax l ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: p h o s p h o r e s c e n c e ' s
+INFO:tensorflow:Inference results OUTPUT: f aa2 s f ax r eh1 s ax n s ih z
+INFO:tensorflow:Inference results INPUT: p e r f o r m a n c e - b a s e d
+INFO:tensorflow:Inference results OUTPUT: p ax r f ao1 r m ax n s b ey2 s t
+INFO:tensorflow:Inference results INPUT: p a r a f o r m a l d e h y d e s
+INFO:tensorflow:Inference results OUTPUT: p ae2 r ax f ao r m ae1 l d ax h ay2 d z
+INFO:tensorflow:Inference results INPUT: o r t h o p s y c h i a t r i s t
+INFO:tensorflow:Inference results OUTPUT: ao2 r th ow s ay2 k ay1 ax t r ih s t
+INFO:tensorflow:Inference results INPUT: o r t h o p s y c h i a t r i e s
+INFO:tensorflow:Inference results OUTPUT: ao2 r th ow s ay k ay1 ax t r iy z
+INFO:tensorflow:Inference results INPUT: o n o m a t o p o e t i c a l l y
+INFO:tensorflow:Inference results OUTPUT: aa2 n ax m ae2 t ax p ow eh1 t ih k l iy
+INFO:tensorflow:Inference results INPUT: o m n i f a r i o u s n e s s e s
+INFO:tensorflow:Inference results OUTPUT: aa2 m n ax f eh1 r iy ax s n ih s ih z
+INFO:tensorflow:Inference results INPUT: o c e a n o g r a p h i c a l l y
+INFO:tensorflow:Inference results OUTPUT: ow2 sh ax n ax g r ae1 f ih k l iy
+INFO:tensorflow:Inference results INPUT: n e u r o p a t h o l o g i c a l
+INFO:tensorflow:Inference results OUTPUT: n uw2 r ow p ae2 th ax l aa1 jh ih k ax l
+INFO:tensorflow:Inference results INPUT: n e u r o f i b r o m a t o s i s
+INFO:tensorflow:Inference results OUTPUT: n er2 r ow f ay2 b r ow m ax t ow1 s ih s
+INFO:tensorflow:Inference results INPUT: n e o i m p r e s s i o n i s m s
+INFO:tensorflow:Inference results OUTPUT: n iy2 ow ih m p r eh1 sh ax n ih2 z ax m z
+INFO:tensorflow:Inference results INPUT: n e o - E x p r e s s i o n i s m
+INFO:tensorflow:Inference results OUTPUT: n iy2 ow ih k s p r eh1 sh ax n ih2 z ax m
+INFO:tensorflow:Inference results INPUT: m u n i c i p a l l y - o w n e d
+INFO:tensorflow:Inference results OUTPUT: m y uh2 n ih s ax p ax l iy ow1 n d
+INFO:tensorflow:Inference results INPUT: m u n i c i p a l i z a t i o n s
+INFO:tensorflow:Inference results OUTPUT: m y uh n ih2 s ax p ax l ih z ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: m u l t i d i s c i p l i n a r y
+INFO:tensorflow:Inference results OUTPUT: m ah2 l t iy d ih1 s ax p l ax n eh2 r iy
+INFO:tensorflow:Inference results INPUT: m i s a p p r e h e n s i v e l y
+INFO:tensorflow:Inference results OUTPUT: m ih2 s ae p r ih h eh1 n s ih v l iy
+INFO:tensorflow:Inference results INPUT: m i c r o s p e c t r o s c o p e
+INFO:tensorflow:Inference results OUTPUT: m ay2 k r ow s p eh1 k t r ax s k ow2 p
+INFO:tensorflow:Inference results INPUT: M a l a y o - P o l y n e s i a n
+INFO:tensorflow:Inference results OUTPUT: m ae2 l ax y ow p aa2 l ax n iy1 zh ax n
+INFO:tensorflow:Inference results INPUT: m a g n a n i m o u s n e s s e s
+INFO:tensorflow:Inference results OUTPUT: m ae g n ae1 n ax m ax s n ih s ih z
+INFO:tensorflow:Inference results INPUT: l y m p h a n g i o g r a p h i c
+INFO:tensorflow:Inference results OUTPUT: l ih m f ae2 n jh iy ax g r ae1 f ih k
+INFO:tensorflow:Inference results INPUT: l a m e l l i b r a n c h i a t e
+INFO:tensorflow:Inference results OUTPUT: l ax m eh2 l ax b r ae1 ng k iy ih t
+INFO:tensorflow:Inference results INPUT: l a c t i f e r o u s n e s s e s
+INFO:tensorflow:Inference results OUTPUT: l ae k t ih1 f ax r ax s n ih s ih z
+INFO:tensorflow:Inference results INPUT: l a c k a d a i s i c a l n e s s
+INFO:tensorflow:Inference results OUTPUT: l ae2 k ax d ey1 z ih k ax l n ih s
+INFO:tensorflow:Inference results INPUT: k a l e i d o s c o p i c a l l y
+INFO:tensorflow:Inference results OUTPUT: k ax l ay2 d ax s k aa1 p ih k l iy
+INFO:tensorflow:Inference results INPUT: i r r e d u c i b l e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: ih2 r ih d uh1 s ax b ax l n ih s ih z
+INFO:tensorflow:Inference results INPUT: i n t r a m y o c a r d i a l l y
+INFO:tensorflow:Inference results OUTPUT: ih2 n t r ax m ay ow k aa1 r d iy ax l iy
+INFO:tensorflow:Inference results INPUT: i n t e r t r a n s l a t a b l e
+INFO:tensorflow:Inference results OUTPUT: ih2 n t ax r t r ae n s l ey1 t ax b ax l
+INFO:tensorflow:Inference results INPUT: i n t e r n a t i o n a l i z e d
+INFO:tensorflow:Inference results OUTPUT: ih2 n t ax r n ae1 sh ax n ax l ay2 z d
+INFO:tensorflow:Inference results INPUT: i n s u r a n c e - s u p p o r t
+INFO:tensorflow:Inference results OUTPUT: ih2 n sh ax r ax n s ax p ao1 r t
+INFO:tensorflow:Inference results INPUT: i n s u l i n - r e q u i r i n g
+INFO:tensorflow:Inference results OUTPUT: ih2 n s ax l ih n r ih k w ay1 ax r ih ng
+INFO:tensorflow:Inference results INPUT: i n n u m e r a b l e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: ih n uh1 m ax r ax b ax l n ih s ih z
+INFO:tensorflow:Inference results INPUT: i n h e r i t a b l e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: ih n h eh1 r ax t ax b ax l n ih s ih z
+INFO:tensorflow:Inference results INPUT: i n d i s t i n g u i s h a b l y
+INFO:tensorflow:Inference results OUTPUT: ih2 n d ih s t ih1 ng g w ih sh ax b l iy
+INFO:tensorflow:Inference results INPUT: i n d i s t i n g u i s h a b l e
+INFO:tensorflow:Inference results OUTPUT: ih2 n d ih s t ih1 ng g w ih sh ax b ax l
+INFO:tensorflow:Inference results INPUT: i n d i s s o l u b i l i t i e s
+INFO:tensorflow:Inference results OUTPUT: ih2 n d ih s aa2 l y ax b ih1 l ih t iy z
+INFO:tensorflow:Inference results INPUT: i n c o r r i g i b i l i t i e s
+INFO:tensorflow:Inference results OUTPUT: ih n k ao2 r ih jh ax b ih1 l ih t iy z
+INFO:tensorflow:Inference results INPUT: i n c o n s p i c u o u s n e s s
+INFO:tensorflow:Inference results OUTPUT: ih2 n k ax n s p ih1 k y uw ax s n ih s
+INFO:tensorflow:Inference results INPUT: i n c o n s o l a b i l i t i e s
+INFO:tensorflow:Inference results OUTPUT: ih2 n k ax n s ow2 l ax b ih1 l ih t iy z
+INFO:tensorflow:Inference results INPUT: i n c o n s e c u t i v e n e s s
+INFO:tensorflow:Inference results OUTPUT: ih2 n k ax n s eh1 k y ax t ih v n ih s
+INFO:tensorflow:Inference results INPUT: i n c o m p a t i b i l i t i e s
+INFO:tensorflow:Inference results OUTPUT: ih2 n k ax m p ae2 t ax b ih1 l ih t iy z
+INFO:tensorflow:Inference results INPUT: i m p r a c t i c a l n e s s e s
+INFO:tensorflow:Inference results OUTPUT: ih m p r ae1 k t ih k ax l n ih s ih z
+INFO:tensorflow:Inference results INPUT: i m p e r c e p t i b l e n e s s
+INFO:tensorflow:Inference results OUTPUT: ih2 m p ax r s eh1 p t ax b ax l n ih s
+INFO:tensorflow:Inference results INPUT: i m p e n e t r a b i l i t i e s
+INFO:tensorflow:Inference results OUTPUT: ih m p eh2 n ih t r ax b ih1 l ih t iy z
+INFO:tensorflow:Inference results INPUT: i m m u n o s u p p r e s s a n t
+INFO:tensorflow:Inference results OUTPUT: ih2 m y ax n ow s ax p r eh1 s ax n t
+INFO:tensorflow:Inference results INPUT: h y p o c h o n d r i a c a l l y
+INFO:tensorflow:Inference results OUTPUT: h ay2 p ax k ax n d r ay1 ax k ax l iy
+INFO:tensorflow:Inference results INPUT: h y p e r g e u s e s t h e s i a
+INFO:tensorflow:Inference results OUTPUT: h ay2 p ax r g y uh2 s ax s th iy1 zh ax
+INFO:tensorflow:Inference results INPUT: g o o d h e a r t e d n e s s e s
+INFO:tensorflow:Inference results OUTPUT: g uw1 d h aa1 r t ih d n ih s ih z
+INFO:tensorflow:Inference results INPUT: e x t r a t e r r e s t r i a l s
+INFO:tensorflow:Inference results OUTPUT: eh2 k s t r ax t ax r eh1 s t r iy ax l z
+INFO:tensorflow:Inference results INPUT: e t h n o m u s i c o l o g i e s
+INFO:tensorflow:Inference results OUTPUT: eh2 th n ow m y uh2 z ih k aa1 l ax jh iy z
+INFO:tensorflow:Inference results INPUT: e p i t h e l i a l i z a t i o n
+INFO:tensorflow:Inference results OUTPUT: eh2 p ax th iy2 l iy ax l ih z ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: e n v i r o n m e n t a l i s t s
+INFO:tensorflow:Inference results OUTPUT: ih n v ay2 r ax n m eh1 n t ax l ih s t s
+INFO:tensorflow:Inference results INPUT: e n c e p h a l o m y e l i t e s
+INFO:tensorflow:Inference results OUTPUT: eh n s eh2 f ax l ow m ay2 ax l ay1 t iy z
+INFO:tensorflow:Inference results INPUT: e n c e p h a l o g r a p h i e s
+INFO:tensorflow:Inference results OUTPUT: eh n s eh2 f ax l aa1 g r ax f iy z
+INFO:tensorflow:Inference results INPUT: e m p l o y e r - p r o v i d e d
+INFO:tensorflow:Inference results OUTPUT: ih m p l oy2 er r p r ax v ay1 d ih d
+INFO:tensorflow:Inference results INPUT: e l e c t r o t e c h n i c i a n
+INFO:tensorflow:Inference results OUTPUT: ih l eh2 k t r ow t eh k n ih1 sh ax n
+INFO:tensorflow:Inference results INPUT: d i s t i n c t i v e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: d ih s t ih1 ng k t ih v n ih s ih z
+INFO:tensorflow:Inference results INPUT: d i r e c t i o n l e s s n e s s
+INFO:tensorflow:Inference results OUTPUT: d ax r eh1 k sh ax n l ax s n ih s
+INFO:tensorflow:Inference results INPUT: d e s t r u c t i v e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: d ih s t r ah1 k t ih v n ih s ih z
+INFO:tensorflow:Inference results INPUT: d e p e r s o n a l i z a t i o n
+INFO:tensorflow:Inference results OUTPUT: d iy p er2 r s ax n ax l ih z ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: d e n a t u r a l i z a t i o n s
+INFO:tensorflow:Inference results OUTPUT: d iy n ae2 ch ax r ax l ih z ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: d e n a t i o n a l i z a t i o n
+INFO:tensorflow:Inference results OUTPUT: d iy n ae2 sh ax n ax l ih z ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: d e m a t e r i a l i z a t i o n
+INFO:tensorflow:Inference results OUTPUT: d iy2 m ax t ih2 r iy ax l ih z ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: c r y p t o g r a p h i c a l l y
+INFO:tensorflow:Inference results OUTPUT: k r ih2 p t ax g r ae1 f ih k l iy
+INFO:tensorflow:Inference results INPUT: c r o s s - q u e s t i o n i n g
+INFO:tensorflow:Inference results OUTPUT: k r ao1 s k w eh1 s ch ax n ih ng
+INFO:tensorflow:Inference results INPUT: c r o s s - p o l l i n a t i o n
+INFO:tensorflow:Inference results OUTPUT: k r ao1 s p aa2 l ax n ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: c r o s s - e x a m i n a t i o n
+INFO:tensorflow:Inference results OUTPUT: k r aa2 s ih g z ae2 m ax n ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: c r e s t f a l l e n n e s s e s
+INFO:tensorflow:Inference results OUTPUT: k r eh1 s t f ao2 l ax n ih s ih z
+INFO:tensorflow:Inference results INPUT: c r a s h w o r t h i n e s s e s
+INFO:tensorflow:Inference results OUTPUT: k r ae1 sh w er2 r dh iy n ih s ih z
+INFO:tensorflow:Inference results INPUT: c o u n t e r s u g g e s t i o n
+INFO:tensorflow:Inference results OUTPUT: k aw2 n t ax r s ax jh eh1 s ch ax n
+INFO:tensorflow:Inference results INPUT: c o u n t e r i n s u r g e n t s
+INFO:tensorflow:Inference results OUTPUT: k aw2 n t ax r ih n s er1 r jh ax n t s
+INFO:tensorflow:Inference results INPUT: c o u n t e r d e p l o y m e n t
+INFO:tensorflow:Inference results OUTPUT: k aw1 n t ax r d ih p l oy2 m ax n t
+INFO:tensorflow:Inference results INPUT: c o u n t e r c y c l i c a l l y
+INFO:tensorflow:Inference results OUTPUT: k aw2 n t ax r s ay1 k l ih k l iy
+INFO:tensorflow:Inference results INPUT: c o n s t i t u t i o n a l i t y
+INFO:tensorflow:Inference results OUTPUT: k aa2 n s t ax t uh2 sh ax n ae1 l ax t iy
+INFO:tensorflow:Inference results INPUT: c o n s c i e n t i o u s n e s s
+INFO:tensorflow:Inference results OUTPUT: k aa2 n sh iy eh1 n sh ax s n ih s
+INFO:tensorflow:Inference results INPUT: c o n g r e g a t i o n a l i s m
+INFO:tensorflow:Inference results OUTPUT: k aa2 ng g r ih g ey1 sh ax n ax l ih z ax m
+INFO:tensorflow:Inference results INPUT: c o c h r o m a t o g r a p h i c
+INFO:tensorflow:Inference results OUTPUT: k ow2 k r ow m ae2 t ax g r ae1 f ih k
+INFO:tensorflow:Inference results INPUT: c o - a d m i n i s t r a t o r s
+INFO:tensorflow:Inference results OUTPUT: k ow2 ax d m ih1 n ax s t r ey2 t ax r z
+INFO:tensorflow:Inference results INPUT: c l a n d e s t i n e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: k l ae n d eh1 s t iy n n ih s ih z
+INFO:tensorflow:Inference results INPUT: c h o l e c y s t o g r a p h i c
+INFO:tensorflow:Inference results OUTPUT: k ow2 l ax s ih2 s t ax g r ae1 f ih k
+INFO:tensorflow:Inference results INPUT: c h e m o r a d i o t h e r a p y
+INFO:tensorflow:Inference results OUTPUT: k iy2 m ow r ey2 d iy ow th eh1 r ax p iy
+INFO:tensorflow:Inference results INPUT: b i b l i o g r a p h i c a l l y
+INFO:tensorflow:Inference results OUTPUT: b ih2 b l iy ax g r ae1 f ih k l iy
+INFO:tensorflow:Inference results INPUT: a r i s t o l o c h i a c e o u s
+INFO:tensorflow:Inference results OUTPUT: ax r ih2 s t ax l ow k iy ey1 sh ax s
+INFO:tensorflow:Inference results INPUT: a n t i m i s c e g e n a t i o n
+INFO:tensorflow:Inference results OUTPUT: ae n t ih m ih2 s ih jh ax n ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: a n t i - i n f l a m m a t o r y
+INFO:tensorflow:Inference results OUTPUT: ae2 n t iy ih n f l ae1 m ax t ao2 r iy
+INFO:tensorflow:Inference results INPUT: a n t i f r a g m e n t a t i o n
+INFO:tensorflow:Inference results OUTPUT: ae2 n t iy f r ae2 g m ax n t ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: a n t h r o p o m o r p h i z e s
+INFO:tensorflow:Inference results OUTPUT: ae2 n th r ax p ax m ao1 r f ay2 z ih z
+INFO:tensorflow:Inference results INPUT: a c q u i s i t i o n - v a l u e
+INFO:tensorflow:Inference results OUTPUT: ae2 k w ax z ih1 sh ax n v ae1 l y uh
+INFO:tensorflow:Inference results INPUT: a c c o u n t a n t - c l i e n t
+INFO:tensorflow:Inference results OUTPUT: ax k aw1 n t ax n t k l ay2 ax n t
+INFO:tensorflow:Inference results INPUT: w o r s h i p f u l n e s s e s
+INFO:tensorflow:Inference results OUTPUT: w er1 r sh ax p f ax l n ih s ih z
+INFO:tensorflow:Inference results INPUT: v i c t o r i o u s n e s s e s
+INFO:tensorflow:Inference results OUTPUT: v ih k t ao1 r iy ax s n ih s ih z
+INFO:tensorflow:Inference results INPUT: u r e t e r o l i t h i a s i s
+INFO:tensorflow:Inference results OUTPUT: y uw r iy2 t ax r ow l ih th ay1 ax s ih s
+INFO:tensorflow:Inference results INPUT: u n s k i l l f u l n e s s e s
+INFO:tensorflow:Inference results OUTPUT: ah n s k ih1 l f ax l n ih s ih z
+INFO:tensorflow:Inference results INPUT: u n s c i e n t i f i c a l l y
+INFO:tensorflow:Inference results OUTPUT: ah2 n s ay ax n t ih1 f ih k l iy
+INFO:tensorflow:Inference results INPUT: u n p r e t e n d i n g n e s s
+INFO:tensorflow:Inference results OUTPUT: ah2 n p r ih t eh1 n d ih ng n ax s
+INFO:tensorflow:Inference results INPUT: u n g o v e r n a b l e n e s s
+INFO:tensorflow:Inference results OUTPUT: ah n g ah1 v ax r n ax b ax l n ih s
+INFO:tensorflow:Inference results INPUT: u n f r i e n d l i n e s s e s
+INFO:tensorflow:Inference results OUTPUT: ah n f r eh1 n d l iy n ih s ih z
+INFO:tensorflow:Inference results INPUT: u n e n f o r c e a b i l i t y
+INFO:tensorflow:Inference results OUTPUT: ah2 n ih n f ao2 r s ax b ih1 l ax t iy
+INFO:tensorflow:Inference results INPUT: u n d e r p e r f o r m a n c e
+INFO:tensorflow:Inference results OUTPUT: ah2 n d ax r p ax r f ao1 r m ax n s
+INFO:tensorflow:Inference results INPUT: u n d e r m o d u l a t i o n s
+INFO:tensorflow:Inference results OUTPUT: ah2 n d ax r m aa2 jh ax l ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: u n d e r c a p i t a l i z e d
+INFO:tensorflow:Inference results OUTPUT: ah2 n d ax r k ae1 p ax t ax l ay2 z d
+INFO:tensorflow:Inference results INPUT: u n c o n t r o l l e d n e s s
+INFO:tensorflow:Inference results OUTPUT: ah2 n k ax n t r ow1 l d n ax s
+INFO:tensorflow:Inference results INPUT: u n c o m p r o m i s i n g l y
+INFO:tensorflow:Inference results OUTPUT: ah2 n k aa1 m p r ax m ay2 z ih ng l iy
+INFO:tensorflow:Inference results INPUT: t y r a n n i c a l n e s s e s
+INFO:tensorflow:Inference results OUTPUT: t ih r ae1 n ih k ax l n ih s ih z
+INFO:tensorflow:Inference results INPUT: t u m o r i g e n i c i t i e s
+INFO:tensorflow:Inference results OUTPUT: t uh2 m ax r ax jh ax n ih1 s ih t iy z
+INFO:tensorflow:Inference results INPUT: t r a n s p l a n t a t i o n s
+INFO:tensorflow:Inference results OUTPUT: t r ae2 n s p l ae n t ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: t r a n s i l l u m i n a t e d
+INFO:tensorflow:Inference results OUTPUT: t r ae2 n s ih l uh1 m ax n ey2 t ih d
+INFO:tensorflow:Inference results INPUT: t r a n s c o n t i n e n t a l
+INFO:tensorflow:Inference results OUTPUT: t r ae2 n s k aa n t ax n eh1 n t ax l
+INFO:tensorflow:Inference results INPUT: t r a n s c e n d e n t a l l y
+INFO:tensorflow:Inference results OUTPUT: t r ae2 n s eh n d eh1 n t ax l iy
+INFO:tensorflow:Inference results INPUT: t r a c h e o b r o n c h i a l
+INFO:tensorflow:Inference results OUTPUT: t r ey2 k iy ow b r aa1 ng k iy ax l
+INFO:tensorflow:Inference results INPUT: t h r o m b o p h l e b i t i s
+INFO:tensorflow:Inference results OUTPUT: th r aa2 m b ow f l ax b ay1 t ih s
+INFO:tensorflow:Inference results INPUT: t h r o m b o p h l e b i t i c
+INFO:tensorflow:Inference results OUTPUT: th r aa2 m b ow f l ax b ih1 t ih k
+INFO:tensorflow:Inference results INPUT: t h r o m b o c y t o p a t h y
+INFO:tensorflow:Inference results OUTPUT: th r aa2 m b ow s ay2 t aa1 p ax th iy
+INFO:tensorflow:Inference results INPUT: t h e r m o m e t r i c a l l y
+INFO:tensorflow:Inference results OUTPUT: th er2 r m ax m eh1 t r ih k l iy
+INFO:tensorflow:Inference results INPUT: t h e r m o d y n a m i c s ' s
+INFO:tensorflow:Inference results OUTPUT: th er2 r m ow d ay n ae1 m ih k s ih z
+INFO:tensorflow:Inference results INPUT: t h a l a m e n c e p h a l o n
+INFO:tensorflow:Inference results OUTPUT: th ae2 l ax m eh n s eh1 f ax l aa2 n
+INFO:tensorflow:Inference results INPUT: t e r m i n a b l e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: t er1 r m ax n ax b ax l n ih s ih z
+INFO:tensorflow:Inference results INPUT: t e l e s t e r e o s c o p e s
+INFO:tensorflow:Inference results OUTPUT: t eh2 l ih s t eh1 r iy ax s k ow2 p s
+INFO:tensorflow:Inference results INPUT: t e l e p h o t o g r a p h e d
+INFO:tensorflow:Inference results OUTPUT: t eh2 l ax f ow1 t ax g r ae2 f t
+INFO:tensorflow:Inference results INPUT: s y l l a b i f i c a t i o n s
+INFO:tensorflow:Inference results OUTPUT: s ih l ae2 b ax f ax k ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: s u p e r i n t e l l i g e n t
+INFO:tensorflow:Inference results OUTPUT: s uh2 p ax r ih n t eh1 l ax jh ax n t
+INFO:tensorflow:Inference results INPUT: s u b m e r g i b i l i t i e s
+INFO:tensorflow:Inference results OUTPUT: s ax b m er2 r jh ax b ih1 l ih t iy z
+INFO:tensorflow:Inference results INPUT: s t u p e n d o u s n e s s e s
+INFO:tensorflow:Inference results OUTPUT: s t uh p eh1 n d ax s n ih s ih z
+INFO:tensorflow:Inference results INPUT: s t r o n g h e a d e d n e s s
+INFO:tensorflow:Inference results OUTPUT: s t r ao1 ng h eh1 d ih d n ih s
+INFO:tensorflow:Inference results INPUT: s p i r i t l e s s n e s s e s
+INFO:tensorflow:Inference results OUTPUT: s p ih1 r ih t l ih s n ih s ih z
+INFO:tensorflow:Inference results INPUT: S p a n i s h - A m e r i c a n
+INFO:tensorflow:Inference results OUTPUT: s p ae2 n ih sh ax m eh1 r ih k ax n
+INFO:tensorflow:Inference results INPUT: s i n i s t r o c e r e b r a l
+INFO:tensorflow:Inference results OUTPUT: s ih2 n ih s t r ow s ax r iy1 b r ax l
+INFO:tensorflow:Inference results INPUT: s e l f - d e v o t e d n e s s
+INFO:tensorflow:Inference results OUTPUT: s eh2 l f d ih v ow1 t ih d n ih s
+INFO:tensorflow:Inference results INPUT: s e l f - c o n s c i o u s l y
+INFO:tensorflow:Inference results OUTPUT: s eh2 l f k aa1 n sh ax s l iy
+INFO:tensorflow:Inference results INPUT: s e l f - c o n f i d e n c e s
+INFO:tensorflow:Inference results OUTPUT: s eh2 l f k aa1 n f ax d ax n s ih z
+INFO:tensorflow:Inference results INPUT: s c l e r o d e r m a t i t i s
+INFO:tensorflow:Inference results OUTPUT: s k l ih2 r ow d ax r m ax t ay1 t ih s
+INFO:tensorflow:Inference results INPUT: s c h o o l m i s t r e s s ' s
+INFO:tensorflow:Inference results OUTPUT: s k uh1 l m ih2 s t r ih s ih z
+INFO:tensorflow:Inference results INPUT: r i g h t - m i n d e d n e s s
+INFO:tensorflow:Inference results OUTPUT: r ay1 t m ay1 n d ih d n ih s
+INFO:tensorflow:Inference results INPUT: r e t r a n s f o r m a t i o n
+INFO:tensorflow:Inference results OUTPUT: r iy2 t r ae2 n s f ax r m ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: r e f r a n g i b i l i t i e s
+INFO:tensorflow:Inference results OUTPUT: r ih f r ae2 n jh ax b ih1 l ih t iy z
+INFO:tensorflow:Inference results INPUT: r e e d u c a t i o n - c a m p
+INFO:tensorflow:Inference results OUTPUT: r iy2 eh jh ax k ey1 sh ax n k ae1 m p
+INFO:tensorflow:Inference results INPUT: r e d e t e r m i n a t i o n s
+INFO:tensorflow:Inference results OUTPUT: r iy2 d ih t er2 r m ax n ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: q u a n t i f i c a t i o n a l
+INFO:tensorflow:Inference results OUTPUT: k w aa2 n t ax f ax k ey1 sh ax n ax l
+INFO:tensorflow:Inference results INPUT: p s e u d o c l a s s i c i s m
+INFO:tensorflow:Inference results OUTPUT: s uh2 d ow k l ae1 s ax s ih2 z ax m
+INFO:tensorflow:Inference results INPUT: p r o f u n d o p l a s t i e s
+INFO:tensorflow:Inference results OUTPUT: p r ax f ah1 n d ax p l ae2 s t iy z
+INFO:tensorflow:Inference results INPUT: p r o f e s s i o n a l i s m s
+INFO:tensorflow:Inference results OUTPUT: p r ax f eh1 sh ax n ax l ih2 z ax m z
+INFO:tensorflow:Inference results INPUT: p r o c h l o r p e r a z i n e
+INFO:tensorflow:Inference results OUTPUT: p r ow2 k l ao2 r p eh1 r ax z iy2 n
+INFO:tensorflow:Inference results INPUT: p r i n c e ' s - f e a t h e r
+INFO:tensorflow:Inference results OUTPUT: p r ih1 n s ih z f eh1 dh ax r
+INFO:tensorflow:Inference results INPUT: p r e v e n t i v e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: p r ih v eh1 n t ih v n ih s ih z
+INFO:tensorflow:Inference results INPUT: p r e t e c h n o l o g i c a l
+INFO:tensorflow:Inference results OUTPUT: p r iy2 t eh2 k n ax l aa1 jh ih k ax l
+INFO:tensorflow:Inference results INPUT: p r e s u m p t u o u s n e s s
+INFO:tensorflow:Inference results OUTPUT: p r ih z ah1 m p ch uw ax s n ih s
+INFO:tensorflow:Inference results INPUT: p r e s t i d i g i t a t i o n
+INFO:tensorflow:Inference results OUTPUT: p r eh2 s t ih d ih2 jh ih t ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: p r e s c r i p t i v e n e s s
+INFO:tensorflow:Inference results OUTPUT: p r ih s k r ih1 p t ih v n ih s
+INFO:tensorflow:Inference results INPUT: p r e i n c o r p o r a t i o n
+INFO:tensorflow:Inference results OUTPUT: p r iy2 ih n k ao2 r p ax r ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: p o t e n t i a l i z a t i o n
+INFO:tensorflow:Inference results OUTPUT: p ax t eh2 n sh ax l ih z ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: p o s t c o n c u s s i o n a l
+INFO:tensorflow:Inference results OUTPUT: p ow2 s t k ax n k ah1 sh ax n ax l
+INFO:tensorflow:Inference results INPUT: p o l y t h e i s t i c a l l y
+INFO:tensorflow:Inference results OUTPUT: p aa2 l iy th iy ih1 s t ih k l iy
+INFO:tensorflow:Inference results INPUT: p o l y s y l l a b i c a l l y
+INFO:tensorflow:Inference results OUTPUT: p aa2 l iy s ih l ae1 b ih k l iy
+INFO:tensorflow:Inference results INPUT: p o l y c h r o m o p h i l i a
+INFO:tensorflow:Inference results OUTPUT: p aa2 l iy k r ow2 m ax f ih1 l iy ax
+INFO:tensorflow:Inference results INPUT: p o l i t i c a l i z a t i o n
+INFO:tensorflow:Inference results OUTPUT: p ax l ih2 t ih k ax l ih z ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: p n e u m o h e m o t h o r a x
+INFO:tensorflow:Inference results OUTPUT: n uh2 m ow h iy2 m ax th ao1 r ae2 k s
+INFO:tensorflow:Inference results INPUT: p n e u m a t o r r h a c h i s
+INFO:tensorflow:Inference results OUTPUT: n uh2 m ax t ao2 r ae1 k ax k ih s
+INFO:tensorflow:Inference results INPUT: p h y t o c h e m i s t r i e s
+INFO:tensorflow:Inference results OUTPUT: f ay2 t ow k eh1 m ih s t r iy z
+INFO:tensorflow:Inference results INPUT: p h o t o z i n c o g r a p h s
+INFO:tensorflow:Inference results OUTPUT: f ow2 t ow z ih1 ng k ax g r ae2 f s
+INFO:tensorflow:Inference results INPUT: p h o t o t y p e s e t t e r s
+INFO:tensorflow:Inference results OUTPUT: f ow2 t ow t ay1 p s eh2 t ax r z
+INFO:tensorflow:Inference results INPUT: p h o t o t r a n s i s t o r s
+INFO:tensorflow:Inference results OUTPUT: f ow2 t ow t r ae n z ih1 s t ax r z
+INFO:tensorflow:Inference results INPUT: p h o t o g r a p h i c a l l y
+INFO:tensorflow:Inference results OUTPUT: f ow2 t ax g r ae1 f ih k l iy
+INFO:tensorflow:Inference results INPUT: p h o t o - e x c i t a t i o n
+INFO:tensorflow:Inference results OUTPUT: f ow2 t ow eh2 k s ih t ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: p h o s p h o r e s c e n t l y
+INFO:tensorflow:Inference results OUTPUT: f aa2 s f ax r eh1 s ax n t l iy
+INFO:tensorflow:Inference results INPUT: p h o n o c a r d i o g r a m s
+INFO:tensorflow:Inference results OUTPUT: f ow2 n ow k aa1 r d iy ax g r ae2 m z
+INFO:tensorflow:Inference results INPUT: p e r s o n a l i z a t i o n s
+INFO:tensorflow:Inference results OUTPUT: p er2 r s ax n ax l ax z ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: p e r s o n a l - d e t a i l s
+INFO:tensorflow:Inference results OUTPUT: p er1 r s ax n ax l d ih t ey2 l z
+INFO:tensorflow:Inference results INPUT: p e r i s s o d a c t y l o u s
+INFO:tensorflow:Inference results OUTPUT: p ax r ih2 s ow d ae1 k t ax l ax s
+INFO:tensorflow:Inference results INPUT: p e r f e c t i v e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: p ax r f eh1 k t ih v n ih s ih z
+INFO:tensorflow:Inference results INPUT: p e r c e p t i b i l i t i e s
+INFO:tensorflow:Inference results OUTPUT: p ax r s eh2 p t ax b ih1 l ih t iy z
+INFO:tensorflow:Inference results INPUT: p a r s i m o n i o u s n e s s
+INFO:tensorflow:Inference results OUTPUT: p aa2 r s ax m ow1 n iy ax s n ih s
+INFO:tensorflow:Inference results INPUT: p a r a d i g m a t i c a l l y
+INFO:tensorflow:Inference results OUTPUT: p ae2 r ax d ih g m ae1 t ih k l iy
+INFO:tensorflow:Inference results INPUT: p a l e - e t h n o l o g i e s
+INFO:tensorflow:Inference results OUTPUT: p ey2 l iy eh th n aa1 l ax jh iy z
+INFO:tensorflow:Inference results INPUT: o w n e r - c o n t r a c t o r
+INFO:tensorflow:Inference results OUTPUT: ow2 n ax r k ax n t r ae1 k t ax r
+INFO:tensorflow:Inference results INPUT: o v e r s u b s c r i p t i o n
+INFO:tensorflow:Inference results OUTPUT: ow2 v ax r s ax b s k r ih1 p sh ax n
+INFO:tensorflow:Inference results INPUT: o v e r c o m p e n s a t i n g
+INFO:tensorflow:Inference results OUTPUT: ow2 v ax r k aa1 m p ax n s ey2 t ih ng
+INFO:tensorflow:Inference results INPUT: o r g a n i z a t i o n a l l y
+INFO:tensorflow:Inference results OUTPUT: ao2 r g ax n ax z ey1 sh ax n ax l iy
+INFO:tensorflow:Inference results INPUT: o f f i c e r - i n v o l v e d
+INFO:tensorflow:Inference results OUTPUT: ao1 f ih s ax r ih n v aa2 l v d
+INFO:tensorflow:Inference results INPUT: o f f e n s e - s p e c i f i c
+INFO:tensorflow:Inference results OUTPUT: ax f eh2 n s s p ax s ih1 f ih k
+INFO:tensorflow:Inference results INPUT: n o r t h - n o r t h e a s t s
+INFO:tensorflow:Inference results OUTPUT: n ao1 r th n ao r th iy1 s t s
+INFO:tensorflow:Inference results INPUT: n o n o f f i c e h o l d i n g
+INFO:tensorflow:Inference results OUTPUT: n aa2 n ax f ay1 s h ow2 l d ih ng
+INFO:tensorflow:Inference results INPUT: n o n d i s j u n c t i o n a l
+INFO:tensorflow:Inference results OUTPUT: n aa2 n d ih s jh ah1 ng k sh ax n ax l
+INFO:tensorflow:Inference results INPUT: n o n d e d u c t i b i l i t y
+INFO:tensorflow:Inference results OUTPUT: n aa2 n d ih d ah2 k t ax b ih1 l ax t iy
+INFO:tensorflow:Inference results INPUT: n o n c o n s i d e r a t i o n
+INFO:tensorflow:Inference results OUTPUT: n aa2 n k ax n s ih2 d ax r ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: n o n c o n f r o n t a t i o n
+INFO:tensorflow:Inference results OUTPUT: n aa2 n k aa n f r ax n t ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: n o n c o m p r e h e n s i o n
+INFO:tensorflow:Inference results OUTPUT: n aa2 n k aa m p r ih h eh1 n sh ax n
+INFO:tensorflow:Inference results INPUT: n o n c o m m u t a t i v i t y
+INFO:tensorflow:Inference results OUTPUT: n aa2 n k ax m y uh2 t ax t ih1 v ax t iy
+INFO:tensorflow:Inference results INPUT: n o n a r b i t r a r i n e s s
+INFO:tensorflow:Inference results OUTPUT: n aa2 n aa1 r b ih t r eh2 r iy n ih s
+INFO:tensorflow:Inference results INPUT: n i t r o g l y c e r i n e ' s
+INFO:tensorflow:Inference results OUTPUT: n ay2 t r ax g l ih1 s r ih n z
+INFO:tensorflow:Inference results INPUT: n e p h r o t o m o g r a p h y
+INFO:tensorflow:Inference results OUTPUT: n eh2 f r ow t ax m aa1 g r ax f iy
+INFO:tensorflow:Inference results INPUT: n e o i m p r e s s i o n i s t
+INFO:tensorflow:Inference results OUTPUT: n iy2 ow ih m p r eh1 sh ax n ih s t
+INFO:tensorflow:Inference results INPUT: n e o i m p r e s s i o n i s m
+INFO:tensorflow:Inference results OUTPUT: n iy2 ow ih m p r eh1 sh ax n ih2 z ax m
+INFO:tensorflow:Inference results INPUT: n e o a r s p h e n a m i n e s
+INFO:tensorflow:Inference results OUTPUT: n iy2 ow aa2 r s f eh1 n ax m iy2 n z
+INFO:tensorflow:Inference results INPUT: n a t i o n a l i z a t i o n s
+INFO:tensorflow:Inference results OUTPUT: n ae2 sh ax n ax l ih z ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: m y e l o m e n i n g o c e l e
+INFO:tensorflow:Inference results OUTPUT: m ay2 ax l ow m ax n ih1 ng g ax s iy2 l
+INFO:tensorflow:Inference results INPUT: m u l t i d i r e c t i o n a l
+INFO:tensorflow:Inference results OUTPUT: m ah2 l t iy d ax r eh1 k sh ax n ax l
+INFO:tensorflow:Inference results INPUT: m u l t i d i m e n s i o n a l
+INFO:tensorflow:Inference results OUTPUT: m ah2 l t iy d ih m eh1 n sh ax n ax l
+INFO:tensorflow:Inference results INPUT: m i s a n t h r o p i c a l l y
+INFO:tensorflow:Inference results OUTPUT: m ih2 s ae n th r aa1 p ih k l iy
+INFO:tensorflow:Inference results INPUT: m i n i a t u r i z a t i o n s
+INFO:tensorflow:Inference results OUTPUT: m ih2 n iy ae2 ch ax r ih z ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: m i c r o v a s c u l a t u r e
+INFO:tensorflow:Inference results OUTPUT: m ay2 k r ow v ae1 s k y ax l ax ch ax r
+INFO:tensorflow:Inference results INPUT: m i c r o c h r o n o m e t e r
+INFO:tensorflow:Inference results OUTPUT: m ay2 k r ow k r ax n aa1 m ax t ax r
+INFO:tensorflow:Inference results INPUT: m e t r o m e n o r r h a g i a
+INFO:tensorflow:Inference results OUTPUT: m eh2 t r ow m eh2 n ax r ey1 jh iy ax
+INFO:tensorflow:Inference results INPUT: m e t h o d i c a l n e s s e s
+INFO:tensorflow:Inference results OUTPUT: m ax th aa1 d ih k ax l n ih s ih z
+INFO:tensorflow:Inference results INPUT: m e t e o r o l o g i c a l l y
+INFO:tensorflow:Inference results OUTPUT: m iy2 t iy ax r ax l aa1 jh ih k l iy
+INFO:tensorflow:Inference results INPUT: m e n o m e t r o r r h a g i a
+INFO:tensorflow:Inference results OUTPUT: m eh2 n ax m eh2 t r ax r ey1 jh iy ax
+INFO:tensorflow:Inference results INPUT: m e n i n g o m y e l o c e l e
+INFO:tensorflow:Inference results OUTPUT: m ax n ih2 ng g ow m ay1 ax l ax s iy2 l
+INFO:tensorflow:Inference results INPUT: m e g a g a m e t o p h y t e s
+INFO:tensorflow:Inference results OUTPUT: m eh2 g ax g ax m iy1 t ax f ay2 t s
+INFO:tensorflow:Inference results INPUT: m e c h a n o t h e r a p i e s
+INFO:tensorflow:Inference results OUTPUT: m eh2 k ax n ow th eh1 r ax p iy z
+INFO:tensorflow:Inference results INPUT: m a r s u p i a l i z a t i o n
+INFO:tensorflow:Inference results OUTPUT: m aa r s uh2 p iy ax l ih z ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: m a g n e t o c h e m i s t r y
+INFO:tensorflow:Inference results OUTPUT: m ae g n iy2 t ow k eh1 m ih s t r iy
+INFO:tensorflow:Inference results INPUT: m a c r o a n g i o p a t h i c
+INFO:tensorflow:Inference results OUTPUT: m ae2 k r ow ae2 n jh iy ow p ae1 th ih k
+INFO:tensorflow:Inference results INPUT: l u g u b r i o u s n e s s e s
+INFO:tensorflow:Inference results OUTPUT: l uh g uh1 b r iy ax s n ih s ih z
+INFO:tensorflow:Inference results INPUT: L i e c h t e n s t e i n e r s
+INFO:tensorflow:Inference results OUTPUT: l iy1 k t ax n s t ay2 n ax r z
+INFO:tensorflow:Inference results INPUT: l i c e n t i o u s n e s s e s
+INFO:tensorflow:Inference results OUTPUT: l ay s eh1 n sh ax s n ih s ih z
+INFO:tensorflow:Inference results INPUT: l a s c i v i o u s n e s s e s
+INFO:tensorflow:Inference results OUTPUT: l ax s ih1 v iy ax s n ih s ih z
+INFO:tensorflow:Inference results INPUT: l a c t o s e - n e g a t i v e
+INFO:tensorflow:Inference results OUTPUT: l ae1 k t ow s n eh1 g ax t ih v
+INFO:tensorflow:Inference results INPUT: j u s t i f i a b i l i t i e s
+INFO:tensorflow:Inference results OUTPUT: jh ah2 s t ax f ay2 ax b ih1 l ih t iy z
+INFO:tensorflow:Inference results INPUT: i r r e v e r s i b l e n e s s
+INFO:tensorflow:Inference results OUTPUT: ih2 r ih v er1 r s ax b ax l n ih s
+INFO:tensorflow:Inference results INPUT: i r r e t r i e v a b i l i t y
+INFO:tensorflow:Inference results OUTPUT: ih2 r ih t r iy2 v ax b ih1 l ax t iy
+INFO:tensorflow:Inference results INPUT: i r r e m o v a b i l i t i e s
+INFO:tensorflow:Inference results OUTPUT: ih2 r ih m uh2 v ax b ih1 l ih t iy z
+INFO:tensorflow:Inference results INPUT: i n t r o d u c t o r i n e s s
+INFO:tensorflow:Inference results OUTPUT: ih2 n t r ax d ah1 k t ax r iy n ih s
+INFO:tensorflow:Inference results INPUT: i n t e r p e n e t r a t i o n
+INFO:tensorflow:Inference results OUTPUT: ih2 n t ax r p eh2 n ih t r ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: i n t e r n a l i z a t i o n s
+INFO:tensorflow:Inference results OUTPUT: ih n t er2 r n ax l ax z ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: i n t e r d e p e n d e n t l y
+INFO:tensorflow:Inference results OUTPUT: ih2 n t ax r d ih p eh1 n d ax n t l iy
+INFO:tensorflow:Inference results INPUT: i n t e r c o n v e r t i b l e
+INFO:tensorflow:Inference results OUTPUT: ih2 n t ax r k ax n v er1 r t ax b ax l
+INFO:tensorflow:Inference results INPUT: i n f a l l i b l e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: ih n f ae1 l ax b ax l n ih s ih z
+INFO:tensorflow:Inference results INPUT: i n e l u c t a b i l i t i e s
+INFO:tensorflow:Inference results OUTPUT: ih2 n ih l ah2 k t ax b ih1 l ih t iy z
+INFO:tensorflow:Inference results INPUT: i n d o c t r i n a t i o n a l
+INFO:tensorflow:Inference results OUTPUT: ih n d aa2 k t r ax n ey1 sh ax n ax l
+INFO:tensorflow:Inference results INPUT: i n d i v i s i b i l i t i e s
+INFO:tensorflow:Inference results OUTPUT: ih2 n d ih v ih2 z ax b ih1 l ih t iy z
+INFO:tensorflow:Inference results INPUT: i n d i s s o l u b l e n e s s
+INFO:tensorflow:Inference results OUTPUT: ih2 n d ih s aa1 l y ax b ax l n ih s
+INFO:tensorflow:Inference results INPUT: i n d e f e a s i b l e n e s s
+INFO:tensorflow:Inference results OUTPUT: ih2 n d ih f iy1 z ax b ax l n ih s
+INFO:tensorflow:Inference results INPUT: i n d e c i s i v e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: ih2 n d ih s ay1 s ih v n ih s ih z
+INFO:tensorflow:Inference results INPUT: i n c o r r i g i b l e n e s s
+INFO:tensorflow:Inference results OUTPUT: ih n k ao1 r ih jh ax b ax l n ih s
+INFO:tensorflow:Inference results INPUT: i n c o n s e q u e n t n e s s
+INFO:tensorflow:Inference results OUTPUT: ih n k aa1 n s ih k w ax n t n ih s
+INFO:tensorflow:Inference results INPUT: i n c o m p r e h e n s i o n s
+INFO:tensorflow:Inference results OUTPUT: ih2 n k aa m p r ih h eh1 n sh ax n z
+INFO:tensorflow:Inference results INPUT: i n c o m m e n s u r a t e l y
+INFO:tensorflow:Inference results OUTPUT: ih2 n k ax m eh1 n sh ax r ih t l iy
+INFO:tensorflow:Inference results INPUT: i n c o m m e n s u r a b l e s
+INFO:tensorflow:Inference results OUTPUT: ih2 n k ax m eh1 n sh ax r ax b ax l z
+INFO:tensorflow:Inference results INPUT: i m p e r v i o u s n e s s e s
+INFO:tensorflow:Inference results OUTPUT: ih m p er1 r v iy ax s n ih s ih z
+INFO:tensorflow:Inference results INPUT: h y d r o g r a p h i c a l l y
+INFO:tensorflow:Inference results OUTPUT: h ay2 d r ax g r ae1 f ih k l iy
+INFO:tensorflow:Inference results INPUT: h i s t o m o r p h o l o g i c
+INFO:tensorflow:Inference results OUTPUT: h ih2 s t ax m ao2 r f ax l aa1 jh ih k
+INFO:tensorflow:Inference results INPUT: h e m o p n e u m o t h o r a x
+INFO:tensorflow:Inference results OUTPUT: h iy2 m ow n uh2 m ow th ao1 r ax k s
+INFO:tensorflow:Inference results INPUT: h a r v a r d - b l u e b o o k
+INFO:tensorflow:Inference results OUTPUT: h aa1 r v ax r d b l uh b uw2 k
+INFO:tensorflow:Inference results INPUT: g o o d - h u m o r e d n e s s
+INFO:tensorflow:Inference results OUTPUT: g uw1 d h y uh1 m ax r d n ih s
+INFO:tensorflow:Inference results INPUT: g e o c h r o n o m e t r i e s
+INFO:tensorflow:Inference results OUTPUT: jh iy2 ow k r ax n aa1 m ih t r iy z
+INFO:tensorflow:Inference results INPUT: g e o c h r o n o l o g i s t s
+INFO:tensorflow:Inference results OUTPUT: jh iy2 ow k r ax n aa1 l ax jh ih s t s
+INFO:tensorflow:Inference results INPUT: f r a c t i o n i z a t i o n s
+INFO:tensorflow:Inference results OUTPUT: f r ae2 k sh ax n ih z ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: f o r m u l a r i z a t i o n s
+INFO:tensorflow:Inference results OUTPUT: f ao2 r m y ax l ax r ih z ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: f i b r o m e m b r a n e o u s
+INFO:tensorflow:Inference results OUTPUT: f ay2 b r ow m eh m b r ey1 n iy ax s
+INFO:tensorflow:Inference results INPUT: e x t r a t e r r i t o r i a l
+INFO:tensorflow:Inference results OUTPUT: eh2 k s t r ax t eh2 r ax t ao1 r iy ax l
+INFO:tensorflow:Inference results INPUT: e x t e r n a l i z a t i o n s
+INFO:tensorflow:Inference results OUTPUT: ih k s t er2 r n ax l ax z ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: e x p r e s s i v e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: ih k s p r eh1 s ih v n ih s ih z
+INFO:tensorflow:Inference results INPUT: e x h a u s t i b i l i t i e s
+INFO:tensorflow:Inference results OUTPUT: ih g z ao2 s t ax b ih1 l ih t iy z
+INFO:tensorflow:Inference results INPUT: e u r i t h e r m o p h i l i c
+INFO:tensorflow:Inference results OUTPUT: y uw2 r ax th er2 r m ax f ih1 l ih k
+INFO:tensorflow:Inference results INPUT: E s t a t e s - G e n e r a l s
+INFO:tensorflow:Inference results OUTPUT: ax s t ey1 t s jh eh1 n ax r ax l z
+INFO:tensorflow:Inference results INPUT: e r y t h r o m e l a l g i a s
+INFO:tensorflow:Inference results OUTPUT: ih r ih2 th r ow m ax l ae1 l jh ax z
+INFO:tensorflow:Inference results INPUT: e r y t h r o c y t o m e t e r
+INFO:tensorflow:Inference results OUTPUT: ih r ih2 th r ow s ay t aa1 m ax t ax r
+INFO:tensorflow:Inference results INPUT: e r r o r - c o r r e c t i n g
+INFO:tensorflow:Inference results OUTPUT: eh1 r ax r k ax r eh1 k t ih ng
+INFO:tensorflow:Inference results INPUT: e n t e r o p a t h o g e n i c
+INFO:tensorflow:Inference results OUTPUT: eh2 n t ax r ow p ae2 th ax jh eh1 n ih k
+INFO:tensorflow:Inference results INPUT: e n c e p h a l a s t h e n i a
+INFO:tensorflow:Inference results OUTPUT: eh n s eh2 f ax l ax s th iy1 n iy ax
+INFO:tensorflow:Inference results INPUT: e m p l o y m e n t - b a s e d
+INFO:tensorflow:Inference results OUTPUT: ih m p l oy1 m ax n t b ey2 s t
+INFO:tensorflow:Inference results INPUT: e m b o u r g e o i s e m e n t
+INFO:tensorflow:Inference results OUTPUT: eh2 m b uw r jh iy1 ow ay2 z m ax n t
+INFO:tensorflow:Inference results INPUT: e l e c t r o k y m o g r a p h
+INFO:tensorflow:Inference results OUTPUT: ih l eh2 k t r ow k ay1 m ax g r ae2 f
+INFO:tensorflow:Inference results INPUT: e l e c t r o d e r m a t o m e
+INFO:tensorflow:Inference results OUTPUT: ih l eh2 k t r ow d er1 r m ax t ow2 m
+INFO:tensorflow:Inference results INPUT: e f f o r t l e s s n e s s e s
+INFO:tensorflow:Inference results OUTPUT: eh1 f ax r t l ih s n ih s ih z
+INFO:tensorflow:Inference results INPUT: d o u b l e - c h a m b e r e d
+INFO:tensorflow:Inference results OUTPUT: d ah2 b ax l ch ey1 m b ax r d
+INFO:tensorflow:Inference results INPUT: d i s t e n s i b i l i t i e s
+INFO:tensorflow:Inference results OUTPUT: d ih s t eh2 n s ax b ih1 l ih t iy z
+INFO:tensorflow:Inference results INPUT: d i s r e p u t a b l e n e s s
+INFO:tensorflow:Inference results OUTPUT: d ih s r eh1 p y ax t ax b ax l n ih s
+INFO:tensorflow:Inference results INPUT: d i s a f f o r e s t a t i o n
+INFO:tensorflow:Inference results OUTPUT: d ih2 s ax f ao2 r ih s t ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: d i a g o n a l i z a t i o n s
+INFO:tensorflow:Inference results OUTPUT: d ay ae2 g ax n ax l ih z ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: d i a b e t e s - r e l a t e d
+INFO:tensorflow:Inference results OUTPUT: d ay2 ax b iy1 t s r ax l ey1 t ih d
+INFO:tensorflow:Inference results INPUT: d e s t a b i l i z a t i o n s
+INFO:tensorflow:Inference results OUTPUT: d iy s t ey2 b ax l ih z ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: d e p r e s s u r i z a t i o n
+INFO:tensorflow:Inference results OUTPUT: d iy p r eh2 sh ax r ih z ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: d e c a r b o n i z a t i o n s
+INFO:tensorflow:Inference results OUTPUT: d iy k aa2 r b ax n ih z ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: c y t o p h o t o m e t r i e s
+INFO:tensorflow:Inference results OUTPUT: s ay2 t ow f ow t aa1 m ih t r iy z
+INFO:tensorflow:Inference results INPUT: c y s t o u r e t h r o c e l e
+INFO:tensorflow:Inference results OUTPUT: s ih2 s t ow y uw r iy1 th r ax s iy2 l
+INFO:tensorflow:Inference results INPUT: c r o s s p o l l i n a t i o n
+INFO:tensorflow:Inference results OUTPUT: k r aa2 s p aa l ax n ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: c r e d i t w o r t h i n e s s
+INFO:tensorflow:Inference results OUTPUT: k r eh1 d ih t w er2 r dh iy n ih s
+INFO:tensorflow:Inference results INPUT: c r e d i t a b l e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: k r eh1 d ih t ax b ax l n ih s ih z
+INFO:tensorflow:Inference results INPUT: c o u n t e r i n c e n t i v e
+INFO:tensorflow:Inference results OUTPUT: k aw2 n t ax r ih n s eh1 n t ih v
+INFO:tensorflow:Inference results INPUT: c o u n t e r c h a l l e n g e
+INFO:tensorflow:Inference results OUTPUT: k aw1 n t ax r ch ao2 l ih n jh
+INFO:tensorflow:Inference results INPUT: c o n v e n t i o n a l i z e s
+INFO:tensorflow:Inference results OUTPUT: k ax n v eh1 n sh ax n ax l ay2 z ih z
+INFO:tensorflow:Inference results INPUT: c o n v e n t i o n a l i s t s
+INFO:tensorflow:Inference results OUTPUT: k ax n v eh1 n sh ax n ax l ih s t s
+INFO:tensorflow:Inference results INPUT: c o n t u m a c i o u s n e s s
+INFO:tensorflow:Inference results OUTPUT: k aa2 n t uw m ey1 sh ax s n ih s
+INFO:tensorflow:Inference results INPUT: c o n s t r u c t i o n a l l y
+INFO:tensorflow:Inference results OUTPUT: k ax n s t r ah1 k sh ax n ax l iy
+INFO:tensorflow:Inference results INPUT: c o n s e q u e n t i a l i s t
+INFO:tensorflow:Inference results OUTPUT: k aa2 n s ih k w eh1 n sh ax l ih s t
+INFO:tensorflow:Inference results INPUT: c o n f o r m a t i o n a l l y
+INFO:tensorflow:Inference results OUTPUT: k aa2 n f ao r m ey1 sh ax n ax l iy
+INFO:tensorflow:Inference results INPUT: c o n c l u s i v e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: k ax n k l uh1 s ih v n ih s ih z
+INFO:tensorflow:Inference results INPUT: c o m p u l s i v e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: k ax m p ah1 l s ih v n ih s ih z
+INFO:tensorflow:Inference results INPUT: c o m p l e m e n t a t i o n s
+INFO:tensorflow:Inference results OUTPUT: k aa2 m p l ax m eh n t ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: c o m p a r t m e n t a l i z e
+INFO:tensorflow:Inference results OUTPUT: k ax m p aa2 r t m eh1 n t ax l ay z
+INFO:tensorflow:Inference results INPUT: c o l o r - a t t r i b u t e s
+INFO:tensorflow:Inference results OUTPUT: k ah1 l ax r ax t r ax b y uh2 t s
+INFO:tensorflow:Inference results INPUT: c o l o n o s c o p i c a l l y
+INFO:tensorflow:Inference results OUTPUT: k ax l aa2 n ax s k aa1 p ih k l iy
+INFO:tensorflow:Inference results INPUT: c o e t a n e o u s n e s s e s
+INFO:tensorflow:Inference results OUTPUT: k ow2 ih t ey1 n iy ax s n ih s ih z
+INFO:tensorflow:Inference results INPUT: c i r c u m s t a n t i a l l y
+INFO:tensorflow:Inference results OUTPUT: s er2 r k ax m s t ae1 n sh ax l iy
+INFO:tensorflow:Inference results INPUT: c i n e m a t o g r a p h y ' s
+INFO:tensorflow:Inference results OUTPUT: s ih2 n ax m ax t aa1 g r ax f iy z
+INFO:tensorflow:Inference results INPUT: c h l o r p h e n i r a m i n e
+INFO:tensorflow:Inference results OUTPUT: k l ao2 r f eh n ih1 r ax m iy2 n
+INFO:tensorflow:Inference results INPUT: c e n s u r a b l e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: s eh1 n sh ax r ax b ax l n ih s ih z
+INFO:tensorflow:Inference results INPUT: c a p i t a l - N o v e m b e r
+INFO:tensorflow:Inference results OUTPUT: k ae1 p ih t ax l n ah1 v ax m b ax r
+INFO:tensorflow:Inference results INPUT: c a p i t a l - N O V E M B E R
+INFO:tensorflow:Inference results OUTPUT: k ae1 p ih t ax l n ow v eh2 m b er r
+INFO:tensorflow:Inference results INPUT: b l o c k a d e - r u n n e r s
+INFO:tensorflow:Inference results OUTPUT: b l aa k ey1 d r ah2 n ax r z
+INFO:tensorflow:Inference results INPUT: b a r e h a n d e d n e s s e s
+INFO:tensorflow:Inference results OUTPUT: b eh1 r h ae1 n d ih d n ih s ih z
+INFO:tensorflow:Inference results INPUT: a u t o i m m u n i z a t i o n
+INFO:tensorflow:Inference results OUTPUT: ao2 t ow ih2 m y ax n ih z ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: a t t o r n e y - i n - f a c t
+INFO:tensorflow:Inference results OUTPUT: ax t er1 r n iy ih n f ae1 k t
+INFO:tensorflow:Inference results INPUT: a r t e r i o s c l e r o s e s
+INFO:tensorflow:Inference results OUTPUT: aa r t ih2 r iy ow s k l ax r ow1 s iy z
+INFO:tensorflow:Inference results INPUT: a r i s t o c r a t i c a l l y
+INFO:tensorflow:Inference results OUTPUT: ax r ih2 s t ax k r ae1 t ih k l iy
+INFO:tensorflow:Inference results INPUT: a p p o r t i o n a b i l i t y
+INFO:tensorflow:Inference results OUTPUT: ax p ao2 r sh ax n ax b ih1 l ax t iy
+INFO:tensorflow:Inference results INPUT: a p p l i c a t i o n - n a m e
+INFO:tensorflow:Inference results OUTPUT: ae2 p l ax k ey1 sh ax n n n ey2 m
+INFO:tensorflow:Inference results INPUT: a n t i p h o s p h o l i p i d
+INFO:tensorflow:Inference results OUTPUT: ae2 n t ay2 f aa1 s f ax l ih1 p ih d
+INFO:tensorflow:Inference results INPUT: a n t i p e r s p i r a n t ' s
+INFO:tensorflow:Inference results OUTPUT: ae2 n t iy p er1 r s p ax r ax n t s
+INFO:tensorflow:Decoding batch 1
+INFO:tensorflow:Inference results INPUT: a n t i c o n v e n t i o n a l
+INFO:tensorflow:Inference results OUTPUT: ae2 n t iy k ax n v eh1 n sh ax n ax l
+INFO:tensorflow:Inference results INPUT: a n t h r o p o m e t r i c a l
+INFO:tensorflow:Inference results OUTPUT: ae2 n th r ax p ax m eh1 t r ih k ax l
+INFO:tensorflow:Inference results INPUT: a n t e r o i n f e r i o r l y
+INFO:tensorflow:Inference results OUTPUT: ae2 n t ax r ow ih n f ih1 r iy er r l iy
+INFO:tensorflow:Inference results INPUT: a m p h i b o l o g i c a l l y
+INFO:tensorflow:Inference results OUTPUT: ae2 m f ax b ax l aa1 jh ih k l iy
+INFO:tensorflow:Inference results INPUT: a m b i d e x t r o u s n e s s
+INFO:tensorflow:Inference results OUTPUT: ae2 m b ih d eh1 k s t r ax s n ih s
+INFO:tensorflow:Inference results INPUT: a l c o h o l - i m p a i r e d
+INFO:tensorflow:Inference results OUTPUT: ae1 l k ax h ao2 l ih m p eh1 r d
+INFO:tensorflow:Inference results INPUT: a g a m o g e n e t i c a l l y
+INFO:tensorflow:Inference results OUTPUT: ax g ae2 m ax jh ax n eh1 t ih k l iy
+INFO:tensorflow:Inference results INPUT: w o r l d - w e a r i n e s s
+INFO:tensorflow:Inference results OUTPUT: w er1 r l d w ih2 r iy n ih s
+INFO:tensorflow:Inference results INPUT: w a t e r - r e s i s t a n t
+INFO:tensorflow:Inference results OUTPUT: w ao1 t ax r r ih z ih1 s t ax n t
+INFO:tensorflow:Inference results INPUT: w a r r a n t - i s s u i n g
+INFO:tensorflow:Inference results OUTPUT: w ao1 r ax n t ih2 s uh ih ng
+INFO:tensorflow:Inference results INPUT: w a r m h e a r t e d n e s s
+INFO:tensorflow:Inference results OUTPUT: w ao1 r m h aa1 r t ih d n ih s
+INFO:tensorflow:Inference results INPUT: v i v a c i o u s n e s s e s
+INFO:tensorflow:Inference results OUTPUT: v ay v ey1 sh ax s n ih s ih z
+INFO:tensorflow:Inference results INPUT: v e n t r i l o q u i a l l y
+INFO:tensorflow:Inference results OUTPUT: v eh2 n t r ax l ow1 k w iy ax l iy
+INFO:tensorflow:Inference results INPUT: v a s o c o n s t r i c t e d
+INFO:tensorflow:Inference results OUTPUT: v ey2 z ow k ax n s t r ih1 k t ih d
+INFO:tensorflow:Inference results INPUT: v a s c u l a r i z a t i o n
+INFO:tensorflow:Inference results OUTPUT: v ae2 s k y ax l ax r ay z ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: v a r u s - p r o d u c i n g
+INFO:tensorflow:Inference results OUTPUT: v ae1 r ax s p r ax d uh2 s ih ng
+INFO:tensorflow:Inference results INPUT: u p p e r c l a s s m e n ' s
+INFO:tensorflow:Inference results OUTPUT: ah2 p ax r k l ae1 s m ax n z
+INFO:tensorflow:Inference results INPUT: u n s u i t a b i l i t i e s
+INFO:tensorflow:Inference results OUTPUT: ah n s uh2 t ax b ih1 l ih t iy z
+INFO:tensorflow:Inference results INPUT: u n s t a t e s m a n l i k e
+INFO:tensorflow:Inference results OUTPUT: ah n s t ey1 t s m ax n l ay2 k
+INFO:tensorflow:Inference results INPUT: u n s e l f i s h n e s s e s
+INFO:tensorflow:Inference results OUTPUT: ah n s eh1 l f ih sh n ih s ih z
+INFO:tensorflow:Inference results INPUT: u n i n t e n t i o n a l l y
+INFO:tensorflow:Inference results OUTPUT: ah2 n ih n t eh1 n sh ax n ax l iy
+INFO:tensorflow:Inference results INPUT: u n h e a l t h f u l n e s s
+INFO:tensorflow:Inference results OUTPUT: ah n h eh1 l th f ax l n ih s
+INFO:tensorflow:Inference results INPUT: u n d u t i f u l n e s s e s
+INFO:tensorflow:Inference results OUTPUT: ah n d uh1 t ih f ax l n ih s ih z
+INFO:tensorflow:Inference results INPUT: u n d e s i g n i n g n e s s
+INFO:tensorflow:Inference results OUTPUT: ah2 n d ih z ay1 n ih ng n ax s
+INFO:tensorflow:Inference results INPUT: u n d e r s u b s c r i b e d
+INFO:tensorflow:Inference results OUTPUT: ah2 n d ax r s ax b s k r ay1 b d
+INFO:tensorflow:Inference results INPUT: u n d e r p r o d u c t i o n
+INFO:tensorflow:Inference results OUTPUT: ah2 n d ax r p r ax d ah1 k sh ax n
+INFO:tensorflow:Inference results INPUT: u n d e r i n v e s t m e n t
+INFO:tensorflow:Inference results OUTPUT: ah2 n d ax r ih n v eh1 s t m ax n t
+INFO:tensorflow:Inference results INPUT: u n d e m o n s t r a t i v e
+INFO:tensorflow:Inference results OUTPUT: ah2 n d ih m aa1 n s t r ax t ih v
+INFO:tensorflow:Inference results INPUT: u n c l i m b a b l e n e s s
+INFO:tensorflow:Inference results OUTPUT: ah n k l ay1 m ax b ax l n ih s
+INFO:tensorflow:Inference results INPUT: u n a v o i d a b l e n e s s
+INFO:tensorflow:Inference results OUTPUT: ah2 n ax v oy1 d ax b ax l n ax s
+INFO:tensorflow:Inference results INPUT: u n a u t h e n t i c a t e d
+INFO:tensorflow:Inference results OUTPUT: ah2 n ao th eh1 n t ih k ey2 t ih d
+INFO:tensorflow:Inference results INPUT: u n a n i m o u s n e s s e s
+INFO:tensorflow:Inference results OUTPUT: y uh n ae1 n ax m ax s n ih s ih z
+INFO:tensorflow:Inference results INPUT: u l t r a c e n t r i f u g e
+INFO:tensorflow:Inference results OUTPUT: ah2 l t r ax s eh1 n t r ax f y uh2 jh
+INFO:tensorflow:Inference results INPUT: t y r a n n o s a u r u s ' s
+INFO:tensorflow:Inference results OUTPUT: t ih r ae2 n ax s ao1 r ax s ih z
+INFO:tensorflow:Inference results INPUT: t r i g o n o m e t r i c a l
+INFO:tensorflow:Inference results OUTPUT: t r ih2 g ax n ax m eh1 t r ih k ax l
+INFO:tensorflow:Inference results INPUT: t r e m u l o u s n e s s e s
+INFO:tensorflow:Inference results OUTPUT: t r eh1 m y ax l ax s n ih s ih z
+INFO:tensorflow:Inference results INPUT: t r a v e l e r ' s - t r e e
+INFO:tensorflow:Inference results OUTPUT: t r ae1 v l ax r z t r iy2
+INFO:tensorflow:Inference results INPUT: t r a n s p a r e n t n e s s
+INFO:tensorflow:Inference results OUTPUT: t r ae n s p eh1 r ax n t n ih s
+INFO:tensorflow:Inference results INPUT: t r a n s g r e s s i v e l y
+INFO:tensorflow:Inference results OUTPUT: t r ae n s g r eh1 s ih v l iy
+INFO:tensorflow:Inference results INPUT: t r a n q u i l i z a t i o n
+INFO:tensorflow:Inference results OUTPUT: t r ae2 ng k w ax l ax z ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: t h r e m m a t o l o g i e s
+INFO:tensorflow:Inference results OUTPUT: th r eh2 m ax t aa1 l ax jh iy z
+INFO:tensorflow:Inference results INPUT: t h i n g - i n - i t s e l f
+INFO:tensorflow:Inference results OUTPUT: th ih2 ng ih n ih1 t s eh2 l f
+INFO:tensorflow:Inference results INPUT: t h e r m o b a r o m e t e r
+INFO:tensorflow:Inference results OUTPUT: th er2 r m ow b ax r aa1 m ax t ax r
+INFO:tensorflow:Inference results INPUT: t e r r i t o r i a l i z e d
+INFO:tensorflow:Inference results OUTPUT: t eh2 r ih t ao1 r iy ax l ay2 z d
+INFO:tensorflow:Inference results INPUT: t e m e r a r i o u s n e s s
+INFO:tensorflow:Inference results OUTPUT: t eh2 m ax r eh1 r iy ax s n ih s
+INFO:tensorflow:Inference results INPUT: t e l e p h o t o g r a p h y
+INFO:tensorflow:Inference results OUTPUT: t eh2 l ax f ax t aa1 g r ax f iy
+INFO:tensorflow:Inference results INPUT: t e c h n o s t r u c t u r e
+INFO:tensorflow:Inference results OUTPUT: t eh1 k n ow s t r ah2 k ch ax r
+INFO:tensorflow:Inference results INPUT: t a l k a t i v e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: t ao1 k ax t ih v n ih s ih z
+INFO:tensorflow:Inference results INPUT: s y n e r g i s t i c a l l y
+INFO:tensorflow:Inference results OUTPUT: s ih2 n ax r jh ih1 s t ih k l iy
+INFO:tensorflow:Inference results INPUT: s y m p a t h e c t o m i e s
+INFO:tensorflow:Inference results OUTPUT: s ih2 m p ax th eh1 k t ax m iy z
+INFO:tensorflow:Inference results INPUT: s y c o p h a n t i c a l l y
+INFO:tensorflow:Inference results OUTPUT: s ih2 k ax f ae1 n t ih k l iy
+INFO:tensorflow:Inference results INPUT: s u s c e p t i b l e n e s s
+INFO:tensorflow:Inference results OUTPUT: s ax s eh1 p t ax b ax l n ih s
+INFO:tensorflow:Inference results INPUT: s u r v i v a b i l i t i e s
+INFO:tensorflow:Inference results OUTPUT: s ax r v ay2 v ax b ih1 l ih t iy z
+INFO:tensorflow:Inference results INPUT: s u p e r s t r u c t u r a l
+INFO:tensorflow:Inference results OUTPUT: s uh1 p ax r s t r ah2 k ch ax r ax l
+INFO:tensorflow:Inference results INPUT: s u p e r s c r i p t i o n s
+INFO:tensorflow:Inference results OUTPUT: s uh2 p ax r s k r ih1 p sh ax n z
+INFO:tensorflow:Inference results INPUT: s u p e r l a t i v e n e s s
+INFO:tensorflow:Inference results OUTPUT: s ax p er1 r l ax t ih v n ih s
+INFO:tensorflow:Inference results INPUT: s u p e r i n t e n d e n t s
+INFO:tensorflow:Inference results OUTPUT: s uh2 p r ih n t eh1 n d ax n t s
+INFO:tensorflow:Inference results INPUT: s u b v o c a l i z a t i o n
+INFO:tensorflow:Inference results OUTPUT: s ah2 b v ow2 k ax l ih z ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: s u b s t a n t i a l n e s s
+INFO:tensorflow:Inference results OUTPUT: s ax b s t ae1 n sh ax l n ih s
+INFO:tensorflow:Inference results INPUT: s u b f r a n c h i s o r ' s
+INFO:tensorflow:Inference results OUTPUT: s ah2 b f r ae1 n ch ay2 z er r z
+INFO:tensorflow:Inference results INPUT: s t r i c t u r o p l a s t y
+INFO:tensorflow:Inference results OUTPUT: s t r ih1 k ch ax r ax p l ae2 s t iy
+INFO:tensorflow:Inference results INPUT: s t o l o n i f e r o u s l y
+INFO:tensorflow:Inference results OUTPUT: s t aa2 l ax n ih1 f ax r ax s l iy
+INFO:tensorflow:Inference results INPUT: s t a p h y l o r r h a p h y
+INFO:tensorflow:Inference results OUTPUT: s t ae2 f ax l ao1 r ax f iy
+INFO:tensorflow:Inference results INPUT: s t a n d o f f i s h n e s s
+INFO:tensorflow:Inference results OUTPUT: s t ae n d ao1 f ih sh n ih s
+INFO:tensorflow:Inference results INPUT: s t a m p - c o l l e c t o r
+INFO:tensorflow:Inference results OUTPUT: s t ae1 m p k ax l eh2 k t ax r
+INFO:tensorflow:Inference results INPUT: s p r i n g - m a t t r e s s
+INFO:tensorflow:Inference results OUTPUT: s p r ih1 ng m ae2 t r ih s
+INFO:tensorflow:Inference results INPUT: s p i n e l e s s n e s s e s
+INFO:tensorflow:Inference results OUTPUT: s p ay1 n l ih s n ih s ih z
+INFO:tensorflow:Inference results INPUT: s p h y g m o g r a p h i e s
+INFO:tensorflow:Inference results OUTPUT: s f ih g m aa1 g r ax f iy z
+INFO:tensorflow:Inference results INPUT: s l e e p l e s s n e s s e s
+INFO:tensorflow:Inference results OUTPUT: s l iy1 p l ih s n ih s ih z
+INFO:tensorflow:Inference results INPUT: s l a u g h t e r h o u s e s
+INFO:tensorflow:Inference results OUTPUT: s l ao1 t ax r h aw2 z ih z
+INFO:tensorflow:Inference results INPUT: s i l i c i f i c a t i o n s
+INFO:tensorflow:Inference results OUTPUT: s ax l ih2 s ax f ax k ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: s e n s a t i o n a l i s t s
+INFO:tensorflow:Inference results OUTPUT: s eh n s ey1 sh ax n ax l ih s t s
+INFO:tensorflow:Inference results INPUT: s e m i s u b m e r s i b l e
+INFO:tensorflow:Inference results OUTPUT: s eh2 m iy s ax b m er1 r s ax b ax l
+INFO:tensorflow:Inference results INPUT: s e l f - s u p p o r t i n g
+INFO:tensorflow:Inference results OUTPUT: s eh2 l f s ax p ao1 r t ih ng
+INFO:tensorflow:Inference results INPUT: s e l f - p r o t e c t i v e
+INFO:tensorflow:Inference results OUTPUT: s eh2 l f p r ax t eh1 k t ih v
+INFO:tensorflow:Inference results INPUT: s e l f - p e r c e p t i o n
+INFO:tensorflow:Inference results OUTPUT: s eh2 l f p ax r s eh1 p sh ax n
+INFO:tensorflow:Inference results INPUT: s e l f - m u t i l a t i o n
+INFO:tensorflow:Inference results OUTPUT: s eh2 l f m y uh2 t ax l ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: s e l f - i n d u c t a n c e
+INFO:tensorflow:Inference results OUTPUT: s eh2 l f ih n d ah1 k t ax n s
+INFO:tensorflow:Inference results INPUT: s e l f - g o v e r n a n c e
+INFO:tensorflow:Inference results OUTPUT: s eh1 l f g ah1 v ax r n ax n s
+INFO:tensorflow:Inference results INPUT: s e l f - g e n e r a t i n g
+INFO:tensorflow:Inference results OUTPUT: s eh1 l f jh eh1 n ax r ey2 t ih ng
+INFO:tensorflow:Inference results INPUT: s e l f - e x p l a i n i n g
+INFO:tensorflow:Inference results OUTPUT: s eh1 l f ih k s p l ey1 n ih ng
+INFO:tensorflow:Inference results INPUT: s e l f - c o n t r o l l e d
+INFO:tensorflow:Inference results OUTPUT: s eh2 l f k ax n t r ow1 l d
+INFO:tensorflow:Inference results INPUT: s e l f - c e n s o r s h i p
+INFO:tensorflow:Inference results OUTPUT: s eh2 l f s eh1 n s ax r sh ih2 p
+INFO:tensorflow:Inference results INPUT: s e l f - a b a s e m e n t s
+INFO:tensorflow:Inference results OUTPUT: s eh2 l f ax b ey1 s m ax n t s
+INFO:tensorflow:Inference results INPUT: s e c l u s i v e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: s ih k l uh1 s ih v n ih s ih z
+INFO:tensorflow:Inference results INPUT: s e c l u s i o n - b a s e d
+INFO:tensorflow:Inference results OUTPUT: s ih k l uh1 zh ax n b ey2 s t
+INFO:tensorflow:Inference results INPUT: s c a p h o t r a p e z i a l
+INFO:tensorflow:Inference results OUTPUT: s k ae2 f ax t r ax p iy1 z iy ax l
+INFO:tensorflow:Inference results INPUT: s a n c t i f i c a t i o n s
+INFO:tensorflow:Inference results OUTPUT: s ae2 ng k t ax f ax k ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: s a c c h a r o m y c e t i c
+INFO:tensorflow:Inference results OUTPUT: s ae2 k ax r ow m ay s iy1 t ih k
+INFO:tensorflow:Inference results INPUT: R h a e t o - R o m a n i c s
+INFO:tensorflow:Inference results OUTPUT: r iy1 t ow r ow m ae1 n ih k s
+INFO:tensorflow:Inference results INPUT: r e v e r b e r a t o r i e s
+INFO:tensorflow:Inference results OUTPUT: r ih v er1 r b ax r ax t ao2 r iy z
+INFO:tensorflow:Inference results INPUT: r e t r o g r a d a t i o n s
+INFO:tensorflow:Inference results OUTPUT: r eh2 t r ow g r ey d ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: r e p r i s t i n a t i o n s
+INFO:tensorflow:Inference results OUTPUT: r ih p r ih2 s t ax n ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: r e p r e s e n t a t i o n s
+INFO:tensorflow:Inference results OUTPUT: r eh2 p r ih z eh n t ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: r e m o v a b l e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: r ih m uh1 v ax b ax l n ih s ih z
+INFO:tensorflow:Inference results INPUT: r e i n t e r r o g a t i o n
+INFO:tensorflow:Inference results OUTPUT: r iy2 ih n t eh2 r ax g ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: r e i n c o r p o r a t i n g
+INFO:tensorflow:Inference results OUTPUT: r iy2 ih n k ao1 r p ax r ey2 t ih ng
+INFO:tensorflow:Inference results INPUT: r e f r i g e r a t o r i e s
+INFO:tensorflow:Inference results OUTPUT: r ih f r ih1 jh ax r ax t ao2 r iy z
+INFO:tensorflow:Inference results INPUT: r e c o r d - b r e a k i n g
+INFO:tensorflow:Inference results OUTPUT: r eh1 k ax r d b r ey2 k ih ng
+INFO:tensorflow:Inference results INPUT: r e c o m b i n a t i o n a l
+INFO:tensorflow:Inference results OUTPUT: r iy2 k aa m b ax n ey1 sh ax n ax l
+INFO:tensorflow:Inference results INPUT: r e a f f o r e s t a t i o n
+INFO:tensorflow:Inference results OUTPUT: r iy2 ax f ao2 r ih s t ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: r a p p r o c h e m e n t ' s
+INFO:tensorflow:Inference results OUTPUT: r ae1 p r ow sh m ax n t s
+INFO:tensorflow:Inference results INPUT: r a d i o t e l e g r a p h y
+INFO:tensorflow:Inference results OUTPUT: r ey2 d iy ow t ax l eh1 g r ax f iy
+INFO:tensorflow:Inference results INPUT: r a d i o p r o t e c t i v e
+INFO:tensorflow:Inference results OUTPUT: r ey2 d iy ow p r ax t eh1 k t ih v
+INFO:tensorflow:Inference results INPUT: r a d i o a m p l i f i e r s
+INFO:tensorflow:Inference results OUTPUT: r ey2 d iy ow ae1 m p l ax f ay2 ax r z
+INFO:tensorflow:Inference results INPUT: r a d i c a l i z a t i o n s
+INFO:tensorflow:Inference results OUTPUT: r ae2 d ih k ax l ih z ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: q u i n q u a g e n a r i a n
+INFO:tensorflow:Inference results OUTPUT: k w ih2 ng k w ax jh ax n eh1 r iy ax n
+INFO:tensorflow:Inference results INPUT: q u e s t i o n a b i l i t y
+INFO:tensorflow:Inference results OUTPUT: k w eh2 s ch ax n ax b ih1 l ax t iy
+INFO:tensorflow:Inference results INPUT: q u a s i d e m o c r a t i c
+INFO:tensorflow:Inference results OUTPUT: k w aa2 s ih d eh2 m ax k r ae1 t ih k
+INFO:tensorflow:Inference results INPUT: p y l o r u s - s p a r i n g
+INFO:tensorflow:Inference results OUTPUT: p ay1 l ao2 r ax s p eh1 r ih ng
+INFO:tensorflow:Inference results INPUT: p y l o r i - p o s i t i v e
+INFO:tensorflow:Inference results OUTPUT: p ay2 l ao r iy p aa1 z ax t ih v
+INFO:tensorflow:Inference results INPUT: p u s i l l a n i m o u s l y
+INFO:tensorflow:Inference results OUTPUT: p y uh2 s ax l ae1 n ax m ax s l iy
+INFO:tensorflow:Inference results INPUT: p u r p o s e l e s s n e s s
+INFO:tensorflow:Inference results OUTPUT: p er1 r p ax s l ax s n ih s
+INFO:tensorflow:Inference results INPUT: p s y c h o t o m i m e t i c
+INFO:tensorflow:Inference results OUTPUT: s ay2 k ow t ow m ih m eh1 t ih k
+INFO:tensorflow:Inference results INPUT: p s y c h o b i o g r a p h y
+INFO:tensorflow:Inference results OUTPUT: s ay2 k ow b ay aa1 g r ax f iy
+INFO:tensorflow:Inference results INPUT: p s y c h e d e l i c a l l y
+INFO:tensorflow:Inference results OUTPUT: s ay2 k ax d eh1 l ih k l iy
+INFO:tensorflow:Inference results INPUT: p s e u d o a r t h r o s e s
+INFO:tensorflow:Inference results OUTPUT: s uh2 d ow aa2 r th r ow1 s iy z
+INFO:tensorflow:Inference results INPUT: p r o t o p o r p h y r i n s
+INFO:tensorflow:Inference results OUTPUT: p r ow2 t ow p ao1 r f ax r ih n z
+INFO:tensorflow:Inference results INPUT: p r o t o h i s t o r i a n s
+INFO:tensorflow:Inference results OUTPUT: p r ow2 t ow h ih s t ao1 r iy ax n z
+INFO:tensorflow:Inference results INPUT: p r o j e c t i o n i s t ' s
+INFO:tensorflow:Inference results OUTPUT: p r ax jh eh1 k sh ax n ih s t s
+INFO:tensorflow:Inference results INPUT: p r o g r e s s i o n i s t s
+INFO:tensorflow:Inference results OUTPUT: p r ax g r eh1 sh ax n ih s t s
+INFO:tensorflow:Inference results INPUT: p r o c r a s t i n a t i o n
+INFO:tensorflow:Inference results OUTPUT: p r ow k r ae2 s t ax n ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: p r i v a t e l y - o w n e d
+INFO:tensorflow:Inference results OUTPUT: p r ay2 v ih t l iy ow1 n d
+INFO:tensorflow:Inference results INPUT: p r i t t l e - p r a t t l e
+INFO:tensorflow:Inference results OUTPUT: p r ih1 t ax l p r ae2 t ax l
+INFO:tensorflow:Inference results INPUT: p r i n c i p a l - a g e n t
+INFO:tensorflow:Inference results OUTPUT: p r ih1 n s ax p ax l ey1 jh ax n t
+INFO:tensorflow:Inference results INPUT: p r e s e n t a b l e n e s s
+INFO:tensorflow:Inference results OUTPUT: p r ih z eh1 n t ax b ax l n ih s
+INFO:tensorflow:Inference results INPUT: p r e n o t i f i c a t i o n
+INFO:tensorflow:Inference results OUTPUT: p r iy2 n ow2 t ax f ax k ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: p r e i m p l a n t a t i o n
+INFO:tensorflow:Inference results OUTPUT: p r iy2 ih m p l ae n t ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: p o s t m i l l e n a r i a n
+INFO:tensorflow:Inference results OUTPUT: p ow2 s t m ih2 l ax n eh1 r iy ax n
+INFO:tensorflow:Inference results INPUT: p o s t g a s t r e c t o m y
+INFO:tensorflow:Inference results OUTPUT: p ow2 s t g ax s t r eh1 k t ax m iy
+INFO:tensorflow:Inference results INPUT: p o s t d i s p o s i t i o n
+INFO:tensorflow:Inference results OUTPUT: p ow2 s t d ih2 s p ax z ih1 sh ax n
+INFO:tensorflow:Inference results INPUT: p o l y s a c c h a r i d e s
+INFO:tensorflow:Inference results OUTPUT: p aa2 l iy s ae1 k ax r ay2 d z
+INFO:tensorflow:Inference results INPUT: p o l y m e r i z a t i o n s
+INFO:tensorflow:Inference results OUTPUT: p aa2 l ih m ax r ih z ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: p o l y a r t h r a l g i a s
+INFO:tensorflow:Inference results OUTPUT: p aa2 l iy aa2 r th r ae1 l jh iy ax z
+INFO:tensorflow:Inference results INPUT: p o l i t i c o - s o c i a l
+INFO:tensorflow:Inference results OUTPUT: p ax l ih2 t ih k ow s ow1 sh ax l
+INFO:tensorflow:Inference results INPUT: p o l i t i c i z a t i o n s
+INFO:tensorflow:Inference results OUTPUT: p ax l ih2 t ax s ih z ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: p l e n i p o t e n t i a r y
+INFO:tensorflow:Inference results OUTPUT: p l eh2 n ax p ax t eh1 n sh ax r iy
+INFO:tensorflow:Inference results INPUT: p l a i n t i v e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: p l ey1 n t ih v n ih s ih z
+INFO:tensorflow:Inference results INPUT: p i t t e r - p a t t e r ' s
+INFO:tensorflow:Inference results OUTPUT: p ih1 t ax r p ae2 t ax r z
+INFO:tensorflow:Inference results INPUT: p i s t o l - w h i p p i n g
+INFO:tensorflow:Inference results OUTPUT: p ih1 s t ax l w ih2 p ih ng
+INFO:tensorflow:Inference results INPUT: p h y t o p l a n k t o n i c
+INFO:tensorflow:Inference results OUTPUT: f ay2 t ow p l ae ng k t aa1 n ih k
+INFO:tensorflow:Inference results INPUT: p h r e n i c o l i e n a l e
+INFO:tensorflow:Inference results OUTPUT: f r eh2 n ih k ow l ay1 ax n ax l
+INFO:tensorflow:Inference results INPUT: p h o t o s y n t h e s i z e
+INFO:tensorflow:Inference results OUTPUT: f ow2 t ow s ih1 n th ax s ay2 z
+INFO:tensorflow:Inference results INPUT: p h o t o f l u o r o g r a m
+INFO:tensorflow:Inference results OUTPUT: f ow2 t ow f l uw1 r ax g r ae2 m
+INFO:tensorflow:Inference results INPUT: p h o t o e x c i t a t i o n
+INFO:tensorflow:Inference results OUTPUT: f ow2 t ow eh2 k s ih t ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: p h o t o e m i s s i o n ' s
+INFO:tensorflow:Inference results OUTPUT: f ow2 t ow ih m ih1 sh ax n z
+INFO:tensorflow:Inference results INPUT: p h o t o e l a s t i c i t y
+INFO:tensorflow:Inference results OUTPUT: f ow2 t ow ih l ae s t ih1 s ax t iy
+INFO:tensorflow:Inference results INPUT: p h o t o d i s s o c i a t e
+INFO:tensorflow:Inference results OUTPUT: f ow2 t ow d ih s ow1 sh iy ey2 t
+INFO:tensorflow:Inference results INPUT: p h o t o c h e m i c a l l y
+INFO:tensorflow:Inference results OUTPUT: f ow2 t ow k eh1 m ih k l iy
+INFO:tensorflow:Inference results INPUT: p h o t o a d s o r p t i o n
+INFO:tensorflow:Inference results OUTPUT: f ow2 t ow ax d s ao1 r p sh ax n
+INFO:tensorflow:Inference results INPUT: p h o s p h o r y l a t i n g
+INFO:tensorflow:Inference results OUTPUT: f aa1 s f ax r ax l ey2 t ih ng
+INFO:tensorflow:Inference results INPUT: p h o s p h o p r o t e i n s
+INFO:tensorflow:Inference results OUTPUT: f aa2 s f ow p r ow1 t iy2 n z
+INFO:tensorflow:Inference results INPUT: p h o s p h a t i z a t i o n
+INFO:tensorflow:Inference results OUTPUT: f aa2 s f ax t ih z ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: p h e n y l k e t o n u r i a
+INFO:tensorflow:Inference results OUTPUT: f eh2 n ax l k iy2 t ax n uw1 r iy ax
+INFO:tensorflow:Inference results INPUT: p h e n o l p h t h a l e i n
+INFO:tensorflow:Inference results OUTPUT: f iy2 n ow l th ae1 l iy2 n
+INFO:tensorflow:Inference results INPUT: p h a r y n g o s c o p e ' s
+INFO:tensorflow:Inference results OUTPUT: f ax r ih1 ng g ax s k ow2 p s
+INFO:tensorflow:Inference results INPUT: p h a r m a c o p o e i a ' s
+INFO:tensorflow:Inference results OUTPUT: f aa2 r m ax k ax p iy1 ax z
+INFO:tensorflow:Inference results INPUT: p h a r m a c o g n o s i s t
+INFO:tensorflow:Inference results OUTPUT: f aa2 r m ax k aa1 g n ax s ih s t
+INFO:tensorflow:Inference results INPUT: p h a r m a c e u t i c a l s
+INFO:tensorflow:Inference results OUTPUT: f aa2 r m ax s uh1 t ih k ax l z
+INFO:tensorflow:Inference results INPUT: p e r m i t - g r a n t i n g
+INFO:tensorflow:Inference results OUTPUT: p er1 r m ih t g r ae2 n t ih ng
+INFO:tensorflow:Inference results INPUT: p e r m a n e n t n e s s e s
+INFO:tensorflow:Inference results OUTPUT: p er1 r m ax n ax n t n ih s ih z
+INFO:tensorflow:Inference results INPUT: p e r i b r o n c h i o l a r
+INFO:tensorflow:Inference results OUTPUT: p eh2 r iy b r aa2 ng k iy ow1 l er r
+INFO:tensorflow:Inference results INPUT: p e r f e c t i o n i s m ' s
+INFO:tensorflow:Inference results OUTPUT: p ax r f eh1 k sh ax n ih2 z ax m z
+INFO:tensorflow:Inference results INPUT: p e n t a e r y t h r i t o l
+INFO:tensorflow:Inference results OUTPUT: p eh2 n t ax r ih th r ay1 t ow l
+INFO:tensorflow:Inference results INPUT: p e n n i l e s s n e s s e s
+INFO:tensorflow:Inference results OUTPUT: p eh1 n iy l ih s n ih s ih z
+INFO:tensorflow:Inference results INPUT: p a s s i f l o r a c e o u s
+INFO:tensorflow:Inference results OUTPUT: p ae2 s ax f l ao r ey1 sh ax s
+INFO:tensorflow:Inference results INPUT: p a s s e n g e r - t r a i n
+INFO:tensorflow:Inference results OUTPUT: p ae1 s ax n jh ax r t r ey2 n
+INFO:tensorflow:Inference results INPUT: p a r a g e n e t i c a l l y
+INFO:tensorflow:Inference results OUTPUT: p ae2 r ax jh ax n eh1 t ih k l iy
+INFO:tensorflow:Inference results INPUT: o w n e r - o c c u p a n t s
+INFO:tensorflow:Inference results OUTPUT: ow2 n ax r aa1 k y ax p ax n t s
+INFO:tensorflow:Inference results INPUT: o v e r z e a l o u s n e s s
+INFO:tensorflow:Inference results OUTPUT: ow1 v ax r z eh1 l ax s n ih s
+INFO:tensorflow:Inference results INPUT: o v e r i n d u l g e n c e s
+INFO:tensorflow:Inference results OUTPUT: ow2 v ax r ih n d ah1 l jh ax n s ih z
+INFO:tensorflow:Inference results INPUT: o v e r e s t i m a t i o n s
+INFO:tensorflow:Inference results OUTPUT: ow2 v ax r eh2 s t ax m ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: o v e r c a p i t a l i z e d
+INFO:tensorflow:Inference results OUTPUT: ow2 v ax r k ae1 p ax t ax l ay2 z d
+INFO:tensorflow:Inference results INPUT: o u t d o o r s m a n s h i p
+INFO:tensorflow:Inference results OUTPUT: aw2 t d ao1 r z m ax n sh ih2 p
+INFO:tensorflow:Inference results INPUT: o s t e o p h y t e c t o m y
+INFO:tensorflow:Inference results OUTPUT: aa2 s t iy ow f ay t eh1 k t ax m iy
+INFO:tensorflow:Inference results INPUT: o s t e o p a t h i c a l l y
+INFO:tensorflow:Inference results OUTPUT: aa2 s t iy ax p ae1 th ih k l iy
+INFO:tensorflow:Inference results INPUT: o s t e o c h o n d r i t i c
+INFO:tensorflow:Inference results OUTPUT: aa2 s t iy ow k ax n d r ih1 t ih k
+INFO:tensorflow:Inference results INPUT: o r g a n o t h e r a p i e s
+INFO:tensorflow:Inference results OUTPUT: ao2 r g ax n ow th eh1 r ax p iy z
+INFO:tensorflow:Inference results INPUT: o m n i d i r e c t i o n a l
+INFO:tensorflow:Inference results OUTPUT: aa2 m n ih d ax r eh1 k sh ax n ax l
+INFO:tensorflow:Inference results INPUT: o l d - m a n ' s - b e a r d
+INFO:tensorflow:Inference results OUTPUT: ow1 l d m ae2 n z b ih2 r d
+INFO:tensorflow:Inference results INPUT: n o n r e i m b u r s a b l e
+INFO:tensorflow:Inference results OUTPUT: n aa2 n r iy ih m b er1 r s ax b ax l
+INFO:tensorflow:Inference results INPUT: n o n p r e s i d e n t i a l
+INFO:tensorflow:Inference results OUTPUT: n aa2 n p r eh2 z ax d eh1 n sh ax l
+INFO:tensorflow:Inference results INPUT: n o n - o p e r a t i v e l y
+INFO:tensorflow:Inference results OUTPUT: n aa2 n aa1 p er r ax t ih v l iy
+INFO:tensorflow:Inference results INPUT: n o n i n t i m i d a t i n g
+INFO:tensorflow:Inference results OUTPUT: n aa2 n ih n t ih1 m ax d ey2 t ih ng
+INFO:tensorflow:Inference results INPUT: n o n i l l u m i n a t i n g
+INFO:tensorflow:Inference results OUTPUT: n aa2 n ih l uh1 m ax n ey2 t ih ng
+INFO:tensorflow:Inference results INPUT: n o n c o o r d i n a t i o n
+INFO:tensorflow:Inference results OUTPUT: n aa2 n k ow ao2 r d ax n ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: n o n c o m p u t e r i z e d
+INFO:tensorflow:Inference results OUTPUT: n aa2 n k ax m p y uh1 t ax r ay z d
+INFO:tensorflow:Inference results INPUT: n o n a v a i l a b i l i t y
+INFO:tensorflow:Inference results OUTPUT: n aa2 n ax v ey2 l ax b ih1 l ax t iy
+INFO:tensorflow:Inference results INPUT: n o n a s t r o n o m i c a l
+INFO:tensorflow:Inference results OUTPUT: n aa2 n ae s t r ax n aa1 m ih k ax l
+INFO:tensorflow:Inference results INPUT: n o n a r i t h m e t i c a l
+INFO:tensorflow:Inference results OUTPUT: n aa2 n ae r ih th m eh1 t ih k ax l
+INFO:tensorflow:Inference results INPUT: n e u r o s u r g i c a l l y
+INFO:tensorflow:Inference results OUTPUT: n uw2 r ow s er1 r jh ih k l iy
+INFO:tensorflow:Inference results INPUT: n e u r o m u s c u l a r l y
+INFO:tensorflow:Inference results OUTPUT: n uw2 r ow m ah1 s k y ax l ax r l iy
+INFO:tensorflow:Inference results INPUT: n e u r o d i a g n o s t i c
+INFO:tensorflow:Inference results OUTPUT: n uw2 r ow d ay2 ax g n aa1 s t ih k
+INFO:tensorflow:Inference results INPUT: n e a r s i g h t e d n e s s
+INFO:tensorflow:Inference results OUTPUT: n ih1 r s ay2 t ih d n ih s
+INFO:tensorflow:Inference results INPUT: n a r c o - c a t h a r s i s
+INFO:tensorflow:Inference results OUTPUT: n aa2 r k ow k ax th aa1 r s ih s
+INFO:tensorflow:Inference results INPUT: m u l t i p l i c a t i v e s
+INFO:tensorflow:Inference results OUTPUT: m ah2 l t ax p l ih1 k ax t ih v z
+INFO:tensorflow:Inference results INPUT: m o r p h i n o m a n i a c s
+INFO:tensorflow:Inference results OUTPUT: m ao2 r f ax n ow m ey1 n iy ae2 k s
+INFO:tensorflow:Inference results INPUT: m o m e n t a r i n e s s e s
+INFO:tensorflow:Inference results OUTPUT: m ow1 m ax n t eh2 r iy n ih s ih z
+INFO:tensorflow:Inference results INPUT: m i s c o n s t r u c t i o n
+INFO:tensorflow:Inference results OUTPUT: m ih2 s k ax n s t r ah1 k sh ax n
+INFO:tensorflow:Inference results INPUT: m i s a p p r e h e n d i n g
+INFO:tensorflow:Inference results OUTPUT: m ih2 s ae p r ih h eh1 n d ih ng
+INFO:tensorflow:Inference results INPUT: m i s a p p l i c a t i o n s
+INFO:tensorflow:Inference results OUTPUT: m ih2 s ae p l ih k ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: m i n a c i o u s n e s s e s
+INFO:tensorflow:Inference results OUTPUT: m ih n ey1 sh ax s n ih s ih z
+INFO:tensorflow:Inference results INPUT: m i l e s - g l o r i o s u s
+INFO:tensorflow:Inference results OUTPUT: m ay1 l z g l ao1 r iy ow1 s ax s
+INFO:tensorflow:Inference results INPUT: m i c r o p h y s i c i s t s
+INFO:tensorflow:Inference results OUTPUT: m ay2 k r ow f ih1 z ih s ih s t s
+INFO:tensorflow:Inference results INPUT: m i c r o m e t a s t a s i s
+INFO:tensorflow:Inference results OUTPUT: m ay2 k r ow m ax t ae1 s t ax s ih s
+INFO:tensorflow:Inference results INPUT: m e t h y l p h e n i d a t e
+INFO:tensorflow:Inference results OUTPUT: m eh2 th ax l f eh1 n ax d ey2 t
+INFO:tensorflow:Inference results INPUT: M e p h i s t o p h e l i a n
+INFO:tensorflow:Inference results OUTPUT: m eh2 f ih s t ax f iy1 l iy ax n
+INFO:tensorflow:Inference results INPUT: m e n i s p e r m a c e o u s
+INFO:tensorflow:Inference results OUTPUT: m eh2 n ih s p ax r m ey1 sh ax s
+INFO:tensorflow:Inference results INPUT: m e d i c a l - p r o b l e m
+INFO:tensorflow:Inference results OUTPUT: m eh1 d ih k ax l p r aa2 b l ax m
+INFO:tensorflow:Inference results INPUT: m a s c u l i n e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: m ae1 s k y ax l ih n n ih s ih z
+INFO:tensorflow:Inference results INPUT: m a r g a r i t i f e r o u s
+INFO:tensorflow:Inference results OUTPUT: m aa2 r g ax r ih t ih1 f ax r ax s
+INFO:tensorflow:Inference results INPUT: m a n i f e s t a t i o n ' s
+INFO:tensorflow:Inference results OUTPUT: m ae2 n ax f eh s t ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: m a l i c i o u s n e s s e s
+INFO:tensorflow:Inference results OUTPUT: m ax l ih1 sh ax s n ih s ih z
+INFO:tensorflow:Inference results INPUT: m a l a d j u s t m e n t ' s
+INFO:tensorflow:Inference results OUTPUT: m ae2 l ax jh ah1 s t m ax n t s
+INFO:tensorflow:Inference results INPUT: l i b e r a l i z a t i o n s
+INFO:tensorflow:Inference results OUTPUT: l ih2 b ax r ax l ih z ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: l e i s u r e l i n e s s e s
+INFO:tensorflow:Inference results OUTPUT: l iy1 zh ax r l iy n ih s ih z
+INFO:tensorflow:Inference results INPUT: l a w - e n f o r c e m e n t
+INFO:tensorflow:Inference results OUTPUT: l ao1 ih n f ao1 r s m ax n t
+INFO:tensorflow:Inference results INPUT: l a d i e s ' - t r e s s e s
+INFO:tensorflow:Inference results OUTPUT: l ey1 d iy z t r eh2 s ih z
+INFO:tensorflow:Inference results INPUT: l a c t o b a c i l l u s e s
+INFO:tensorflow:Inference results OUTPUT: l ae2 k t ow b ax s ih1 l ax s ih z
+INFO:tensorflow:Inference results INPUT: k i n e s t h e t i c a l l y
+INFO:tensorflow:Inference results OUTPUT: k ih2 n ax s th eh1 t ih k l iy
+INFO:tensorflow:Inference results INPUT: k e y b o a r d - l a y o u t
+INFO:tensorflow:Inference results OUTPUT: k iy1 b ao2 r d l ey1 aw1 t
+INFO:tensorflow:Inference results INPUT: j u x t a p o s i t i o n a l
+INFO:tensorflow:Inference results OUTPUT: jh ah2 k s t ax p ax z ih1 sh ax n ax l
+INFO:tensorflow:Inference results INPUT: J u d e o - S p a n i s h e s
+INFO:tensorflow:Inference results OUTPUT: jh uh2 d iy ow s p ae1 n ih sh ih z
+INFO:tensorflow:Inference results INPUT: J a c k - i n - t h e - B o x
+INFO:tensorflow:Inference results OUTPUT: jh ae1 k ih n dh ax b aa2 k s
+INFO:tensorflow:Inference results INPUT: i r r e v e r s i b i l i t y
+INFO:tensorflow:Inference results OUTPUT: ih2 r ih v er2 r s ax b ih1 l ax t iy
+INFO:tensorflow:Inference results INPUT: i r r e l i g i o u s n e s s
+INFO:tensorflow:Inference results OUTPUT: ih2 r ih l ih1 jh ax s n ih s
+INFO:tensorflow:Inference results INPUT: i n t r a c t a b l e n e s s
+INFO:tensorflow:Inference results OUTPUT: ih n t r ae1 k t ax b ax l n ih s
+INFO:tensorflow:Inference results INPUT: i n t e r v i s i b i l i t y
+INFO:tensorflow:Inference results OUTPUT: ih2 n t ax r v ih2 z ax b ih1 l ax t iy
+INFO:tensorflow:Inference results INPUT: i n t e r v e n t i o n i s t
+INFO:tensorflow:Inference results OUTPUT: ih2 n t ax r v eh1 n sh ax n ih s t
+INFO:tensorflow:Inference results INPUT: i n t e r n u c l e o t i d e
+INFO:tensorflow:Inference results OUTPUT: ih2 n t ax r n uh1 k l iy ax t ay2 d
+INFO:tensorflow:Inference results INPUT: i n t e r l a m i n a t i n g
+INFO:tensorflow:Inference results OUTPUT: ih2 n t ax r l ae1 m ax n ey2 t ih ng
+INFO:tensorflow:Inference results INPUT: i n t e r l a b o r a t o r y
+INFO:tensorflow:Inference results OUTPUT: ih2 n t ax r l ae1 b ax r ax t ao2 r iy
+INFO:tensorflow:Inference results INPUT: i n t e r g e n e r a t i o n
+INFO:tensorflow:Inference results OUTPUT: ih2 n t ax r jh eh2 n ax r ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: i n t e r f o l i a c e o u s
+INFO:tensorflow:Inference results OUTPUT: ih2 n t ax r f ow2 l iy ey1 sh ax s
+INFO:tensorflow:Inference results INPUT: i n t e r d i g i t a t i n g
+INFO:tensorflow:Inference results OUTPUT: ih2 n t ax r d ih1 jh ax t ey2 t ih ng
+INFO:tensorflow:Inference results INPUT: i n t e r c o m p a r i s o n
+INFO:tensorflow:Inference results OUTPUT: ih2 n t ax r k ax m p eh1 r ax s ax n
+INFO:tensorflow:Inference results INPUT: i n t e r c h a n g e a b l e
+INFO:tensorflow:Inference results OUTPUT: ih2 n t ax r ch ey1 n jh ax b ax l
+INFO:tensorflow:Inference results INPUT: i n s u r r e c t i o n i s t
+INFO:tensorflow:Inference results OUTPUT: ih2 n s ax r eh1 k sh ax n ih s t
+INFO:tensorflow:Inference results INPUT: i n s t r u m e n t a l i s t
+INFO:tensorflow:Inference results OUTPUT: ih2 n s t r ax m eh1 n t ax l ih s t
+INFO:tensorflow:Inference results INPUT: i n s e n s a t e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: ih n s eh1 n s ih t n ih s ih z
+INFO:tensorflow:Inference results INPUT: i n i t i a l i z a t i o n s
+INFO:tensorflow:Inference results OUTPUT: ih n ih2 sh ax l ax z ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: i n i m i t a b i l i t i e s
+INFO:tensorflow:Inference results OUTPUT: ih n ih2 m ih t ax b ih1 l ih t iy z
+INFO:tensorflow:Inference results INPUT: i n f e c t i v e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: ih n f eh1 k t ih v n ih s ih z
+INFO:tensorflow:Inference results INPUT: i n e x p e d i e n t n e s s
+INFO:tensorflow:Inference results OUTPUT: ih2 n ih k s p iy1 d iy ax n t n ax s
+INFO:tensorflow:Inference results INPUT: i n e x o r a b i l i t i e s
+INFO:tensorflow:Inference results OUTPUT: ih n eh2 k s ax r ax b ih1 l ih t iy z
+INFO:tensorflow:Inference results INPUT: i n e q u i t a b l e n e s s
+INFO:tensorflow:Inference results OUTPUT: ih n eh1 k w ih t ax b ax l n ih s
+INFO:tensorflow:Inference results INPUT: i n e f f a c e a b i l i t y
+INFO:tensorflow:Inference results OUTPUT: ih2 n ax f ey2 s ax b ih1 l ax t iy
+INFO:tensorflow:Inference results INPUT: i n e f f a b l e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: ih n eh1 f ax b ax l n ih s ih z
+INFO:tensorflow:Inference results INPUT: i n d i f f e r e n t i s m s
+INFO:tensorflow:Inference results OUTPUT: ih n d ih1 f r ax n t ih2 z ax m z
+INFO:tensorflow:Inference results INPUT: i n c r e m e n t a l i s t s
+INFO:tensorflow:Inference results OUTPUT: ih2 n k r ax m eh1 n t ax l ih s t s
+INFO:tensorflow:Inference results INPUT: i n c o n v e n i e n c i e s
+INFO:tensorflow:Inference results OUTPUT: ih2 n k ax n v iy1 n y ax n s iy z
+INFO:tensorflow:Inference results INPUT: i n c o m p r e h e n s i v e
+INFO:tensorflow:Inference results OUTPUT: ih2 n k aa m p r ih h eh1 n s ih v
+INFO:tensorflow:Inference results INPUT: i n c o a g u l a b i l i t y
+INFO:tensorflow:Inference results OUTPUT: ih n k ow ae2 g y ax l ax b ih1 l ax t iy
+INFO:tensorflow:Inference results INPUT: i n c a p a c i o u s n e s s
+INFO:tensorflow:Inference results OUTPUT: ih2 n k ax p ey1 sh ax s n ih s
+INFO:tensorflow:Inference results INPUT: i n c a p a b l e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: ih n k ey1 p ax b ax l n ih s ih z
+INFO:tensorflow:Inference results INPUT: i n a c c e s s i b i l i t y
+INFO:tensorflow:Inference results OUTPUT: ih2 n ae k s eh2 s ax b ih1 l ax t iy
+INFO:tensorflow:Inference results INPUT: i m p a l p a b i l i t i e s
+INFO:tensorflow:Inference results OUTPUT: ih m p ae2 l p ax b ih1 l ih t iy z
+INFO:tensorflow:Inference results INPUT: i m m o r t a l i z a t i o n
+INFO:tensorflow:Inference results OUTPUT: ih m ao2 r t ax l ax z ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: i m m o b i l i z a t i o n s
+INFO:tensorflow:Inference results OUTPUT: ih m ow2 b ax l ax z ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: i m m e d i a t e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: ih m iy1 d iy ih t n ih s ih z
+INFO:tensorflow:Inference results INPUT: i m m a t e r i a l i t i e s
+INFO:tensorflow:Inference results OUTPUT: ih2 m ax t ih2 r iy ae1 l ih t iy z
+INFO:tensorflow:Inference results INPUT: h y p o v e n t i l a t o r y
+INFO:tensorflow:Inference results OUTPUT: h ay2 p ow v eh1 n t ax l ax t ao2 r iy
+INFO:tensorflow:Inference results INPUT: h y p o c h l o r h y d r i a
+INFO:tensorflow:Inference results OUTPUT: h ay2 p ow k l ao2 r h ay1 d r iy ax
+INFO:tensorflow:Inference results INPUT: h y d r o d i s s e c t i o n
+INFO:tensorflow:Inference results OUTPUT: h ay2 d r ow d ih s eh1 k sh ax n
+INFO:tensorflow:Inference results INPUT: h y d r o d e l i n e a t e d
+INFO:tensorflow:Inference results OUTPUT: h ay2 d r ow d ih l ih1 n iy ey2 t ih d
+INFO:tensorflow:Inference results INPUT: h o u s e m i s t r e s s e s
+INFO:tensorflow:Inference results OUTPUT: h aw1 s m ih2 s t r ih s ih z
+INFO:tensorflow:Inference results INPUT: h o l o g r a p h i c a l l y
+INFO:tensorflow:Inference results OUTPUT: h aa2 l ax g r ae1 f ih k l iy
+INFO:tensorflow:Inference results INPUT: h i s t o r i o g r a p h e r
+INFO:tensorflow:Inference results OUTPUT: h ih2 s t ao r iy aa1 g r ax f ax r
+INFO:tensorflow:Inference results INPUT: h i s t o p h y s i o l o g y
+INFO:tensorflow:Inference results OUTPUT: h ih2 s t ow f ih2 z iy aa1 l ax jh iy
+INFO:tensorflow:Inference results INPUT: h i g h - m i n d e d n e s s
+INFO:tensorflow:Inference results OUTPUT: h ay1 m ay1 n d ih d n ih s
+INFO:tensorflow:Inference results INPUT: h i e r o g r a m m a t i s t
+INFO:tensorflow:Inference results OUTPUT: h ay2 r ax g r ae1 m ax t ih s t
+INFO:tensorflow:Inference results INPUT: h e x a c h l o r o p h e n e
+INFO:tensorflow:Inference results OUTPUT: h eh2 k s ax k l ao1 r ax f iy2 n
+INFO:tensorflow:Inference results INPUT: h e r e t i c a l n e s s e s
+INFO:tensorflow:Inference results OUTPUT: h ax r eh1 t ih k ax l n ih s ih z
+INFO:tensorflow:Inference results INPUT: h e p a t o c i r r h o s i s
+INFO:tensorflow:Inference results OUTPUT: h eh2 p ax t ow s ih r ow1 s ih s
+INFO:tensorflow:Inference results INPUT: h a i r s p l i t t i n g ' s
+INFO:tensorflow:Inference results OUTPUT: h eh1 r s p l ih2 t ih ng z
+INFO:tensorflow:Inference results INPUT: g y n a n d r o m o r p h i c
+INFO:tensorflow:Inference results OUTPUT: jh ih n ae2 n d r ax m ao1 r f ih k
+INFO:tensorflow:Inference results INPUT: g r a m m a t o l o g i s t s
+INFO:tensorflow:Inference results OUTPUT: g r ae2 m ax t aa1 l ax jh ih s t s
+INFO:tensorflow:Inference results INPUT: g o v e r n m e n t a l i z e
+INFO:tensorflow:Inference results OUTPUT: g ah2 v ax r m eh1 n t ax l ay2 z
+INFO:tensorflow:Inference results INPUT: g e o m a g n e t i c a l l y
+INFO:tensorflow:Inference results OUTPUT: jh iy2 ow m ae g n eh1 t ih k l iy
+INFO:tensorflow:Inference results INPUT: g a s t r o n o m i c a l l y
+INFO:tensorflow:Inference results OUTPUT: g ae2 s t r ax n aa1 m ih k l iy
+INFO:tensorflow:Inference results INPUT: f r i v o l o u s n e s s e s
+INFO:tensorflow:Inference results OUTPUT: f r ih1 v ax l ax s n ih s ih z
+INFO:tensorflow:Inference results INPUT: f r i g i d o r e c e p t o r
+INFO:tensorflow:Inference results OUTPUT: f r ih2 jh ih d ow r ih s eh1 p t ax r
+INFO:tensorflow:Inference results INPUT: f r a t e r n i z a t i o n s
+INFO:tensorflow:Inference results OUTPUT: f r ae2 t ax r n ih z ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: f o r m i d a b i l i t i e s
+INFO:tensorflow:Inference results OUTPUT: f ao2 r m ih d ax b ih1 l ih t iy z
+INFO:tensorflow:Inference results INPUT: f o r e i g n - c o u n t r y
+INFO:tensorflow:Inference results OUTPUT: f ao1 r ih n k ah1 n t r iy
+INFO:tensorflow:Inference results INPUT: f i s s i p a r o u s n e s s
+INFO:tensorflow:Inference results OUTPUT: f ih s ih1 p ax r ax s n ih s
+INFO:tensorflow:Inference results INPUT: f e d e r a l l y - a i d e d
+INFO:tensorflow:Inference results OUTPUT: f eh2 d ax r ax l iy ey1 d ih d
+INFO:tensorflow:Inference results INPUT: f a r - s i g h t e d n e s s
+INFO:tensorflow:Inference results OUTPUT: f aa1 r s ay1 t ih d n ih s
+INFO:tensorflow:Inference results INPUT: f a b r i c a b i l i t i e s
+INFO:tensorflow:Inference results OUTPUT: f ae2 b r ih k ax b ih1 l ih t iy z
+INFO:tensorflow:Inference results INPUT: e x t r a o r d i n a r i l y
+INFO:tensorflow:Inference results OUTPUT: ih k s t r ao1 r d ax n eh2 r ax l iy
+INFO:tensorflow:Inference results INPUT: e x s a n g u i n a t i o n s
+INFO:tensorflow:Inference results OUTPUT: eh k s s ae2 ng g w ax n ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: e x e m p l a r i n e s s e s
+INFO:tensorflow:Inference results OUTPUT: ih g z eh1 m p l ax r iy n ih s ih z
+INFO:tensorflow:Inference results INPUT: e x c u r s i v e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: ih k s k er1 r s ih v n ih s ih z
+INFO:tensorflow:Inference results INPUT: e x c r e m e n t i t i o u s
+INFO:tensorflow:Inference results OUTPUT: eh2 k s k r ax m eh n t ih1 sh ax s
+INFO:tensorflow:Inference results INPUT: e v e r l a s t i n g n e s s
+INFO:tensorflow:Inference results OUTPUT: eh2 v ax r l ae1 s t ih ng n ax s
+INFO:tensorflow:Inference results INPUT: e s t e r i f i c a t i o n s
+INFO:tensorflow:Inference results OUTPUT: eh s t eh2 r ax f ax k ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: e s o p h a g o g a s t r i c
+INFO:tensorflow:Inference results OUTPUT: ih s aa2 f ax g ow g ae1 s t r ih k
+INFO:tensorflow:Inference results INPUT: e q u i v o c a l n e s s e s
+INFO:tensorflow:Inference results OUTPUT: ih k w ih1 v ax k ax l n ih s ih z
+INFO:tensorflow:Inference results INPUT: e q u i t a b l e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: eh1 k w ih t ax b ax l n ih s ih z
+INFO:tensorflow:Inference results INPUT: e p i g r a m m a t i z i n g
+INFO:tensorflow:Inference results OUTPUT: eh2 p ax g r ae1 m ax t ay2 z ih ng
+INFO:tensorflow:Inference results INPUT: e p i c h l o r o h y d r i n
+INFO:tensorflow:Inference results OUTPUT: eh2 p ih k l ao2 r ow h ay1 d r ih n
+INFO:tensorflow:Inference results INPUT: e n d o r a d i o s o n d e s
+INFO:tensorflow:Inference results OUTPUT: eh2 n d ow r ey2 d iy ow s aa1 n d z
+INFO:tensorflow:Inference results INPUT: e l e c t r o p h o r e s e d
+INFO:tensorflow:Inference results OUTPUT: ih l eh2 k t r ow f ax r eh1 s t
+INFO:tensorflow:Inference results INPUT: e l e c t r o m y o g r a p h
+INFO:tensorflow:Inference results OUTPUT: ih l eh2 k t r ow m ay1 ax g r ae2 f
+INFO:tensorflow:Inference results INPUT: e l e c t r o k i n e t i c s
+INFO:tensorflow:Inference results OUTPUT: ih l eh2 k t r ow k ih n eh1 t ih k s
+INFO:tensorflow:Inference results INPUT: e l e c t r o d i a l y t i c
+INFO:tensorflow:Inference results OUTPUT: ih l eh2 k t r ow d ay ax l ih1 t ih k
+INFO:tensorflow:Inference results INPUT: e l e c t r i f i c a t i o n
+INFO:tensorflow:Inference results OUTPUT: ih l eh2 k t r ax f ax k ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: e l a b o r a t e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: ih l ae1 b ax r ih t n ih s ih z
+INFO:tensorflow:Inference results INPUT: e g r e g i o u s n e s s e s
+INFO:tensorflow:Inference results OUTPUT: ih g r iy1 jh ax s n ih s ih z
+INFO:tensorflow:Inference results INPUT: e f f e c t i v e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: ax f eh1 k t ih v n ih s ih z
+INFO:tensorflow:Inference results INPUT: d o w n h e a r t e d n e s s
+INFO:tensorflow:Inference results OUTPUT: d aw1 n h aa1 r t ih d n ih s
+INFO:tensorflow:Inference results INPUT: d o u b l e - c r o s s i n g
+INFO:tensorflow:Inference results OUTPUT: d ah2 b ax l k r ao1 s ih ng
+INFO:tensorflow:Inference results INPUT: d i s t r e s s i n g n e s s
+INFO:tensorflow:Inference results OUTPUT: d ih s t r eh1 s ih ng n ax s
+INFO:tensorflow:Inference results INPUT: d i s t e m p e r e d n e s s
+INFO:tensorflow:Inference results OUTPUT: d ih s t eh1 m p ax r d n ih s
+INFO:tensorflow:Inference results INPUT: d i s t a s t e f u l n e s s
+INFO:tensorflow:Inference results OUTPUT: d ih s t ey1 s t f ax l n ih s
+INFO:tensorflow:Inference results INPUT: d i s s i m i l a r i t i e s
+INFO:tensorflow:Inference results OUTPUT: d ih s ih1 m ax l ae1 r ih t iy z
+INFO:tensorflow:Inference results INPUT: d i s p a s s i o n a t e l y
+INFO:tensorflow:Inference results OUTPUT: d ih s p ae1 sh ax n ih t l iy
+INFO:tensorflow:Inference results INPUT: d i s h e a r t e n m e n t s
+INFO:tensorflow:Inference results OUTPUT: d ih s h aa1 r t ax n m ax n t s
+INFO:tensorflow:Inference results INPUT: d i s e n f r a n c h i s e s
+INFO:tensorflow:Inference results OUTPUT: d ih2 s ih n f r ae1 n ch ay z ih z
+INFO:tensorflow:Inference results INPUT: d i s a s s o c i a t i o n s
+INFO:tensorflow:Inference results OUTPUT: d ih2 s ax s ow2 sh iy ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: d i s a s s i m i l a t i o n
+INFO:tensorflow:Inference results OUTPUT: d ih2 s ax s ih2 m ax l ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: d i s a p p r o b a t i o n s
+INFO:tensorflow:Inference results OUTPUT: d ih2 s ae p r ax b ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: d i s a f f i r m a t i o n s
+INFO:tensorflow:Inference results OUTPUT: d ih2 s ae f ax r m ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: d i g i t a l i z a t i o n s
+INFO:tensorflow:Inference results OUTPUT: d ih2 jh ih t ax l ih z ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: d i g e s t i v e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: d ay jh eh1 s t ih v n ih s ih z
+INFO:tensorflow:Inference results INPUT: d i f f e r e n t i a t i o n
+INFO:tensorflow:Inference results OUTPUT: d ih2 f ax r eh2 n sh iy ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: d e t r i b a l i z a t i o n
+INFO:tensorflow:Inference results OUTPUT: d iy t r ay2 b ax l ay z ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: d e m u t u a l i z a t i o n
+INFO:tensorflow:Inference results OUTPUT: d iy m y uh2 ch uh ax l ay z ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: d e m o r a l i z a t i o n s
+INFO:tensorflow:Inference results OUTPUT: d ih m ao2 r ax l ax z ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: d e m i b i l l i o n a i r e
+INFO:tensorflow:Inference results OUTPUT: d eh2 m ax b ih2 l y ax n eh1 r
+INFO:tensorflow:Inference results INPUT: d e m a g n e t i z a t i o n
+INFO:tensorflow:Inference results OUTPUT: d iy m ae2 g n ax t ih z ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: d e l e c t a b i l i t i e s
+INFO:tensorflow:Inference results OUTPUT: d ih l eh2 k t ax b ih1 l ih t iy z
+INFO:tensorflow:Inference results INPUT: d e h y d r o g e n i z i n g
+INFO:tensorflow:Inference results OUTPUT: d iy2 h ay d r aa1 jh ax n ay2 z ih ng
+INFO:tensorflow:Inference results INPUT: d e c i s i o n - m a k i n g
+INFO:tensorflow:Inference results OUTPUT: d ih s ih1 zh ax n m ey2 k ih ng
+INFO:tensorflow:Inference results INPUT: d e c a s u a l i s a t i o n
+INFO:tensorflow:Inference results OUTPUT: d iy k ae2 zh w ax l ih z ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: d a g u e r r e o t y p i e s
+INFO:tensorflow:Inference results OUTPUT: d ax g eh1 r ax t ay2 p iy z
+INFO:tensorflow:Inference results INPUT: c y t o p a t h o l o g i s t
+INFO:tensorflow:Inference results OUTPUT: s ay2 t ow p ax th aa1 l ax jh ih s t
+INFO:tensorflow:Inference results INPUT: C r y p t o s p o r i d i u m
+INFO:tensorflow:Inference results OUTPUT: k r ih2 p t ow s p ax r ih1 d iy ax m
+INFO:tensorflow:Inference results INPUT: c r e d i t - e l i g i b l e
+INFO:tensorflow:Inference results OUTPUT: k r eh2 d ih t eh1 l ax jh ax b ax l
+INFO:tensorflow:Inference results INPUT: c o u r t - m a r t i a l e d
+INFO:tensorflow:Inference results OUTPUT: k ao1 r t m aa1 r sh ax l d
+INFO:tensorflow:Inference results INPUT: c o u n t e r t r a c t i o n
+INFO:tensorflow:Inference results OUTPUT: k aw2 n t ax r t r ae1 k sh ax n
+INFO:tensorflow:Inference results INPUT: c o u n t e r r o t a t i o n
+INFO:tensorflow:Inference results OUTPUT: k aw2 n t ax r r ow t ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: c o u n t e r r e a c t i o n
+INFO:tensorflow:Inference results OUTPUT: k aw2 n t ax r r iy ae1 k sh ax n
+INFO:tensorflow:Inference results INPUT: c o u n t e r p r o p o s a l
+INFO:tensorflow:Inference results OUTPUT: k aw2 n t ax r p r ax p ow1 z ax l
+INFO:tensorflow:Inference results INPUT: c o u n t e r p l o t t i n g
+INFO:tensorflow:Inference results OUTPUT: k aw1 n t ax r p l aa2 t ih ng
+INFO:tensorflow:Inference results INPUT: c o u n t e r m e a s u r e s
+INFO:tensorflow:Inference results OUTPUT: k aw1 n t ax r m eh2 zh ax r z
+INFO:tensorflow:Inference results INPUT: c o u n t e r m a r c h i n g
+INFO:tensorflow:Inference results OUTPUT: k aw1 n t ax r m aa2 r ch ih ng
+INFO:tensorflow:Inference results INPUT: c o u n t e r i r r i t a n t
+INFO:tensorflow:Inference results OUTPUT: k aw2 n t ax r ih1 r ax t ax n t
+INFO:tensorflow:Inference results INPUT: c o u n t e r g u e r i l l a
+INFO:tensorflow:Inference results OUTPUT: k aw2 n t ax r g ax r ih1 l ax
+INFO:tensorflow:Inference results INPUT: c o u n t e r e v i d e n c e
+INFO:tensorflow:Inference results OUTPUT: k aw2 n t ax r eh1 v ax d ax n s
+INFO:tensorflow:Inference results INPUT: c o u n t e r c h a r g i n g
+INFO:tensorflow:Inference results OUTPUT: k aw2 n t ax r ch aa1 r jh ih ng
+INFO:tensorflow:Inference results INPUT: c o r y n e b a c t e r i u m
+INFO:tensorflow:Inference results OUTPUT: k ao2 r ax n iy b ae k t ih1 r iy ax m
+INFO:tensorflow:Inference results INPUT: c o r t i c o t r o p h i n s
+INFO:tensorflow:Inference results OUTPUT: k ao2 r t ih k ow t r ow1 f ih n z
+INFO:tensorflow:Inference results INPUT: c o r r o s i v e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: k ax r ow1 s ih v n ih s ih z
+INFO:tensorflow:Inference results INPUT: c o r r e s p o n s i v e l y
+INFO:tensorflow:Inference results OUTPUT: k ao2 r ax s p aa1 n s ih v l iy
+INFO:tensorflow:Inference results INPUT: c o n v e n t i o n a l i t y
+INFO:tensorflow:Inference results OUTPUT: k ax n v eh2 n sh ax n ae1 l ax t iy
+INFO:tensorflow:Inference results INPUT: c o n t r o v e r s i a l l y
+INFO:tensorflow:Inference results OUTPUT: k aa2 n t r ax v er1 r sh ax l iy
+INFO:tensorflow:Inference results INPUT: c o n t r a p o s i t i v e s
+INFO:tensorflow:Inference results OUTPUT: k aa2 n t r ax p aa1 z ih t ih v z
+INFO:tensorflow:Inference results INPUT: c o n t o r t i o n i s t i c
+INFO:tensorflow:Inference results OUTPUT: k ax n t ao2 r sh ax n ih1 s t ih k
+INFO:tensorflow:Inference results INPUT: c o n t e x t u a l i z i n g
+INFO:tensorflow:Inference results OUTPUT: k ax n t eh1 k s ch uw ax l ay2 z ih ng
+INFO:tensorflow:Inference results INPUT: c o n t e m p o r a n e o u s
+INFO:tensorflow:Inference results OUTPUT: k ax n t eh2 m p ax r ey1 n iy ax s
+INFO:tensorflow:Inference results INPUT: c o n s t r u c t i v i s t s
+INFO:tensorflow:Inference results OUTPUT: k ax n s t r ah1 k t ih v ih s t s
+INFO:tensorflow:Inference results INPUT: c o n s t r u c t i o n i s t
+INFO:tensorflow:Inference results OUTPUT: k ax n s t r ah1 k sh ax n ih s t
+INFO:tensorflow:Inference results INPUT: c o n s t i t u t i o n a l s
+INFO:tensorflow:Inference results OUTPUT: k aa2 n s t ax t uh1 sh ax n ax l z
+INFO:tensorflow:Inference results INPUT: c o n s e r v a t i o n i s t
+INFO:tensorflow:Inference results OUTPUT: k aa2 n s ax r v ey1 sh ax n ih s t
+INFO:tensorflow:Inference results INPUT: c o n g r u o u s n e s s e s
+INFO:tensorflow:Inference results OUTPUT: k aa1 ng g r uw ax s n ih s ih z
+INFO:tensorflow:Inference results INPUT: c o n f l a g r a t i o n ' s
+INFO:tensorflow:Inference results OUTPUT: k aa2 n f l ax g r ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: c o n f i g u r a t i o n a l
+INFO:tensorflow:Inference results OUTPUT: k ax n f ih2 g y ax r ey1 sh ax n ax l
+INFO:tensorflow:Inference results INPUT: c o n d i t i o n e d n e s s
+INFO:tensorflow:Inference results OUTPUT: k ax n d ih1 sh ax n d n ih s
+INFO:tensorflow:Inference results INPUT: c o n c r e t i z a t i o n s
+INFO:tensorflow:Inference results OUTPUT: k aa2 n k r ih t ih z ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: c o n c e n t r i c i t i e s
+INFO:tensorflow:Inference results OUTPUT: k ax n s eh2 n t r ih1 s ih t iy z
+INFO:tensorflow:Inference results INPUT: c o n c e a l - s u b j e c t
+INFO:tensorflow:Inference results OUTPUT: k ax n s iy1 l s ax b jh eh2 k t
+INFO:tensorflow:Inference results INPUT: c o m p r e h e n d i n g l y
+INFO:tensorflow:Inference results OUTPUT: k aa2 m p r ih h eh1 n d ih ng l iy
+INFO:tensorflow:Inference results INPUT: c o m p l e m e n t a r i l y
+INFO:tensorflow:Inference results OUTPUT: k aa2 m p l ax m eh1 n t ax r ax l iy
+INFO:tensorflow:Inference results INPUT: c o m p a r a t i v e n e s s
+INFO:tensorflow:Inference results OUTPUT: k ax m p eh1 r ax t ih v n ih s
+INFO:tensorflow:Inference results INPUT: c o m m e r c i a l i s t i c
+INFO:tensorflow:Inference results OUTPUT: k ax m er2 r sh ax l ih1 s t ih k
+INFO:tensorflow:Inference results INPUT: c o m m e m o r a t i v e l y
+INFO:tensorflow:Inference results OUTPUT: k ax m eh1 m ax r ey2 t ih v l iy
+INFO:tensorflow:Inference results INPUT: c o l p o s u s p e n s i o n
+INFO:tensorflow:Inference results OUTPUT: k aa2 l p ow s ax s p eh1 n sh ax n
+INFO:tensorflow:Inference results INPUT: c o l o r f a s t n e s s e s
+INFO:tensorflow:Inference results OUTPUT: k ah1 l ax r f ae2 s t n ih s ih z
+INFO:tensorflow:Inference results INPUT: c l a u s t r o p h o b i a s
+INFO:tensorflow:Inference results OUTPUT: k l ao2 s t r ax f ow1 b iy ax z
+INFO:tensorflow:Inference results INPUT: c l a m o r o u s n e s s e s
+INFO:tensorflow:Inference results OUTPUT: k l ae1 m ax r ax s n ih s ih z
+INFO:tensorflow:Inference results INPUT: c i r c u m v a l l a t i o n
+INFO:tensorflow:Inference results OUTPUT: s er2 r k ax m v ae l ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: c i r c u m s t a n t i a t e
+INFO:tensorflow:Inference results OUTPUT: s er2 r k ax m s t ae1 n sh iy ey2 t
+INFO:tensorflow:Inference results INPUT: c i r c u m s c r i p t i o n
+INFO:tensorflow:Inference results OUTPUT: s er2 r k ax m s k r ih1 p sh ax n
+INFO:tensorflow:Inference results INPUT: c i r c u l a r - s h a p e d
+INFO:tensorflow:Inference results OUTPUT: s er1 r k y ax l ax r sh ey2 p t
+INFO:tensorflow:Inference results INPUT: c i n e m a t o g r a p h ' s
+INFO:tensorflow:Inference results OUTPUT: s ih2 n ax m ae1 t ax g r ae2 f s
+INFO:tensorflow:Inference results INPUT: c h u r c h - o p e r a t e d
+INFO:tensorflow:Inference results OUTPUT: ch er1 r ch aa1 p ax r ey2 t ih d
+INFO:tensorflow:Inference results INPUT: c h r o n o g r a m m a t i c
+INFO:tensorflow:Inference results OUTPUT: k r aa2 n ax g r ax m ae1 t ih k
+INFO:tensorflow:Inference results INPUT: c h o r i o a l l a n t o i s
+INFO:tensorflow:Inference results OUTPUT: k ao2 r iy ow ae2 l ax n t ow1 ih s
+INFO:tensorflow:Inference results INPUT: c h o n d r o m a l a c i a s
+INFO:tensorflow:Inference results OUTPUT: k aa2 n d r ow m ax l ey1 sh ax z
+INFO:tensorflow:Inference results INPUT: c h i l d l i k e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: ch ay1 l d l ay2 k n ih s ih z
+INFO:tensorflow:Inference results INPUT: c h e v a l - d e - f r i s e
+INFO:tensorflow:Inference results OUTPUT: sh eh2 v ax l d iy f r ay1 z
+INFO:tensorflow:Inference results INPUT: c h a r a c t e r - b a s e d
+INFO:tensorflow:Inference results OUTPUT: k ae1 r ax k t ax r b ey2 s t
+INFO:tensorflow:Inference results INPUT: c e r t i f i c a t i o n ' s
+INFO:tensorflow:Inference results OUTPUT: s er2 r t ax f ax k ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: c e r c o p i t h e c o i d s
+INFO:tensorflow:Inference results OUTPUT: s er2 r k ow p ih th iy1 k oy2 d z
+INFO:tensorflow:Inference results INPUT: c e p h a l o c h o r d a t e
+INFO:tensorflow:Inference results OUTPUT: s eh2 f ax l ow k ao1 r d ey2 t
+INFO:tensorflow:Inference results INPUT: c a r d i o m y o p a t h i c
+INFO:tensorflow:Inference results OUTPUT: k aa2 r d iy ow m ay2 ax p ae1 th ih k
+INFO:tensorflow:Inference results INPUT: c a p i t a l i z a t i o n s
+INFO:tensorflow:Inference results OUTPUT: k ae2 p ih t ax l ih z ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: c a l e n d a r - b u t t o n
+INFO:tensorflow:Inference results OUTPUT: k ae1 l ax n d ax r b ah1 t n
+INFO:tensorflow:Inference results INPUT: b o u s t r o p h e d o n i c
+INFO:tensorflow:Inference results OUTPUT: b uh2 s t r ow f ax d aa1 n ih k
+INFO:tensorflow:Inference results INPUT: b l o c k a d e - r u n n e r
+INFO:tensorflow:Inference results OUTPUT: b l aa k ey1 d r ah2 n ax r
+INFO:tensorflow:Inference results INPUT: b l e e d i n g - h e a r t s
+INFO:tensorflow:Inference results OUTPUT: b l iy1 d ih ng h aa1 r t s
+INFO:tensorflow:Inference results INPUT: b i o t e c h n o l o g y ' s
+INFO:tensorflow:Inference results OUTPUT: b ay2 ow t eh k n aa1 l ax jh iy z
+INFO:tensorflow:Inference results INPUT: b i o t e c h n o l o g i s t
+INFO:tensorflow:Inference results OUTPUT: b ay2 ow t eh k n aa1 l ax jh ih s t
+INFO:tensorflow:Inference results INPUT: b i o d e g r a d a t i o n s
+INFO:tensorflow:Inference results OUTPUT: b ay2 ow d eh2 g r ax d ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: b i g - h e a r t e d n e s s
+INFO:tensorflow:Inference results OUTPUT: b ih1 g h aa1 r t ih d n ih s
+INFO:tensorflow:Inference results INPUT: b i d i a l e c t a l i s t s
+INFO:tensorflow:Inference results OUTPUT: b ay2 d ay ax l eh1 k t ax l ih s t s
+INFO:tensorflow:Inference results INPUT: b e n i g h t e d n e s s e s
+INFO:tensorflow:Inference results OUTPUT: b ih n ay1 t ih d n ih s ih z
+INFO:tensorflow:Inference results INPUT: b e a u t i f u l n e s s e s
+INFO:tensorflow:Inference results OUTPUT: b y uh1 t ih f ax l n ih s ih z
+INFO:tensorflow:Inference results INPUT: A V - d i s s o c i a t i o n
+INFO:tensorflow:Inference results OUTPUT: aa2 v d ih s ow2 s iy ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: a u t o c o r r e l a t i o n
+INFO:tensorflow:Inference results OUTPUT: ao1 t ow k ao2 r ax l ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: a u t o b i o g r a p h e r s
+INFO:tensorflow:Inference results OUTPUT: ao2 t ax b ay aa1 g r ax f ax r z
+INFO:tensorflow:Inference results INPUT: a u d i t o r y - e v o k e d
+INFO:tensorflow:Inference results OUTPUT: ao1 d ih t ao2 r iy ih v ow2 k t
+INFO:tensorflow:Inference results INPUT: a t h e r o s c l e r o s i s
+INFO:tensorflow:Inference results OUTPUT: ae2 th ax r ow s k l ax r ow1 s ih s
+INFO:tensorflow:Inference results INPUT: a s s e t - s t r i p p i n g
+INFO:tensorflow:Inference results OUTPUT: ae1 s ih t s t r ih2 p ih ng
+INFO:tensorflow:Inference results INPUT: a r t i f i c i a l i t i e s
+INFO:tensorflow:Inference results OUTPUT: aa2 r t ax f ih2 sh iy ae1 l ih t iy z
+INFO:tensorflow:Inference results INPUT: a r r o n d i s s e m e n t s
+INFO:tensorflow:Inference results OUTPUT: ax r aa1 n d ih s m ax n t s
+INFO:tensorflow:Inference results INPUT: a r c h i e p i s c o p a c y
+INFO:tensorflow:Inference results OUTPUT: aa2 r k iy ax p ih1 s k ax p ax s iy
+INFO:tensorflow:Inference results INPUT: a n x i e t y - i n d u c e d
+INFO:tensorflow:Inference results OUTPUT: ae ng z ay2 ax t iy ih n d uh1 s t
+INFO:tensorflow:Inference results INPUT: a n t i t r a d i t i o n a l
+INFO:tensorflow:Inference results OUTPUT: ae n t ih t r ax d ih1 sh ax n ax l
+INFO:tensorflow:Inference results INPUT: a n t i s h o p l i f t i n g
+INFO:tensorflow:Inference results OUTPUT: ae n t ih sh aa1 p l ih f t ih ng
+INFO:tensorflow:Inference results INPUT: a n t i f o r e c l o s u r e
+INFO:tensorflow:Inference results OUTPUT: ae2 n t ih f ao r k l ow1 zh ax r
+INFO:tensorflow:Inference results INPUT: a n t i c h o l e s t e r o l
+INFO:tensorflow:Inference results OUTPUT: ae2 n t iy k ax l eh1 s t ax r ao2 l
+INFO:tensorflow:Inference results INPUT: a n t h r o p o l o g i c a l
+INFO:tensorflow:Inference results OUTPUT: ae2 n th r ax p ax l aa1 jh ih k ax l
+INFO:tensorflow:Inference results INPUT: a n n i h i l a t i o n i s m
+INFO:tensorflow:Inference results OUTPUT: ax n ay2 ax l ey1 sh ax n ih2 z ax m
+INFO:tensorflow:Inference results INPUT: a l l e g o r i c a l n e s s
+INFO:tensorflow:Inference results OUTPUT: ae2 l ax g ao1 r ih k ax l n ih s
+INFO:tensorflow:Inference results INPUT: a l c o h o l - i n d u c e d
+INFO:tensorflow:Inference results OUTPUT: ae2 l k ax h ao l ih n d uh1 s t
+INFO:tensorflow:Inference results INPUT: a i r w o r t h i n e s s e s
+INFO:tensorflow:Inference results OUTPUT: eh1 r w er2 r dh iy n ih s ih z
+INFO:tensorflow:Inference results INPUT: a f f r a n c h i s e m e n t
+INFO:tensorflow:Inference results OUTPUT: ax f r ae1 n ch ay2 z m ax n t
+INFO:tensorflow:Inference results INPUT: a e r o p h o t o g r a p h y
+INFO:tensorflow:Inference results OUTPUT: eh2 r ow f ax t aa1 g r ax f iy
+INFO:tensorflow:Inference results INPUT: a d v e r t i s e m e n t ' s
+INFO:tensorflow:Inference results OUTPUT: ae1 d v ax r t ay2 z m ax n t s
+INFO:tensorflow:Inference results INPUT: a d e n o h y p o p h y s i s
+INFO:tensorflow:Inference results OUTPUT: ae2 d ax n ow h ay p aa1 f ax s ih s
+INFO:tensorflow:Inference results INPUT: a c o u s t o e l e c t r i c
+INFO:tensorflow:Inference results OUTPUT: ax k uh2 s t ow ih l eh1 k t r ih k
+INFO:tensorflow:Inference results INPUT: a c e t o p h e n e t i d i n
+INFO:tensorflow:Inference results OUTPUT: ae2 s ax t ow f ax n eh1 t ih d ih n
+INFO:tensorflow:Inference results INPUT: a c c e s s o r i n e s s e s
+INFO:tensorflow:Inference results OUTPUT: ae k s eh1 s ax r iy n ih s ih z
+INFO:tensorflow:Inference results INPUT: a c c e p t a b i l i t i e s
+INFO:tensorflow:Inference results OUTPUT: ae k s eh2 p t ax b ih1 l ih t iy z
+INFO:tensorflow:Inference results INPUT: a c c e l e r o m e t e r ' s
+INFO:tensorflow:Inference results OUTPUT: ae k s eh2 l ax r aa1 m ax t ax r z
+INFO:tensorflow:Inference results INPUT: a c a n t h o c e p h a l a n
+INFO:tensorflow:Inference results OUTPUT: ax k ae2 n th ax s eh1 f ax l ax n
+INFO:tensorflow:Inference results INPUT: a b s t r a c t i v e n e s s
+INFO:tensorflow:Inference results OUTPUT: ae b s t r ae1 k t ih v n ih s
+INFO:tensorflow:Inference results INPUT: a b o v e - r e q u e s t e d
+INFO:tensorflow:Inference results OUTPUT: ax b ah1 v r ih k w eh2 s t ih d
+INFO:tensorflow:Inference results INPUT: a b o v e - m e n t i o n e d
+INFO:tensorflow:Inference results OUTPUT: ax b ah1 v m eh1 n sh ax n d
+INFO:tensorflow:Inference results INPUT: z y g o p h y l l a c e a e
+INFO:tensorflow:Inference results OUTPUT: z ay2 g ow f ih2 l ey1 s iy iy iy
+INFO:tensorflow:Inference results INPUT: z y g o p h y l i a c e a e
+INFO:tensorflow:Inference results OUTPUT: z ay2 g ow f ih2 l iy ey1 s iy iy iy2
+INFO:tensorflow:Inference results INPUT: Y - c h r o m o s o m e ' s
+INFO:tensorflow:Inference results OUTPUT: w ay1 k r ow1 m ax s ow2 m z
+INFO:tensorflow:Inference results INPUT: w o m a n i s h n e s s e s
+INFO:tensorflow:Inference results OUTPUT: w uw1 m ax n ih sh n ih s ih z
+INFO:tensorflow:Inference results INPUT: w i t c h e s - b r o o m s
+INFO:tensorflow:Inference results OUTPUT: w ih1 ch ih z b r uh2 m z
+INFO:tensorflow:Inference results INPUT: w e l l - c o n n e c t e d
+INFO:tensorflow:Inference results OUTPUT: w eh1 l k ax n eh1 k t ih d
+INFO:tensorflow:Inference results INPUT: w e a t h e r - s t r i p s
+INFO:tensorflow:Inference results OUTPUT: w eh1 dh ax r s t r ih2 p s
+INFO:tensorflow:Inference results INPUT: w e a t h e r p r o o f e d
+INFO:tensorflow:Inference results OUTPUT: w eh1 dh ax r p r uh2 f t
+INFO:tensorflow:Inference results INPUT: w e a t h e r b o a r d e d
+INFO:tensorflow:Inference results OUTPUT: w eh1 dh ax r b ao2 r d ih d
+INFO:tensorflow:Inference results INPUT: v o l u m i n o s i t i e s
+INFO:tensorflow:Inference results OUTPUT: v ax l uh2 m ax n aa1 s ih t iy z
+INFO:tensorflow:Inference results INPUT: v i g o r o u s n e s s e s
+INFO:tensorflow:Inference results OUTPUT: v ih1 g ax r ax s n ih s ih z
+INFO:tensorflow:Inference results INPUT: v e n t r i c o s i t i e s
+INFO:tensorflow:Inference results OUTPUT: v eh2 n t r ih k aa1 s ih t iy z
+INFO:tensorflow:Inference results INPUT: v e n o - o c c l u s i v e
+INFO:tensorflow:Inference results OUTPUT: v iy2 n ow ax k l uh1 s ih v
+INFO:tensorflow:Inference results INPUT: v e n g e f u l n e s s e s
+INFO:tensorflow:Inference results OUTPUT: v eh1 n jh f ax l n ih s ih z
+INFO:tensorflow:Inference results INPUT: v a c c i n o t h e r a p y
+INFO:tensorflow:Inference results OUTPUT: v ae2 k s ax n ow th eh1 r ax p iy
+INFO:tensorflow:Inference results INPUT: u x o r i o u s n e s s e s
+INFO:tensorflow:Inference results OUTPUT: ah k s ao1 r iy ax s n ih s ih z
+INFO:tensorflow:Inference results INPUT: u r e t h r o g r a p h i c
+INFO:tensorflow:Inference results OUTPUT: y uw r iy1 th r ax g r ae2 f ih k
+INFO:tensorflow:Inference results INPUT: u p r o a r i o u s n e s s
+INFO:tensorflow:Inference results OUTPUT: ah p r ao1 r iy ax s n ih s
+INFO:tensorflow:Inference results INPUT: u n s h a d o w t e x t e d
+INFO:tensorflow:Inference results OUTPUT: ah2 n sh ae1 d ow t eh2 k s t ih d
+INFO:tensorflow:Inference results INPUT: u n p r o d u c t i v e l y
+INFO:tensorflow:Inference results OUTPUT: ah2 n p r ax d ah1 k t ih v l iy
+INFO:tensorflow:Inference results INPUT: u n p r e d i c t a b l e s
+INFO:tensorflow:Inference results OUTPUT: ah2 n p r ih d ih1 k t ax b ax l z
+INFO:tensorflow:Inference results INPUT: u n m e n t i o n a b l e s
+INFO:tensorflow:Inference results OUTPUT: ah n m eh1 n sh ax n ax b ax l z
+INFO:tensorflow:Inference results INPUT: u n i d i m e n s i o n a l
+INFO:tensorflow:Inference results OUTPUT: y uh2 n ih d ax m eh1 n sh ax n ax l
+INFO:tensorflow:Inference results INPUT: u n f l a t t e r i n g l y
+INFO:tensorflow:Inference results OUTPUT: ah n f l ae1 t ax r ih ng l iy
+INFO:tensorflow:Inference results INPUT: u n f l a p p a b i l i t y
+INFO:tensorflow:Inference results OUTPUT: ah2 n f l ae2 p ax b ih1 l ax t iy
+INFO:tensorflow:Inference results INPUT: u n e v e n t f u l n e s s
+INFO:tensorflow:Inference results OUTPUT: ah2 n ih v eh1 n t f ax l n ax s
+INFO:tensorflow:Inference results INPUT: u n d e r p e r f o r m e d
+INFO:tensorflow:Inference results OUTPUT: ah2 n d ax r p ax r f ao1 r m d
+INFO:tensorflow:Inference results INPUT: u n d e r n o u r i s h e d
+INFO:tensorflow:Inference results OUTPUT: ah2 n d ax r n er1 r ih sh t
+INFO:tensorflow:Inference results INPUT: u n d e n i a b l e n e s s
+INFO:tensorflow:Inference results OUTPUT: ah2 n d ih n ay1 ax b ax l n ih s
+INFO:tensorflow:Inference results INPUT: u n d e m o n s t r a t e d
+INFO:tensorflow:Inference results OUTPUT: ah2 n d ih m aa1 n s t r ey t ih d
+INFO:tensorflow:Inference results INPUT: u n c o n t r a d i c t e d
+INFO:tensorflow:Inference results OUTPUT: ah2 n k aa n t r ax d ih1 k t ih d
+INFO:tensorflow:Inference results INPUT: u n c o n t e m p o r a r y
+INFO:tensorflow:Inference results OUTPUT: ah2 n k ax n t eh1 m p ax r eh2 r iy
+INFO:tensorflow:Inference results INPUT: u n b i a s e d n e s s e s
+INFO:tensorflow:Inference results OUTPUT: ah n b ay1 ax s t n ih s ih z
+INFO:tensorflow:Inference results INPUT: u n a t t r i b u t a b l e
+INFO:tensorflow:Inference results OUTPUT: ah2 n ax t r ih1 b y ax t ax b ax l
+INFO:tensorflow:Inference results INPUT: u n a t t r a c t i v e l y
+INFO:tensorflow:Inference results OUTPUT: ah2 n ax t r ae1 k t ih v l iy
+INFO:tensorflow:Inference results INPUT: u n a m b i v a l e n t l y
+INFO:tensorflow:Inference results OUTPUT: ah2 n ae m b ih1 v ax l ax n t l iy
+INFO:tensorflow:Inference results INPUT: u m b r a g e o u s n e s s
+INFO:tensorflow:Inference results OUTPUT: ah m b r ey1 jh ax s n ih s
+INFO:tensorflow:Inference results INPUT: u l t r a m o n t a n i s t
+INFO:tensorflow:Inference results OUTPUT: ah2 l t r ax m aa1 n t ax n ih s t
+INFO:tensorflow:Inference results INPUT: u l t i m a t e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: ah1 l t ax m ih t n ih s ih z
+INFO:tensorflow:Inference results INPUT: t r a u m a t i z a t i o n
+INFO:tensorflow:Inference results OUTPUT: t r ao2 m ax t ax z ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: t r a p e z o h e d r o n s
+INFO:tensorflow:Inference results OUTPUT: t r ax p iy2 z ow h iy1 d r ax n z
+INFO:tensorflow:Inference results INPUT: t r a n s t e n t o r i a l
+INFO:tensorflow:Inference results OUTPUT: t r ae2 n s t eh n t ao1 r iy ax l
+INFO:tensorflow:Inference results INPUT: t r a n s p o s i t i o n s
+INFO:tensorflow:Inference results OUTPUT: t r ae2 n s p ax z ih1 sh ax n z
+INFO:tensorflow:Inference results INPUT: t r a n s m o g r i f i e s
+INFO:tensorflow:Inference results OUTPUT: t r ae n s m aa1 g r ax f ay2 z
+INFO:tensorflow:Inference results INPUT: t r a n s l o c a t i o n s
+INFO:tensorflow:Inference results OUTPUT: t r ae2 n s l ow k ey1 sh ax n z
+INFO:tensorflow:Inference results INPUT: t r a n s l i t e r a t e d
+INFO:tensorflow:Inference results OUTPUT: t r ae n s l ih1 t ax r ey t ih d
+INFO:tensorflow:Inference results INPUT: t r a n q u i l n e s s e s
+INFO:tensorflow:Inference results OUTPUT: t r ae1 n k w ih l n ih s ih z
+INFO:tensorflow:Inference results INPUT: t r a d i t i o n a l i s t
+INFO:tensorflow:Inference results OUTPUT: t r ax d ih1 sh ax n ax l ih s t
+INFO:tensorflow:Inference results INPUT: t o p l o f t i n e s s e s
+INFO:tensorflow:Inference results OUTPUT: t aa1 p l ao2 f t iy n ih s ih z
+INFO:tensorflow:Inference results INPUT: t o g e t h e r n e s s e s
+INFO:tensorflow:Inference results OUTPUT: t ax g eh1 dh ax r n ih s ih z
+INFO:tensorflow:Inference results INPUT: t h u n d e r s h o w e r s
+INFO:tensorflow:Inference results OUTPUT: th ah1 n d ax r sh aw2 ax r z
+INFO:tensorflow:Inference results INPUT: t h r o m b o p l a s t i c
+INFO:tensorflow:Inference results OUTPUT: th r aa2 m b ow p l ae1 s t ih k
+INFO:tensorflow:Inference results INPUT: t h r o m b a s t h e n i a
+INFO:tensorflow:Inference results OUTPUT: th r aa2 m b ae s th iy1 n iy ax
+INFO:tensorflow:Inference results INPUT: t h e a t r i c a l i z e s
+INFO:tensorflow:Inference results OUTPUT: th iy ae1 t r ih k ax l ay2 z ih z
+INFO:tensorflow:Inference results INPUT: t h e a t r i c a l i z e d
+INFO:tensorflow:Inference results OUTPUT: th iy ae1 t r ih k ax l ay2 z d
+INFO:tensorflow:Inference results INPUT: t h a n k f u l n e s s e s
+INFO:tensorflow:Inference results OUTPUT: th ae1 ng k f ax l n ih s ih z
+INFO:tensorflow:Inference results INPUT: t e r e b i n t h i n a t e
+INFO:tensorflow:Inference results OUTPUT: t eh2 r ax b ih1 n th ax n ey2 t
+INFO:tensorflow:Inference results INPUT: t e l e p r o c e s s i n g
+INFO:tensorflow:Inference results OUTPUT: t eh1 l ax p r aa1 s eh2 s ih ng
+INFO:tensorflow:Inference results INPUT: t a n g i b l e n e s s e s
+INFO:tensorflow:Inference results OUTPUT: t ae1 n jh ax b ax l n ih s ih z
+INFO:tensorflow:Inference results INPUT: t a b u l a r i z a t i o n
+INFO:tensorflow:Inference results OUTPUT: t ae2 b y ax l ax r ax z ey1 sh ax n
+INFO:tensorflow:Inference results INPUT: s y s t e m a t i c n e s s
+INFO:tensorflow:Inference results OUTPUT: s ih2 s t ax m ae1 t ih k n ih s
+INFO:tensorflow:Inference results INPUT: s w e e t - s m e l l i n g
+INFO:tensorflow:Inference results OUTPUT: s w iy1 t s m eh2 l ih ng
+INFO:tensorflow:Inference results INPUT: s u p r a s t r u c t u r e
+INFO:tensorflow:Inference results OUTPUT: s uh2 p r ax s t r ah1 k ch ax r
+INFO:tensorflow:Inference results INPUT: s u p r a p u b i c a l l y
+INFO:tensorflow:Inference results OUTPUT: s uh2 p r ax p y uh1 b ih k l iy
+INFO:tensorflow:Inference results INPUT: s u p r a l a t e r a l l y
+INFO:tensorflow:Inference results OUTPUT: s uh2 p r ax l ae1 t ax r ax l iy
+INFO:tensorflow:Inference results INPUT: s u p e r - p r i o r i t y
+INFO:tensorflow:Inference results OUTPUT: s uh2 p ax r p r iy ao1 r ax t iy
+INFO:tensorflow:Inference results INPUT: s u p e r o t e m p o r a l
+INFO:tensorflow:Inference results OUTPUT: s uh1 p ax r ow t eh1 m p ax r ax l
+INFO:tensorflow:Inference results INPUT: s u p e r e m p i r i c a l
+INFO:tensorflow:Inference results OUTPUT: s uh2 p ax r eh m p ih1 r ih k ax l
+INFO:tensorflow:Inference results INPUT: s u p e r d o m i n a n t s
+INFO:tensorflow:Inference results OUTPUT: s uh2 p ax r d aa1 m ax n ax n t s
+INFO:tensorflow:Inference results INPUT: s u p e r c a l e n d e r s
+INFO:tensorflow:Inference results OUTPUT: s uh2 p ax r k ae1 l ax n d ax r z
+INFO:tensorflow:Inference results INPUT: s u l f u r - b o t t o m s
+INFO:tensorflow:Inference results OUTPUT: s ah1 l f ax r b aa1 t ax m z
+INFO:tensorflow:Decoding batch 2

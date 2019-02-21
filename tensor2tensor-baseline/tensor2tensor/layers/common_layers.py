@@ -1579,8 +1579,8 @@ def smoothing_cross_entropy_kd(logits,
     xentropy = tf.nn.softmax_cross_entropy_with_logits(
         logits=logits, labels=soft_targets)
     #xentropy=tf.Print(xentropy,[xentropy],"xentropy")
-    #return xentropy - normalizing
-    return xentropy
+    return xentropy - normalizing
+    #return xentropy
 
 
 def global_pool_1d(inputs, pooling_type="MAX", mask=None):
